@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="jar/api-common-1.7.0.jar"/>
+	<classpathentry kind="lib" path="jar/auto-value-1.4.jar"/>
+	<classpathentry kind="lib" path="jar/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="jar/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="jar/error_prone_annotations-2.1.2.jar"/>
+	<classpathentry kind="lib" path="jar/firebase-admin-6.8.1.jar"/>
+	<classpathentry kind="lib" path="jar/gax-1.30.0.jar"/>
+	<classpathentry kind="lib" path="jar/gax-grpc-1.30.0.jar"/>
+	<classpathentry kind="lib" path="jar/gax-httpjson-0.47.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-api-client-1.25.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-api-client-gson-1.25.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-api-services-storage-v1-rev135-1.24.1.jar"/>
+	<classpathentry kind="lib" path="jar/google-auth-library-credentials-0.11.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-auth-library-oauth2-http-0.11.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-cloud-core-1.43.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-cloud-core-grpc-1.43.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-cloud-core-http-1.43.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-cloud-firestore-0.61.0-beta.jar"/>
+	<classpathentry kind="lib" path="jar/google-cloud-storage-1.43.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-http-client-1.25.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-http-client-appengine-1.24.1.jar"/>
+	<classpathentry kind="lib" path="jar/google-http-client-gson-1.25.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-http-client-jackson-1.24.1.jar"/>
+	<classpathentry kind="lib" path="jar/google-http-client-jackson2-1.25.0.jar"/>
+	<classpathentry kind="lib" path="jar/google-oauth-client-1.25.0.jar"/>
+	<classpathentry kind="lib" path="jar/grpc-auth-1.13.1.jar"/>
+	<classpathentry kind="lib" path="jar/grpc-context-1.13.1.jar"/>
+	<classpathentry kind="lib" path="jar/grpc-core-1.13.1.jar"/>
+	<classpathentry kind="lib" path="jar/grpc-netty-shaded-1.13.1.jar"/>
+	<classpathentry kind="lib" path="jar/grpc-protobuf-1.13.1.jar"/>
+	<classpathentry kind="lib" path="jar/grpc-protobuf-lite-1.13.1.jar"/>
+	<classpathentry kind="lib" path="jar/grpc-stub-1.13.1.jar"/>
+	<classpathentry kind="lib" path="jar/gson-2.1.jar"/>
+	<classpathentry kind="lib" path="jar/guava-20.0.jar"/>
+	<classpathentry kind="lib" path="jar/httpclient-4.5.5.jar"/>
+	<classpathentry kind="lib" path="jar/httpcore-4.4.9.jar"/>
+	<classpathentry kind="lib" path="jar/j2objc-annotations-1.1.jar"/>
+	<classpathentry kind="lib" path="jar/jackson-core-2.9.6.jar"/>
+	<classpathentry kind="lib" path="jar/jackson-core-asl-1.9.11.jar"/>
+	<classpathentry kind="lib" path="jar/joda-time-2.9.2.jar"/>
+	<classpathentry kind="lib" path="jar/jsr305-3.0.2.jar"/>
+	<classpathentry kind="lib" path="jar/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="jar/netty-buffer-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="jar/netty-codec-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="jar/netty-codec-http-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="jar/netty-common-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="jar/netty-handler-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="jar/netty-resolver-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="jar/netty-transport-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="jar/opencensus-api-0.15.0.jar"/>
+	<classpathentry kind="lib" path="jar/opencensus-contrib-grpc-metrics-0.12.3.jar"/>
+	<classpathentry kind="lib" path="jar/opencensus-contrib-grpc-util-0.15.0.jar"/>
+	<classpathentry kind="lib" path="jar/opencensus-contrib-http-util-0.15.0.jar"/>
+	<classpathentry kind="lib" path="jar/proto-google-cloud-firestore-v1beta1-0.26.0.jar"/>
+	<classpathentry kind="lib" path="jar/proto-google-common-protos-1.12.0.jar"/>
+	<classpathentry kind="lib" path="jar/proto-google-iam-v1-0.12.0.jar"/>
+	<classpathentry kind="lib" path="jar/protobuf-java-3.6.0.jar"/>
+	<classpathentry kind="lib" path="jar/protobuf-java-util-3.6.0.jar"/>
+	<classpathentry kind="lib" path="jar/slf4j-api-1.7.26.jar"/>
+	<classpathentry kind="lib" path="jar/slf4j-log4j12-1.7.26.jar"/>
+	<classpathentry kind="lib" path="jar/slf4j-simple-1.7.26.jar"/>
+	<classpathentry kind="lib" path="jar/threetenbp-1.3.3.jar"/>
+	<classpathentry kind="lib" path="jar/mysql-connector-java-5.1.44-bin.jar"/>
+	<classpathentry kind="lib" path="jar/jfreechart-1.5.0.jar"/>
+	<classpathentry kind="lib" path="jar/jcommon-1.0.24.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
