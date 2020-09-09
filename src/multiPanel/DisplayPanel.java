@@ -30,7 +30,7 @@ public class DisplayPanel extends JPanel
 		setButton();
 	}
 	/*
-	public void setSize(int Size)/////////////////不需要?
+	public void setSize(int Size)/////////////////瞻瞿罈��簫n?
 	{
 		chooseP.setSize(Size);
 	}
@@ -53,13 +53,13 @@ public class DisplayPanel extends JPanel
 	
 	private void setButton()
 	{
-		chooseB.setText("選擇擺設");
+		chooseB.setText("Choose");
 		chooseB.setFont(new Font(null, Font.BOLD, 12));
 		chooseB.setBounds(25, 0, 100, 30);
 		chooseB.addActionListener(bH);
 		add(chooseB);
 		
-		buyB.setText("購買");
+		buyB.setText("Buy");
 		buyB.setFont(new Font(null, Font.BOLD, 12));
 		buyB.setBounds(145, 0, 100, 30);
 		buyB.addActionListener(bH);
