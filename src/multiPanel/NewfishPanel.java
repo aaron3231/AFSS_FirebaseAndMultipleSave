@@ -33,19 +33,19 @@ public class NewfishPanel extends JPanel
             return c;
         }
     };
-    private String[] fishs = {"¤Õ³¶³½", "¤é¥ú¿O", "ªü©Ô§B¯«¥P³½", "¬õ°{¹q", "®õ°ê°«³½",
-    		                  "´³°¨³½", "»\´³°«³½", "ÂÅ­Ë¦Q", "ÂÅÀY½º", "ÂÅÅ]°­¯¥¼u"};
+    private String[] fishs = {"å­”é›€é­š", "æ—¥å…‰ç‡ˆ", "é˜¿æ‹‰ä¼¯ç¥ä»™é­š", "ç´…é–ƒé›»", "æ³°åœ‹é¬¥é­š",
+    		                  "æ–‘é¦¬é­š", "è“‹æ–‘é¬¥é­š", "è—å€’åŠ", "è—é ­è¶", "è—é­”é¬¼ç ²å½ˆ"};
     private String space = "                    ";
-    private String[] fishsDes= { space + "¤Õ³¶³½: Poecilia reticulata\n" + space + "³½ºØ: ²H¤ô³½\n" + space + "¹Ø©R: 1~2¦~\n" + space + "³Ì¤jÅéªø: 2.5~3.5 cm\n" + space + "­¹ª«: Âø­¹©Ê, Ä¦Ãş, ¤ô¥Í©øÂÎ, ¦³¾÷¸H®h\n" + space + "¾A¦X·Å«×: 18~28¢J\n" + space + "¤ô½è: ¯Â²H¤ô, §Ô¨ü¤O°ª, ¤ô¬y³t«×§C\n", 
-    							 space +  "¤é¥ú¿O: Paracheirodon innesi\n" + space + "³½ºØ: ²H¤ô³½\n" + space + "¹Ø©R: 1~2¦~\n" + space + "³Ì¤jÅéªø: 3~4 cm\n" + space + "­¹ª«: Âø­¹©Ê, ¯B´å¥Íª«, ¤p©øÂÎ, ¤ô°D\n" + space + "¾A¦X·Å«×: 20~26¢J\n" + space + "¤ô½è: »İ­nÃ­©w, ¥ô¦ó¼vÅT¤ô½èªº¨Æ±¡³£·|®e©ö¥Í¯f\n", 
-    							 space + "ªü©Ô§B¯«¥P³½: Pomacanthus asfur\n" + space + "³½ºØ: ®ü¤ô³½\n" + space + "¹Ø©R: 10~12¦~\n" + space + "³Ì¤jÅéªø: 40cm\n" + space + "­¹ª«: ¦×­¹©Ê, Ä¦Ãş, ®üºø, ¬À·ä, ¤p«¬°Êª«\n" + space + "¾A¦X·Å«×: 26¢J\n" + space + "¤ô½è: ´¶³q®ü¤ô\n",
-    							 space + "¬õ°{¹q: Centropyge ferrugata\n" + space + "³½ºØ: ®ü¤ô³½\n" + space + "¹Ø©R: 3~5¦~\n" + space + "³Ì¤jÅéªø: 7~10cm\n" + space + "­¹ª«: ®üÄ¦, ¬À·äÂÎ, ³nÅé°Êª«, Âø­¹©Ê\n" + space + "¾A¦X·Å«×: 24~27¢J\n" + space + "¤ô½è: ´¶³q®ü¤ô\n", 
-    							 space + "®õ°ê°«³½: Betta splendens\n" + space + "³½ºØ: ²H¤ô³½\n" + space + "¹Ø©R: 1.5~2¦~\n" + space + "³Ì¤jÅéªø: 6~7 cm\n" + space + "­¹ª«: Âø­¹©Ê, ¯B´å¥Íª«, ¤ô¥Í©øÂÎ¥®ÂÎ(¤m¤n)\n" + space + "¾A¦X·Å«×: 22~24¢J, ¤£¥i§C©ó20\n" + space + "¤ô½è: ´¶³q\n",
-    							 space + "´³°¨³½: Dario rerio\n" + space + "³½ºØ: ²H¤ô³½\n" + space + "¹Ø©R: 2~3 ¦~\n" + space + "³Ì¤jÅéªø: 4~6 cm\n" + space + "­¹ª«: Âø­¹©Ê, ¯B´å¥Íª«, ©øÂÎ, ¤p«¬¥Ò´ßÃş\n" + space + "¾A¦X·Å«×: 25~26¢J\n" + space + "¤ô½è: ¨ä¥L¤£¤Ó­n¨D, ¦ı­n²Mº«\n", 
-    							 space + "±m¨ß(»\´³°«³½): Macropodus opercularis\n" + space + "³½ºØ: ²H¤ô³½\n" + space + "¹Ø©R: »Û©Ê2~3¦~, ¶¯©Ê3~6¦~\n" + space + "³Ì¤jÅéªø: 5~6 cm\n" + space + "­¹ª«: Âø­¹©Ê, ¯B´å¥Íª«, ¤ô¥Í©øÂÎ¥®ÂÎ(¤m¤n), Ä¦Ãş\n" + space + "¾A¦X·Å«×: 20~27¢J\n" + space + "¤ô½è: ¯Â²H¤ô\n", 
-    							 space + "ÂÅ­Ë¦Q: Paracanthurus hepatus\n" + space + "³½ºØ: ®ü¤ô³½\n" + space + "¹Ø©R: 5~7¦~\n" + space + "³Ì¤jÅéªø: 25~28cm\n" + space + "­¹ª«: ¯B´å¥Íª«, ¯ó­¹(®ü¯ó/®üÄ¦), Ä¦Ãş\n" + space + "¾A¦X·Å«×: 24~26¢J\n" + space + "¤ô½è: ±Ó·P/¤£©y´«¤ô¹L¦h\n", 
-    							 space + "ÂÅÀY½º: Chaetodon kleinii\n" + space + "³½ºØ: ®ü¤ô³½\n" + space + "¹Ø©R: 10~12¦~\n" + space + "³Ì¤jÅéªø: 10~13cm\n" + space + "­¹ª«: Âø­¹©Ê, ¤p«¬µL¯á´Õ°Êª«, ¬À·äÂÎ, ¯B´å°Êª«, Ä¦Ãş¸H¤ù\n" + space + "¾A¦X·Å«×: 25¢J\n" + space + "¤ô½è: ±Ó·P, ¤ô­n°®²b, ¤ô·Å¸¨®t¤£À³¶W¹L2«×\n", 
-    							 space + "ÂÅÅ]°­¯¥¼u: Odunus niger\n" + space + "³½ºØ: ®ü¤ô³½\n" + space + "¹Ø©R: 5~7 ¦~\n" + space + "³Ì¤jÅéªø: 33~37cm\n" + space + "­¹ª«: ¯B´å¥Íª«, ¦×­¹, ®üºø\n" + space + "¾A¦X·Å«×: 24~27¢J\n" + space + "¤ô½è: ´¶³q®ü¤ô\n" };
+    private String[] fishsDes= { space + "å­”é›€é­š: Poecilia reticulata\n" + space + "é­šç¨®: æ·¡æ°´é­š\n" + space + "å£½å‘½: 1~2å¹´\n" + space + "æœ€å¤§é«”é•·: 2.5~3.5 cm\n" + space + "é£Ÿç‰©: é›œé£Ÿæ€§, è—»é¡, æ°´ç”Ÿæ˜†èŸ², æœ‰æ©Ÿç¢å±‘\n" + space + "é©åˆæº«åº¦: 18~28â„ƒ\n" + space + "æ°´è³ª: ç´”æ·¡æ°´, å¿å—åŠ›é«˜, æ°´æµé€Ÿåº¦ä½\n", 
+    							 space +  "æ—¥å…‰ç‡ˆ: Paracheirodon innesi\n" + space + "é­šç¨®: æ·¡æ°´é­š\n" + space + "å£½å‘½: 1~2å¹´\n" + space + "æœ€å¤§é«”é•·: 3~4 cm\n" + space + "é£Ÿç‰©: é›œé£Ÿæ€§, æµ®æ¸¸ç”Ÿç‰©, å°æ˜†èŸ², æ°´èš¤\n" + space + "é©åˆæº«åº¦: 20~26â„ƒ\n" + space + "æ°´è³ª: éœ€è¦ç©©å®š, ä»»ä½•å½±éŸ¿æ°´è³ªçš„äº‹æƒ…éƒ½æœƒå®¹æ˜“ç”Ÿç—…\n", 
+    							 space + "é˜¿æ‹‰ä¼¯ç¥ä»™é­š: Pomacanthus asfur\n" + space + "é­šç¨®: æµ·æ°´é­š\n" + space + "å£½å‘½: 10~12å¹´\n" + space + "æœ€å¤§é«”é•·: 40cm\n" + space + "é£Ÿç‰©: è‚‰é£Ÿæ€§, è—»é¡, æµ·ç¶¿, çŠç‘š, å°å‹å‹•ç‰©\n" + space + "é©åˆæº«åº¦: 26â„ƒ\n" + space + "æ°´è³ª: æ™®é€šæµ·æ°´\n",
+    							 space + "ç´…é–ƒé›»: Centropyge ferrugata\n" + space + "é­šç¨®: æµ·æ°´é­š\n" + space + "å£½å‘½: 3~5å¹´\n" + space + "æœ€å¤§é«”é•·: 7~10cm\n" + space + "é£Ÿç‰©: æµ·è—», çŠç‘šèŸ², è»Ÿé«”å‹•ç‰©, é›œé£Ÿæ€§\n" + space + "é©åˆæº«åº¦: 24~27â„ƒ\n" + space + "æ°´è³ª: æ™®é€šæµ·æ°´\n", 
+    							 space + "æ³°åœ‹é¬¥é­š: Betta splendens\n" + space + "é­šç¨®: æ·¡æ°´é­š\n" + space + "å£½å‘½: 1.5~2å¹´\n" + space + "æœ€å¤§é«”é•·: 6~7 cm\n" + space + "é£Ÿç‰©: é›œé£Ÿæ€§, æµ®æ¸¸ç”Ÿç‰©, æ°´ç”Ÿæ˜†èŸ²å¹¼èŸ²(å­‘å­“)\n" + space + "é©åˆæº«åº¦: 22~24â„ƒ, ä¸å¯ä½æ–¼20\n" + space + "æ°´è³ª: æ™®é€š\n",
+    							 space + "æ–‘é¦¬é­š: Dario rerio\n" + space + "é­šç¨®: æ·¡æ°´é­š\n" + space + "å£½å‘½: 2~3 å¹´\n" + space + "æœ€å¤§é«”é•·: 4~6 cm\n" + space + "é£Ÿç‰©: é›œé£Ÿæ€§, æµ®æ¸¸ç”Ÿç‰©, æ˜†èŸ², å°å‹ç”²æ®¼é¡\n" + space + "é©åˆæº«åº¦: 25~26â„ƒ\n" + space + "æ°´è³ª: å…¶ä»–ä¸å¤ªè¦æ±‚, ä½†è¦æ¸…æ¾ˆ\n", 
+    							 space + "å½©å…”(è“‹æ–‘é¬¥é­š): Macropodus opercularis\n" + space + "é­šç¨®: æ·¡æ°´é­š\n" + space + "å£½å‘½: é›Œæ€§2~3å¹´, é›„æ€§3~6å¹´\n" + space + "æœ€å¤§é«”é•·: 5~6 cm\n" + space + "é£Ÿç‰©: é›œé£Ÿæ€§, æµ®æ¸¸ç”Ÿç‰©, æ°´ç”Ÿæ˜†èŸ²å¹¼èŸ²(å­‘å­“), è—»é¡\n" + space + "é©åˆæº«åº¦: 20~27â„ƒ\n" + space + "æ°´è³ª: ç´”æ·¡æ°´\n", 
+    							 space + "è—å€’åŠ: Paracanthurus hepatus\n" + space + "é­šç¨®: æµ·æ°´é­š\n" + space + "å£½å‘½: 5~7å¹´\n" + space + "æœ€å¤§é«”é•·: 25~28cm\n" + space + "é£Ÿç‰©: æµ®æ¸¸ç”Ÿç‰©, è‰é£Ÿ(æµ·è‰/æµ·è—»), è—»é¡\n" + space + "é©åˆæº«åº¦: 24~26â„ƒ\n" + space + "æ°´è³ª: æ•æ„Ÿ/ä¸å®œæ›æ°´éå¤š\n", 
+    							 space + "è—é ­è¶: Chaetodon kleinii\n" + space + "é­šç¨®: æµ·æ°´é­š\n" + space + "å£½å‘½: 10~12å¹´\n" + space + "æœ€å¤§é«”é•·: 10~13cm\n" + space + "é£Ÿç‰©: é›œé£Ÿæ€§, å°å‹ç„¡è„Šæ¤å‹•ç‰©, çŠç‘šèŸ², æµ®æ¸¸å‹•ç‰©, è—»é¡ç¢ç‰‡\n" + space + "é©åˆæº«åº¦: 25â„ƒ\n" + space + "æ°´è³ª: æ•æ„Ÿ, æ°´è¦ä¹¾æ·¨, æ°´æº«è½å·®ä¸æ‡‰è¶…é2åº¦\n", 
+    							 space + "è—é­”é¬¼ç ²å½ˆ: Odunus niger\n" + space + "é­šç¨®: æµ·æ°´é­š\n" + space + "å£½å‘½: 5~7 å¹´\n" + space + "æœ€å¤§é«”é•·: 33~37cm\n" + space + "é£Ÿç‰©: æµ®æ¸¸ç”Ÿç‰©, è‚‰é£Ÿ, æµ·ç¶¿\n" + space + "é©åˆæº«åº¦: 24~27â„ƒ\n" + space + "æ°´è³ª: æ™®é€šæµ·æ°´\n" };
     
     private JPanel[] fishII = { new JPanel(), new JPanel(), new JPanel(), new JPanel(), new JPanel(),
     							new JPanel(), new JPanel(), new JPanel(), new JPanel(), new JPanel() };
@@ -56,13 +56,13 @@ public class NewfishPanel extends JPanel
 			                       new ImagePanel(fishs[8]), new ImagePanel(fishs[9]) };
 	private JScrollPane fishListS = new JScrollPane(fishListP);
 	private int lastchoose = -1;
-	//³½ªº¸ê°T
+	//é­šçš„è³‡è¨Š
 	private JTextArea fishInformationT = new JTextArea();
 	private JScrollPane fishInformationS = new JScrollPane(fishInformationT);
 	private ImagePanel fishsI = new ImagePanel("Test");
-	//½T»{«ö¶s
+	//ç¢ºèªæŒ‰éˆ•
 	private JButton confirmB = new JButton();
-	//¿ï¾Ü
+	//é¸æ“‡
 	private String chooseFish = null;
 	private int chooseI;
 	private JLabel countL = new JLabel();
@@ -72,7 +72,7 @@ public class NewfishPanel extends JPanel
 	*/
 	private static int FISHTYPE = 10;
 	private FishtankPanel ftp;
-	//¶Ç¤J³½ªºµe­±(©ñ¤J³½¹Ï¤ù)
+	//å‚³å…¥é­šçš„ç•«é¢(æ”¾å…¥é­šåœ–ç‰‡)
 	public NewfishPanel(Aquarium a,FishtankPanel ftp)
 	{
 		aquarium = a;
@@ -90,7 +90,7 @@ public class NewfishPanel extends JPanel
 	private void setfishListS()
 	{
 		fishListS.setBounds(25, 0, 950, 170);
-		fishListS.getHorizontalScrollBar().setUnitIncrement(16);//ºu½ü³t«×
+		fishListS.getHorizontalScrollBar().setUnitIncrement(16);//æ»¾è¼ªé€Ÿåº¦
 		add(fishListS);
 	}
 	
@@ -129,7 +129,7 @@ public class NewfishPanel extends JPanel
 	private void setconfirmB()
 	{
 		confirmB.setBounds(750, 550, 100, 40);
-		confirmB.setText("ÁÊ¶R");
+		confirmB.setText("è³¼è²·");
 		confirmB.setFont(new Font(null, Font.BOLD, 16));
 		confirmB.addActionListener(bH);
 		add(confirmB);
@@ -139,15 +139,15 @@ public class NewfishPanel extends JPanel
 	{
 		countL.setBounds(720, 230, 200, 50);
 		countL.setFont(new Font(null, Font.BOLD, 20));
-		countL.setText("¥Ø«e³½ªº¼Æ¶q: " + aquarium.getnFishs() + "/" + Aquarium.maxFishsCount);
-		///////////////////////////////////////////////////////////©I¥s¼Æ¶q finish
+		countL.setText("ç›®å‰é­šçš„æ•¸é‡: " + aquarium.getnFishs() + "/" + Aquarium.maxFishsCount);
+		///////////////////////////////////////////////////////////å‘¼å«æ•¸é‡ finish
 		add(countL);
 	}
 	
 	private void setfishInformationContent()
 	{
 		if(chooseFish == null)
-			fishInformationT.setText("\n\n\n\n                      ¿ï¤@°¦³½§a");
+			fishInformationT.setText("\n\n\n\n                      é¸ä¸€éš»é­šå§");
 		else {
 			for(int i=0;i<10;i++) {
 				if(chooseFish==fishs[i]) {
@@ -157,7 +157,7 @@ public class NewfishPanel extends JPanel
 			}
 			fishInformationT.setText("\n\n\n\n\n\n\n" + fishsDes[chooseI]);
 		}
-		//////////////////////////////////////////////////////////////////////¸É¸Ô²Ó»¡©ú
+		//////////////////////////////////////////////////////////////////////è£œè©³ç´°èªªæ˜
 		fishInformationT.setFont(new Font(null, Font.BOLD, 15));
 	}
 	
@@ -180,12 +180,12 @@ public class NewfishPanel extends JPanel
 			}
 		}
 		fishsI.setVisible(true);
-		//////////////////////////////////////////////////­×§ï®æ¦¡
+		//////////////////////////////////////////////////ä¿®æ”¹æ ¼å¼
 	}
 	
 	private void refreshcountL()
 	{
-		countL.setText("¥Ø«e³½ªº¼Æ¶q: " + aquarium.getnFishs() + "/" + Aquarium.maxFishsCount);
+		countL.setText("ç›®å‰é­šçš„æ•¸é‡: " + aquarium.getnFishs() + "/" + Aquarium.maxFishsCount);
 		
 	}
 	
@@ -207,7 +207,7 @@ public class NewfishPanel extends JPanel
 	
 	public void refresh()
 	{
-		///////////////////////////////////////////////////©I¥s ¨ú±o¼Æ¶q count and max ??
+		///////////////////////////////////////////////////å‘¼å« å–å¾—æ•¸é‡ count and max ??
 		
 		refreshfishImage();
 		setfishInformationContent();
@@ -261,22 +261,22 @@ public class NewfishPanel extends JPanel
     			
     			if(lastchoose != -1)
     			{
-    				//////////////////////////////////////////////////////©I¥s++ finish
+    				//////////////////////////////////////////////////////å‘¼å«++ finish
     				System.out.println(chooseFish);
     				aquarium.addAFish(chooseFish);
     				ftp.addFishTankThing(aquarium.getFishs()[aquarium.getnFishs()-1]);
     				//fishcount++;
-    				JOptionPane.showMessageDialog(fishInformationT,"ÁÊ¶R¦¨¥\!!!","³qª¾", JOptionPane.INFORMATION_MESSAGE);
+    				JOptionPane.showMessageDialog(fishInformationT,"è³¼è²·æˆåŠŸ!!!","é€šçŸ¥", JOptionPane.INFORMATION_MESSAGE);
     				lastchoose = -1;
     			}
     			else
     			{
-    				JOptionPane.showMessageDialog(fishInformationT,"¥ı¿ï¾Ü³½ºØ!!!","Äµ§i", JOptionPane.WARNING_MESSAGE);
+    				JOptionPane.showMessageDialog(fishInformationT,"å…ˆé¸æ“‡é­šç¨®!!!","è­¦å‘Š", JOptionPane.WARNING_MESSAGE);
     			}
     		}
     		else
     		{
-    			JOptionPane.showMessageDialog(fishInformationT,"³½¬ûº¡¤F!!!","Äµ§i", JOptionPane.WARNING_MESSAGE);
+    			JOptionPane.showMessageDialog(fishInformationT,"é­šç¼¸æ»¿äº†!!!","è­¦å‘Š", JOptionPane.WARNING_MESSAGE);
     		}
     		refresh();
         }

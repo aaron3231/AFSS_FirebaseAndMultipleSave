@@ -22,8 +22,8 @@ public class DisplayPanelChoose extends JPanel
 	private JPanel midP = new JPanel();
 	private JPanel bigP = new JPanel();
 	
-	private JButton putB = new JButton("©ñ¸m");
-	private JButton removeB = new JButton("²¾°£");
+	private JButton putB = new JButton("æ”¾ç½®");
+	private JButton removeB = new JButton("ç§»é™¤");
 	
 	private ImagePanel[] lattice = { new ImagePanel("white"), new ImagePanel("white"), new ImagePanel("white"), new ImagePanel("white"),
 			                         new ImagePanel("white"), new ImagePanel("white"), new ImagePanel("white"), new ImagePanel("white"),
@@ -46,7 +46,7 @@ public class DisplayPanelChoose extends JPanel
             				   new JPanel(), new JPanel(), new JPanel() };
 	
 	private JPanel[] thingss = { new JPanel(), new JPanel(), new JPanel(), new JPanel() };
-	private ImagePanel[] things = { new ImagePanel("¤ô¯ó"), new ImagePanel("¥ÛÀY"), new ImagePanel("¬À·ä"), new ImagePanel("¯B¤ì") };
+	private ImagePanel[] things = { new ImagePanel("æ°´è‰"), new ImagePanel("çŸ³é ­"), new ImagePanel("çŠç‘š"), new ImagePanel("æµ®æœ¨") };
 	private JLabel[] thingsL = { new JLabel(), new JLabel(), new JLabel(), new JLabel() };
 	
 	private final int[] latticetotal = {8, 18, 24};
@@ -74,15 +74,15 @@ public class DisplayPanelChoose extends JPanel
 	
 	private void redraw()
 	{
-		/////////////©I¥s¨ç¦¡
-		////////////////®³°}¦CÀx¦s
+		/////////////å‘¼å«å‡½å¼
+		////////////////æ‹¿é™£åˆ—å„²å­˜
 		/*
 		 * Map()
 		 * 20 10 50 100
 		 */
 		size = aquarium.getEnviroment().getFishTankSize() - 1;
 		clean();
-		Decoration[][] table = aquarium.getLandSpace().getTable();//®³¨ìtable[][]
+		Decoration[][] table = aquarium.getLandSpace().getTable();//æ‹¿åˆ°table[][]
 		
 		  for(int i = 0; i < table.length; i++)
 			for(int j = 0; j < table[0].length; j++)
@@ -255,7 +255,7 @@ public class DisplayPanelChoose extends JPanel
 				thingsL[i].setText("x" + aquarium.getLandSpace().getCoralQuantityQuantity());
 			else if(i == 3)
 				thingsL[i].setText("x" + aquarium.getLandSpace().getShenmuQuantityQuantity());
-			//////////////////////////////////////////©I¥s¨ç¦¡
+			//////////////////////////////////////////å‘¼å«å‡½å¼
 		}
 	}
 	
@@ -428,7 +428,7 @@ public class DisplayPanelChoose extends JPanel
 	
 	private int findpoint()
 	{
-		int clickn = latticeI[click]; //click¸Ìªº»ù®æ
+		int clickn = latticeI[click]; //clickè£¡çš„åƒ¹æ ¼
 		if(clickn >= 10)
 		{
 			if(clickn == 20)
@@ -618,19 +618,19 @@ public class DisplayPanelChoose extends JPanel
             		if(lattice[click].getName().equals(pnl.getName()))
             			break;
             	}
-            	if(latticeI[click] != 0) //ÂI¨ìª««~
+            	if(latticeI[click] != 0) //é»åˆ°ç‰©å“
             	{
             		resetButton();
             		click = findpoint();
             		removelegal = 1;
             		circle();
             	}
-            	else  //¨SÂI¨ìª««~
+            	else  //æ²’é»åˆ°ç‰©å“
             	{
             		if(removelegal == 1)
             		{
             			choose = -1;
-            			System.out.println("¿ï¾ÜÂ\¹¢©Î¬OÂIÀ»Â\¹¢");
+            			System.out.println("é¸æ“‡æ“ºé£¾æˆ–æ˜¯é»æ“Šæ“ºé£¾");
             			return;
             		}
             		if(check(click) == 1) 
@@ -639,21 +639,21 @@ public class DisplayPanelChoose extends JPanel
             			circle();
             			
             		}
-            		else if(check(click) == 0) // ¥i°é ¦ı¦³ª««~
+            		else if(check(click) == 0) // å¯åœˆ ä½†æœ‰ç‰©å“
             		{
             			circle();
-            			//System.out.println("µLªk©ñ¸m");
+            			//System.out.println("ç„¡æ³•æ”¾ç½®");
             			////////////////////////////////////////
             		}
-            		else if(check(click) == -1) // ¶W¹L
+            		else if(check(click) == -1) // è¶…é
             		{
-            			System.out.println("¿ï¾Ü¦³®Ä½d³ò");
-            			///////////////////////////////µLªk©ñ¸m
+            			System.out.println("é¸æ“‡æœ‰æ•ˆç¯„åœ");
+            			///////////////////////////////ç„¡æ³•æ”¾ç½®
             		}
-            		else // == -2 ¥¼¿ï
+            		else // == -2 æœªé¸
             		{
-            			System.out.println("¿ï¾ÜÂ\¹¢©Î¬OÂIÀ»Â\¹¢");
-            			//////////////////////////////½Ğ¥ı¿ï¾Ü·Q­n©ñ¸mªºÂ\¹¢
+            			System.out.println("é¸æ“‡æ“ºé£¾æˆ–æ˜¯é»æ“Šæ“ºé£¾");
+            			//////////////////////////////è«‹å…ˆé¸æ“‡æƒ³è¦æ”¾ç½®çš„æ“ºé£¾
             		}
             	}
         	}
@@ -668,7 +668,7 @@ public class DisplayPanelChoose extends JPanel
   			{
   				if(putlegal == 1)
   				{
-  					//if  //////////////////////////¼Æ¶q§PÂ_
+  					//if  //////////////////////////æ•¸é‡åˆ¤æ–·
   					if(choose == 1 && aquarium.getLandSpace().getWaterPlantQuantityQuantity() > 0)
   					{
   						put();
@@ -693,13 +693,13 @@ public class DisplayPanelChoose extends JPanel
   						aquarium.getLandSpace().setShenmuInTable(click / col[size], click % col[size]);
   						count();
   					}
-  					////////////////////////////////////©I¥s¨ç¦¡
+  					////////////////////////////////////å‘¼å«å‡½å¼
   				}
   					
   				else if(check(click) == 0)
-  					System.out.println("½d³ò¤º¦³¨ä¥LÂ\³]");
+  					System.out.println("ç¯„åœå…§æœ‰å…¶ä»–æ“ºè¨­");
   				else
-  					System.out.println("PÂIÀ»µL®Ä");
+  					System.out.println("Pé»æ“Šç„¡æ•ˆ");
   				resetline();
 				resetButton();
   				choose = -1;
@@ -733,7 +733,7 @@ public class DisplayPanelChoose extends JPanel
   					
   				}
   				else
-  					System.out.println("RÂIÀ»µL®Ä");
+  					System.out.println("Ré»æ“Šç„¡æ•ˆ");
   				resetButton();
   				resetline();
   				choose = -1;
