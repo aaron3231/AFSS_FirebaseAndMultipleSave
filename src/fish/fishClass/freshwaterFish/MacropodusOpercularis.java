@@ -17,7 +17,7 @@ public class MacropodusOpercularis extends FreshwaterFish {
 	public String toString()
 	{
 		String str;
-		str="	»\´³°«³½ " +super.toString();
+		str="MacropodusOpercularis " +super.toString();
 		return str;
 	}
 }

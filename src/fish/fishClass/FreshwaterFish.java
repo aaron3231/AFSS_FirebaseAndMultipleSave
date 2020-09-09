@@ -2,7 +2,7 @@ package fish.fishClass;
 
 import fish.Fish;
 
-//²H¤ô³½Ãþ§O¡A¼ÈµL¥\¯à¡A¶È¤ÀÃþ
+//æ·¡æ°´é­šé¡žåˆ¥ï¼Œæš«ç„¡åŠŸèƒ½ï¼Œåƒ…åˆ†é¡ž
 public abstract class FreshwaterFish extends Fish {
 	public FreshwaterFish(int weight,int lively,int lifeEnd,int maxWeight,int fight)
 	{

@@ -18,7 +18,7 @@ public class ParacanthurusHepatus extends OceanFish {
 	public String toString()
 	{
 		String str;
-		str="	�ŭ˦Q " +super.toString();
+		str="ParacanthurusHepatus " +super.toString();
 		return str;
 	}
 }

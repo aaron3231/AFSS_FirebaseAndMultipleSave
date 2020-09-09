@@ -17,7 +17,7 @@ public class ChaetodonKleinii extends OceanFish {
 	public String toString()
 	{
 		String str;
-		str="	ÂÅÀY½º " +super.toString();
+		str="ChaetodonKleinii " +super.toString();
 		return str;
 	}
 }

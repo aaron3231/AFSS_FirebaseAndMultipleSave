@@ -3,11 +3,11 @@ package landScape;
 public class Coral extends Decoration {
 	public Coral() 
 	{
-		//¤j¤p 2x2
+		//å¤§å° 2x2
 		super();
-		this.setName("°²¬À·ä");
+		this.setName("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		this.setPrice(100);
-		this.setStatement("´£¨Ñ¤p³½Á×Ãøªº³õ©Ò");
+		this.setStatement("ï¿½ï¿½ï¿½Ñ¤pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		this.setSizeX(2);
 		this.setSizeY(2);
 	}

@@ -29,17 +29,17 @@ public class Save {
 		
 		FileWriter fw = new FileWriter(a);
 		       
-		//¦s²{¦bªº®É¶¡
+		//å­˜ç¾åœ¨çš„æ™‚é–“
 		System.out.print("time:"+aquarium.getTimer()+"\n");	
 	    fw.write("time:"+aquarium.getTimer());  
 	    fw.write("\r\n");
 		
-	    // ¦sªáªº¿ú
+	    // å­˜èŠ±çš„éŒ¢
 		System.out.print("cost:"+aquarium.getCost()+"\n");
 		fw.write("cost:"+aquarium.getCost());
 		fw.write("\r\n");
         
-		//³]³Æ:		
+		//è¨­å‚™:		
 		System.out.println(aquarium.getDevice().saveFeederData());
 		System.out.println(aquarium.getDevice().saveFilterData());
 		System.out.println(aquarium.getDevice().saveFlashLightData());
@@ -61,12 +61,12 @@ public class Save {
 		fw.write("\r\n");
 		
 		
-		// ¦sÀô¹ÒÅÜ¼Æ
+		// å­˜ç’°å¢ƒè®Šæ•¸
 		// getEnviroment()
 		System.out.print("enviroment:"+aquarium.getEnviroment().getWater()+"\n");
 		fw.write("enviroment:"+aquarium.getEnviroment().getWater()+","+aquarium.getEnviroment().toSaveString());  
 		fw.write("\r\n");
-		System.out.print("Àô¹Ò¶q:"+aquarium.getEnviroment().toSaveString());
+		System.out.print("ç’°å¢ƒé‡:"+aquarium.getEnviroment().toSaveString());
 		// getFeedXY()
 		System.out.print("getFeedXY:");
 		fw.write("getFeedXY:");
@@ -95,12 +95,12 @@ public class Save {
 		System.out.print("FishTankXYZSize:"+aquarium.getEnviroment().getFishTankXYZSize()[0]+","+aquarium.getEnviroment().getFishTankXYZSize()[1]+","+aquarium.getEnviroment().getFishTankXYZSize()[2]+"\n");
 		fw.write("FishTankXYZSize:"+aquarium.getEnviroment().getFishTankXYZSize()[0]+","+aquarium.getEnviroment().getFishTankXYZSize()[1]+","+aquarium.getEnviroment().getFishTankXYZSize()[2]+"\n");
 		fw.write("\r\n");
-		// ¦s©Ò¦³³½ªº¼Æ¶q¤Î¸ê®Æ
+		// å­˜æ‰€æœ‰é­šçš„æ•¸é‡åŠè³‡æ–™
 		int[] temp_move=new int [100];
 		int[] goal_move=new int [100];
 		ArrayList<int[]> feed;
 		
-		System.out.print("³½¶q:"+aquarium.getnFishs()+"\n");
+		System.out.print("é­šé‡:"+aquarium.getnFishs()+"\n");
 		
 		
 		int temp_fish_nums=0;
@@ -122,10 +122,10 @@ public class Save {
 			goal_move= aquarium.getFishs()[i].getGoalPosition();
 			feed= aquarium.getFishs()[i].getFeedArray();
 			
-			//³½¦W ³½ªº½s¸¹ ³½ªºlifetime weight lively sick stiation hurt death fight familiarity life_end
+			//é­šå é­šçš„ç·¨è™Ÿ é­šçš„lifetime weight lively sick stiation hurt death fight familiarity life_end
 			System.out.print( aquarium.getFishs()[i].toString()+"\n");
 			System.out.print( aquarium.getFishs()[i].getFamiliarity()+","+aquarium.getFishs()[i].getLifeEnd());
-			// ³½ªº³Ì¤j­« ³Ì¤j¹¡­¹«×  snatch
+			// é­šçš„æœ€å¤§é‡ æœ€å¤§é£½é£Ÿåº¦  snatch
 			System.out.print(","+aquarium.getFishs()[i].getMaxWeight()+","+aquarium.getFishs()[i].getMaxSatiation()+","+aquarium.getFishs()[i].getSnatch());
 			// getFamiliarityAddToken()
 			System.out.print( "FamiliarityAddToken:"+aquarium.getFishs()[i].getFamiliarityAddToken()+"\n");
@@ -159,7 +159,7 @@ public class Save {
 			fw.write(","+aquarium.getFishs()[i].getFamiliarityAddToken());
 			fw.write(","+aquarium.getFishs()[i].getWeightAddToken());
 			fw.write(","+aquarium.getFishs()[i].getNoFight());
-			//fw.write(","+aquarium.getFishs()[i].getFightTarget());   //³o¦æ¾É­PÅªÄÒ¥¢±Ñ
+			//fw.write(","+aquarium.getFishs()[i].getFightTarget());   //é€™è¡Œå°è‡´è®€é»¨å¤±æ•—
 			fw.write(",null");
 			fw.write(","+aquarium.getFishs()[i].getAlreadyMaxWeight());
 			fw.write(","+aquarium.getFishs()[i].getFishStatus());
@@ -209,8 +209,8 @@ public class Save {
 		
 		System.out.print("\n");
 
-		// ¦s©Ò¦³Â\³]ªº¼Æ¶q¤Î¸ê®Æ
-		System.out.print("Â\³]¶q:  "+aquarium.getLandSpace()+"\n");
+		// å­˜æ‰€æœ‰æ“ºè¨­çš„æ•¸é‡åŠè³‡æ–™
+		System.out.print("æ“ºè¨­é‡:  "+aquarium.getLandSpace()+"\n");
 		fw.write("landscape_nums:"+aquarium.getLandSpace().savetoQuantityData()+"\n");	
 		fw.write("\r\n");	
 		
@@ -219,7 +219,7 @@ public class Save {
 		System.out.print("\n");
 		
 		
-		// ÀÉ®×¼g¤J§¹¦¨
+		// æª”æ¡ˆå¯«å…¥å®Œæˆ
 	    fw.flush();	   
         fw.close();
 

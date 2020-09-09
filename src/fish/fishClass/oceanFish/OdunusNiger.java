@@ -17,7 +17,7 @@ public class OdunusNiger extends OceanFish {
 	public String toString()
 	{
 		String str;
-		str="	ÂÅÅ]°­¯¥¼u " +super.toString();
+		str="OdunusNiger " +super.toString();
 		return str;
 	}
 

@@ -6,46 +6,46 @@ import java.security.SecureRandom;
 public abstract class Fish {
 	private static final SecureRandom randomNumbers = new SecureRandom();
 	
-	public enum FishStatus {DEATH,DYING,ALIFE};//¥Í¦sª¬ºA(¦º¤`¡BÃx¦º¡B¦s¬¡)
-	public enum FishHealthly {HEALTH, SICKNESS,HURT, BOTH};//°·±dª¬ªp(°·±d¡A¥Í¯f¤¤¡A¨ü¶Ë¤¤¡A¥Í¯f¤S¨ü¶Ë¤¤)
-	public enum FishMove {NATURAL, FIGHTING, EATING};//²¾°Ê±¡ªp(ÀH«K°Ê¡B¥´¬[¤¤¡B­n¥h¦Y¹}®Æ)
-	public static int totalFish=0;	//©ñ¤J³½¬ûªºÁ`³½¼Æ(§t¤w¦º¤`ªº)
+	public enum FishStatus {DEATH,DYING,ALIFE};//ç”Ÿå­˜ç‹€æ…‹(æ­»äº¡ã€ç€•æ­»ã€å­˜æ´»)
+	public enum FishHealthly {HEALTH, SICKNESS,HURT, BOTH};//å¥åº·ç‹€æ³(å¥åº·ï¼Œç”Ÿç—…ä¸­ï¼Œå—å‚·ä¸­ï¼Œç”Ÿç—…åˆå—å‚·ä¸­)
+	public enum FishMove {NATURAL, FIGHTING, EATING};//ç§»å‹•æƒ…æ³(éš¨ä¾¿å‹•ã€æ‰“æ¶ä¸­ã€è¦å»åƒé£¼æ–™)
+	public static int totalFish=0;	//æ”¾å…¥é­šç¼¸çš„ç¸½é­šæ•¸(å«å·²æ­»äº¡çš„)
 	
 	private String fishNO;												////
-	private int lifeTime=0;	//¥Í©R¶g´Á(¦~ÄÖ)										////
-	private final int lifeEnd;	//¦¹³½ªº³Ì¤j¥Í©R¶g´Á
-	private int familiarity=0;//¹ïÀô¹Ò¼ô±x«×
-	private final int maxWeight;	//¦¹³½ªº³Ì¤jÅé­«(¨­ªø)
-	private int maxSatiation;		//³Ì¤j¹¡­¹«×
-	private int weight;		//Åé­«												////
-	private int lively;		//¬¡¼â«×(°_©l¹w³]50%)								////
-	private int sick=0;		//¥Í¯f­È
-	private int satiation;	//¹¡­¹«×(°_©l¹w³]100%)	³Ì¤j¹¡­¹«×=Åé­«				////
-	private int hurt=0;		//¨ü¶Ë«×
-	private int death=0;		//¦º¤`«×
+	private int lifeTime=0;	//ç”Ÿå‘½é€±æœŸ(å¹´é½¡)										////
+	private final int lifeEnd;	//æ­¤é­šçš„æœ€å¤§ç”Ÿå‘½é€±æœŸ
+	private int familiarity=0;//å°ç’°å¢ƒç†Ÿæ‚‰åº¦
+	private final int maxWeight;	//æ­¤é­šçš„æœ€å¤§é«”é‡(èº«é•·)
+	private int maxSatiation;		//æœ€å¤§é£½é£Ÿåº¦
+	private int weight;		//é«”é‡												////
+	private int lively;		//æ´»æ½‘åº¦(èµ·å§‹é è¨­50%)								////
+	private int sick=0;		//ç”Ÿç—…å€¼
+	private int satiation;	//é£½é£Ÿåº¦(èµ·å§‹é è¨­100%)	æœ€å¤§é£½é£Ÿåº¦=é«”é‡				////
+	private int hurt=0;		//å—å‚·åº¦
+	private int death=0;		//æ­»äº¡åº¦
 	private int[] nowPosition=new int[3];
 	private int[] goalPosition=new int[3];
-	private ArrayList<int[]> feedArray=new ArrayList<int[]>();	//¤À°tµ¹¦¹³½ªº¹}®Æ¦s©ñ³B(©|¥¼³Q¦Y)
+	private ArrayList<int[]> feedArray=new ArrayList<int[]>();	//åˆ†é…çµ¦æ­¤é­šçš„é£¼æ–™å­˜æ”¾è™•(å°šæœªè¢«åƒ)
 	
-	private int fight;		//¥´¬[¼¤±æ
+	private int fight;		//æ‰“æ¶æ…¾æœ›
 	
-	private int snatch;	//·m­¹«×
+	private int snatch;	//æ¶é£Ÿåº¦
 	
 	
 	
-	//¬ö¿ı¼Æ­È¬O§_³sÄò¤W¤Éªºtoken
+	//ç´€éŒ„æ•¸å€¼æ˜¯å¦é€£çºŒä¸Šå‡çš„token
 	
-	private int familiarityAddToken=0;	//familiarity­È³sÄò¼W¥[®É+1¡A¤@¨S¦³³sÄò¼W¥[®ÉÂk¹s
-	private int weightAddToken=0;	//weight­È³sÄò¼W¥[®É+1¡A¤@¨S¦³³sÄò¼W¥[®ÉÂk¹s
-	private int noFight=0;		//¨S¦³µo¥Í¥´¬[¦h¤[?0¬°¥¿¦b¥´
-	private Fish fightTarget=null;	//¥´¬[¥Ø¼Ğ
+	private int familiarityAddToken=0;	//familiarityå€¼é€£çºŒå¢åŠ æ™‚+1ï¼Œä¸€æ²’æœ‰é€£çºŒå¢åŠ æ™‚æ­¸é›¶
+	private int weightAddToken=0;	//weightå€¼é€£çºŒå¢åŠ æ™‚+1ï¼Œä¸€æ²’æœ‰é€£çºŒå¢åŠ æ™‚æ­¸é›¶
+	private int noFight=0;		//æ²’æœ‰ç™¼ç”Ÿæ‰“æ¶å¤šä¹…?0ç‚ºæ­£åœ¨æ‰“
+	private Fish fightTarget=null;	//æ‰“æ¶ç›®æ¨™
 	private Boolean alreadyMaxWeight=false;
 	
 	//==================
 	
 	private FishStatus myStatus=FishStatus.ALIFE;					////
 	private FishHealthly myHealthly=FishHealthly.HEALTH;			////
-	private FishMove myMove=FishMove.NATURAL;	//²¾°Êª¬ºA
+	private FishMove myMove=FishMove.NATURAL;	//ç§»å‹•ç‹€æ…‹
 	public Fish(int weight,int lively,int lifeEnd,int maxWeight,int fight)
 	{
 		
@@ -230,7 +230,7 @@ public abstract class Fish {
 		return fishNO;
 	}
 	
-	//tokenªºget©Mset
+	//tokençš„getå’Œset
 	
 	public void setFishNO(String fishNO) {
 		this.fishNO = fishNO;

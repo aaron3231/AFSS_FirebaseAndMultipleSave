@@ -35,7 +35,7 @@ public class CentropygeFerrugata extends OceanFish {
 	public String toString()
 	{
 		String str;
-		str="	¬õ°{¹q " +super.toString();
+		str="CentropygeFerrugata " +super.toString();
 		return str;
 	}
 

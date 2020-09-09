@@ -17,7 +17,7 @@ public class ParacheirodonInnesi extends FreshwaterFish {
 	public String toString()
 	{
 		String str;
-		str="	¤é¥ú¿O " +super.toString();
+		str="ParacheirodonInnesi " +super.toString();
 		return str;
 	}
 }

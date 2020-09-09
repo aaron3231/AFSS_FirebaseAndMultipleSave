@@ -12,40 +12,40 @@ public class ImagePanel extends JPanel
 	private Image im;
 	private int set = -1;
 	private static final String[] iml = {"Enter", "Fishtank", "Test", "white", "", "",
-			                             "¤Õ³¶³½", "¤é¥ú¿O", "ªü©Ô§B¯«¥P³½", "¬õ°{¹q", "®õ°ê°«³½", "´³°¨³½",
-			                             "»\´³°«³½", "ÂÅ­Ë¦Q", "ÂÅÀY½º", "ÂÅÅ]°­¯¥¼u", "null", "ªì¯ÅÁı­¹¾¹",
-			                             "¤¤¯ÅÁı­¹¾¹", "°ª¯ÅÁı­¹¾¹", "ªì¯Å¹LÂo¾¹", "¤¤¯Å¹LÂo¾¹", "°ª¯Å¹LÂo¾¹", "ªì¯Å®ñ®ğ¬¦",
-			                             "¤¤¯Å®ñ®ğ¬¦", "°ª¯Å®ñ®ğ¬¦", "ªì¯Å¥[·Å¾¹", "¤¤¯Å¥[·Å¾¹", "°ª¯Å¥[·Å¾¹", "ªì¯Å·Ó©ú¾¹",
-			                             "¤¤¯Å·Ó©ú¾¹", "°ª¯Å·Ó©ú¾¹", "1x1", "2x1.1", "2x1.2", "2x2.1",
+			                             "å­”é›€é­š", "æ—¥å…‰ç‡ˆ", "é˜¿æ‹‰ä¼¯ç¥ä»™é­š", "ç´…é–ƒé›»", "æ³°åœ‹é¬¥é­š", "æ–‘é¦¬é­š",
+			                             "è“‹æ–‘é¬¥é­š", "è—å€’åŠ", "è—é ­è¶", "è—é­”é¬¼ç ²å½ˆ", "null", "åˆç´šé¤µé£Ÿå™¨",
+			                             "ä¸­ç´šé¤µé£Ÿå™¨", "é«˜ç´šé¤µé£Ÿå™¨", "åˆç´šéæ¿¾å™¨", "ä¸­ç´šéæ¿¾å™¨", "é«˜ç´šéæ¿¾å™¨", "åˆç´šæ°§æ°£æ³µ",
+			                             "ä¸­ç´šæ°§æ°£æ³µ", "é«˜ç´šæ°§æ°£æ³µ", "åˆç´šåŠ æº«å™¨", "ä¸­ç´šåŠ æº«å™¨", "é«˜ç´šåŠ æº«å™¨", "åˆç´šç…§æ˜å™¨",
+			                             "ä¸­ç´šç…§æ˜å™¨", "é«˜ç´šç…§æ˜å™¨", "1x1", "2x1.1", "2x1.2", "2x2.1",
 			                             "2x2.2", "2x2.3", "2x2.4", "3x2.1", "3x2.2", "3x2.3",
-			                             "3x2.4", "3x2.5", "3x2.6", "¤ô¯ó", "¥ÛÀY", "¬À·ä",
-			                             "¯B¤ì"};
+			                             "3x2.4", "3x2.5", "3x2.6", "æ°´è‰", "çŸ³é ­", "çŠç‘š",
+			                             "æµ®æœ¨"};
 	private final static String path = "src//image//";
 	private static final Image[] ims = { (new ImageIcon(path + "enter.jpg")).getImage(), (new ImageIcon(path + "desk.jpg")).getImage(),
                                          (new ImageIcon(path + "test.png")).getImage(), (new ImageIcon(path + "white.png")).getImage(),
                                          (new ImageIcon(path + "red.png")).getImage(), (new ImageIcon(path + "blue.png")).getImage(),
-                                         (new ImageIcon(path + "123.456")).getImage(), (new ImageIcon(path + "¤é¥ú¿O³½3.jpg")).getImage(), // 6-15
-                                         (new ImageIcon(path + "ªü©Ô§B¯«¥P³½4.jpg")).getImage(), (new ImageIcon(path + "¬õ°{¹q4.jpg")).getImage(),
-                                         (new ImageIcon(path + "®õ°ê°«³½3.jpg")).getImage(), (new ImageIcon(path + "´³°¨³½1.jpg")).getImage(),
-                                         (new ImageIcon(path + "»\´³°«³½4.jpg")).getImage(), (new ImageIcon(path + "ÂÅ­Ë¦Q1.jpg")).getImage(),
-                                         (new ImageIcon(path + "ÂÅÀY½º2.jpg")).getImage(), (new ImageIcon(path + "ÂÅÅ]°­¯¥¼u4.jpg")).getImage(),
-                                         (new ImageIcon(path + "null.png")).getImage(), (new ImageIcon(path + "Áı­¹¾¹1.jpg")).getImage(),
-                                         (new ImageIcon(path + "Áı­¹¾¹2.jpg")).getImage(), (new ImageIcon(path + "Áı­¹¾¹3.jpg")).getImage(),
-                                         (new ImageIcon(path + "¹LÂo¾¹1.jpg")).getImage(), (new ImageIcon(path + "¹LÂo¾¹2.jpg")).getImage(),
-                                         (new ImageIcon(path + "¹LÂo¾¹3.jpg")).getImage(), (new ImageIcon(path + "¥´®ğ¾÷1.jpg")).getImage(),
-                                         (new ImageIcon(path + "¥´®ğ¾÷2.jpg")).getImage(), (new ImageIcon(path + "¥´®ğ¾÷3.jpg")).getImage(),
-                                         (new ImageIcon(path + "¥[·Å¾¹1.jpg")).getImage(), (new ImageIcon(path + "¥[·Å¾¹2.jpg")).getImage(),
-                                         (new ImageIcon(path + "¥[·Å¾¹3.jpg")).getImage(), (new ImageIcon(path + "·Ó©ú¾¹1.jpg")).getImage(),
-                                         (new ImageIcon(path + "·Ó©ú¾¹2.jpg")).getImage(), (new ImageIcon(path + "·Ó©ú¾¹3.jpg")).getImage(),
-                                         (new ImageIcon(path + "¤ô¯ó.jpg")).getImage(), (new ImageIcon(path + "¥ÛÀY1.jpg")).getImage(), //32-44
-                                         (new ImageIcon(path + "¥ÛÀY2.jpg")).getImage(), (new ImageIcon(path + "¬À·ä1.jpg")).getImage(),
-                                         (new ImageIcon(path + "¬À·ä2.jpg")).getImage(), (new ImageIcon(path + "¬À·ä3.jpg")).getImage(),
-                                         (new ImageIcon(path + "¬À·ä4.jpg")).getImage(), (new ImageIcon(path + "¯B¤ì1.jpg")).getImage(),
-                                         (new ImageIcon(path + "¯B¤ì2.jpg")).getImage(), (new ImageIcon(path + "¯B¤ì3.jpg")).getImage(),
-                                         (new ImageIcon(path + "¯B¤ì4.jpg")).getImage(), (new ImageIcon(path + "¯B¤ì5.jpg")).getImage(),
-                                         (new ImageIcon(path + "¯B¤ì6.jpg")).getImage(), (new ImageIcon(path + "¤ô¯ó.jpg")).getImage(),
-                                         (new ImageIcon(path + "¥ÛÀY.jpg")).getImage(), (new ImageIcon(path + "¬À·ä.jpg")).getImage(),
-                                         (new ImageIcon(path + "¯B¤ì.jpg")).getImage() };
+                                         (new ImageIcon(path + "123.456")).getImage(), (new ImageIcon(path + "æ—¥å…‰ç‡ˆé­š3.jpg")).getImage(), // 6-15
+                                         (new ImageIcon(path + "é˜¿æ‹‰ä¼¯ç¥ä»™é­š4.jpg")).getImage(), (new ImageIcon(path + "ç´…é–ƒé›»4.jpg")).getImage(),
+                                         (new ImageIcon(path + "æ³°åœ‹é¬¥é­š3.jpg")).getImage(), (new ImageIcon(path + "æ–‘é¦¬é­š1.jpg")).getImage(),
+                                         (new ImageIcon(path + "è“‹æ–‘é¬¥é­š4.jpg")).getImage(), (new ImageIcon(path + "è—å€’åŠ1.jpg")).getImage(),
+                                         (new ImageIcon(path + "è—é ­è¶2.jpg")).getImage(), (new ImageIcon(path + "è—é­”é¬¼ç ²å½ˆ4.jpg")).getImage(),
+                                         (new ImageIcon(path + "null.png")).getImage(), (new ImageIcon(path + "é¤µé£Ÿå™¨1.jpg")).getImage(),
+                                         (new ImageIcon(path + "é¤µé£Ÿå™¨2.jpg")).getImage(), (new ImageIcon(path + "é¤µé£Ÿå™¨3.jpg")).getImage(),
+                                         (new ImageIcon(path + "éæ¿¾å™¨1.jpg")).getImage(), (new ImageIcon(path + "éæ¿¾å™¨2.jpg")).getImage(),
+                                         (new ImageIcon(path + "éæ¿¾å™¨3.jpg")).getImage(), (new ImageIcon(path + "æ‰“æ°£æ©Ÿ1.jpg")).getImage(),
+                                         (new ImageIcon(path + "æ‰“æ°£æ©Ÿ2.jpg")).getImage(), (new ImageIcon(path + "æ‰“æ°£æ©Ÿ3.jpg")).getImage(),
+                                         (new ImageIcon(path + "åŠ æº«å™¨1.jpg")).getImage(), (new ImageIcon(path + "åŠ æº«å™¨2.jpg")).getImage(),
+                                         (new ImageIcon(path + "åŠ æº«å™¨3.jpg")).getImage(), (new ImageIcon(path + "ç…§æ˜å™¨1.jpg")).getImage(),
+                                         (new ImageIcon(path + "ç…§æ˜å™¨2.jpg")).getImage(), (new ImageIcon(path + "ç…§æ˜å™¨3.jpg")).getImage(),
+                                         (new ImageIcon(path + "æ°´è‰.jpg")).getImage(), (new ImageIcon(path + "çŸ³é ­1.jpg")).getImage(), //32-44
+                                         (new ImageIcon(path + "çŸ³é ­2.jpg")).getImage(), (new ImageIcon(path + "çŠç‘š1.jpg")).getImage(),
+                                         (new ImageIcon(path + "çŠç‘š2.jpg")).getImage(), (new ImageIcon(path + "çŠç‘š3.jpg")).getImage(),
+                                         (new ImageIcon(path + "çŠç‘š4.jpg")).getImage(), (new ImageIcon(path + "æµ®æœ¨1.jpg")).getImage(),
+                                         (new ImageIcon(path + "æµ®æœ¨2.jpg")).getImage(), (new ImageIcon(path + "æµ®æœ¨3.jpg")).getImage(),
+                                         (new ImageIcon(path + "æµ®æœ¨4.jpg")).getImage(), (new ImageIcon(path + "æµ®æœ¨5.jpg")).getImage(),
+                                         (new ImageIcon(path + "æµ®æœ¨6.jpg")).getImage(), (new ImageIcon(path + "æ°´è‰.jpg")).getImage(),
+                                         (new ImageIcon(path + "çŸ³é ­.jpg")).getImage(), (new ImageIcon(path + "çŠç‘š.jpg")).getImage(),
+                                         (new ImageIcon(path + "æµ®æœ¨.jpg")).getImage() };
 	
     public ImagePanel(Image im)
     {
@@ -74,13 +74,13 @@ public class ImagePanel extends JPanel
     
     public void fishClickImage()//newfish
     {
-    	this.im = ims[5];//////////­n§ï
+    	this.im = ims[5];//////////è¦æ”¹
     	repaint();
     }
     
     public void fishChangeImage(int a)
     {
-    	//if*9 ´«¹Ï/////////////////////////////½T»{³½ºØ°_©l¦ì¸m
+    	//if*9 æ›åœ–/////////////////////////////ç¢ºèªé­šç¨®èµ·å§‹ä½ç½®
     	this.im = ims[6 + a];
     	repaint();
     }

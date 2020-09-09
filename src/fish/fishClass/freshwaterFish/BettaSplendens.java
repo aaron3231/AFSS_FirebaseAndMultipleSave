@@ -17,7 +17,7 @@ public class BettaSplendens extends FreshwaterFish {
 	public String toString()
 	{
 		String str;
-		str="	®õ°ê°«³½ " +super.toString();
+		str="BettaSplendens " +super.toString();
 		return str;
 	}
 }

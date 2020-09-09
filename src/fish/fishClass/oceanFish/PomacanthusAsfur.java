@@ -17,7 +17,7 @@ public class PomacanthusAsfur extends OceanFish {
 	public String toString()
 	{
 		String str;
-		str="	ªü©Ô§B¯«¥P³½ " +super.toString();
+		str="PomacanthusAsfur " +super.toString();
 		return str;
 	}
 }

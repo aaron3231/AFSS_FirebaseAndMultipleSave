@@ -17,7 +17,7 @@ public class DarioRerio extends FreshwaterFish {
 	public String toString()
 	{
 		String str;
-		str="	´³°¨³½ " +super.toString();
+		str="DarioRerio " +super.toString();
 		return str;
 	}
 }

@@ -17,7 +17,7 @@ public class PoeciliaReticulata extends FreshwaterFish {
 	public String toString()
 	{
 		String str;
-		str="	¤Õ³¶³½ " +super.toString();
+		str="PoeciliaReticulata " +super.toString();
 		return str;
 	}
 }
