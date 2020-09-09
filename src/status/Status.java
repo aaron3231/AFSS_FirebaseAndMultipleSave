@@ -22,9 +22,9 @@ import multiPanel.NewfishPanel;
 public class Status extends JPanel
 {
 	private Aquarium aquarium;
-	//¤¬°Ê¨Æ¥ó
+	//äº’å‹•äº‹ä»¶
     private ButtonHandler bH = new ButtonHandler();
-	//ª¬ºA¤@Äı«ö¶s
+	//ç‹€æ…‹ä¸€è¦½æŒ‰éˆ•
     private JButton statusButton = new JButton(), eventButton = new JButton(), historyButton = new JButton(),
     		        newfishButton = new JButton(), deviceButton = new JButton(), displayButton = new JButton();
     public JLabel MoneyLabel = new JLabel();
@@ -35,15 +35,15 @@ public class Status extends JPanel
     private DevicePanel devicePanel;
     private DisplayPanel displayPanel;
     
-    //«ö¶s¦ì¸m¤j¤p±`¼Æ
+    //æŒ‰éˆ•ä½ç½®å¤§å°å¸¸æ•¸
     private final int BUTTONLEFT = 30;
     private final int BUTTONTOP = 30;
     private final int BUTTONLENGTH = 200;
     private final int BUTTONWIDTH = 75;
     private final int BUTTONSPACING = 100;
-    //¦rÅé¤j¤p
+    //å­—é«”å¤§å°
     private final int BUTTONFONTSIZE = 22;
-    //­±ªO¦ì¸m¤j¤p±`¼Æ
+    //é¢æ¿ä½ç½®å¤§å°å¸¸æ•¸
     private final int PANELLEFT = 250;
     private final int PANELTOP = 30;
     private final int PANELLENGTH = 1000;
@@ -66,40 +66,40 @@ public class Status extends JPanel
         
     }
     /*
-    public void setDisplaySize(int size)////////////////¤£»İ­n?
+    public void setDisplaySize(int size)////////////////ä¸éœ€è¦?
     {
     	displayP.setSize(size);
     }
     */
     private void setButton()
     {
-    	//¦ì¸m.¤j¤p.¦rÅé
-    	statusButton.setText("ª¬ºA¤@Äı");
+    	//ä½ç½®.å¤§å°.å­—é«”
+    	statusButton.setText("ç‹€æ…‹ä¸€è¦½");
     	statusButton.setForeground(Color.red.brighter());
     	statusButton.setFont(new Font(null, Font.BOLD, BUTTONFONTSIZE));
     	statusButton.setBounds(BUTTONLEFT, BUTTONTOP, BUTTONLENGTH, BUTTONWIDTH);
         add(statusButton);
-        eventButton.setText("¨Æ¥ó¬ö¿ı");
+        eventButton.setText("äº‹ä»¶ç´€éŒ„");
         eventButton.setFont(new Font(null, Font.BOLD, BUTTONFONTSIZE));
         eventButton.setBounds(BUTTONLEFT, BUTTONTOP+BUTTONSPACING*1, BUTTONLENGTH, BUTTONWIDTH);
         add(eventButton);
-        historyButton.setText("¾ú¥v¬ö¿ı");
+        historyButton.setText("æ­·å²ç´€éŒ„");
         historyButton.setFont(new Font(null, Font.BOLD, BUTTONFONTSIZE));
         historyButton.setBounds(BUTTONLEFT, BUTTONTOP+BUTTONSPACING*2, BUTTONLENGTH, BUTTONWIDTH);
         add(historyButton);
-        newfishButton.setText("¥[¤J·s³½");
+        newfishButton.setText("åŠ å…¥æ–°é­š");
         newfishButton.setFont(new Font(null, Font.BOLD, BUTTONFONTSIZE));
         newfishButton.setBounds(BUTTONLEFT, BUTTONTOP+BUTTONSPACING*3, BUTTONLENGTH, BUTTONWIDTH);
         add(newfishButton);
-        deviceButton.setText("³]³Æ¥Ø¿ı");
+        deviceButton.setText("è¨­å‚™ç›®éŒ„");
         deviceButton.setFont(new Font(null, Font.BOLD, BUTTONFONTSIZE));
         deviceButton.setBounds(BUTTONLEFT, BUTTONTOP+BUTTONSPACING*4, BUTTONLENGTH, BUTTONWIDTH);
         add(deviceButton);
-        displayButton.setText("Â\©ñ³]©w");
+        displayButton.setText("æ“ºæ”¾è¨­å®š");
         displayButton.setFont(new Font(null, Font.BOLD, BUTTONFONTSIZE));
         displayButton.setBounds(BUTTONLEFT, BUTTONTOP+BUTTONSPACING*5, BUTTONLENGTH, BUTTONWIDTH);
         add(displayButton);
-        //¥[¤J¥\¯à
+        //åŠ å…¥åŠŸèƒ½
         statusButton.addActionListener(bH);
         eventButton.addActionListener(bH);
         historyButton.addActionListener(bH);
@@ -110,7 +110,7 @@ public class Status extends JPanel
     
     private void setPanel()
     {
-    	//±Æª©.¦ì¸m
+    	//æ’ç‰ˆ.ä½ç½®
         statusPanel.setLayout(null);
         statusPanel.setBounds(PANELLEFT, PANELTOP, PANELLENGTH, PANELWIDTH);
         add(statusPanel);
@@ -138,7 +138,7 @@ public class Status extends JPanel
     
     private void setMoney()
     {
-    	MoneyLabel.setText("Á`ªá¶Oª÷ÃB: " + aquarium.getCost().getTotalCost());
+    	MoneyLabel.setText("ç¸½èŠ±è²»é‡‘é¡: " + aquarium.getCost().getTotalCost());
     	MoneyLabel.setBounds(25, 640, 200, 20);
     	MoneyLabel.setForeground(Color.decode("#4169E1"));
     	MoneyLabel.setFont(new Font(null, Font.BOLD, 20));
