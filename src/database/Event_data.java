@@ -27,8 +27,9 @@ public class Event_data extends Connect_data{
 	  public Event_data() 
 	  { 
 		  connect_data();
-	  } 
-	  //«Ø¥ßtableªº¤è¦¡ 
+	  }
+	
+	  //å»ºç«‹tableçš„æ–¹å¼ 
 	  public void createTable() 
 	  { 
 	    try 
@@ -46,8 +47,9 @@ public class Event_data extends Connect_data{
 	    { 
 	      Close(); 
 	    } 
-	  } 
-	  //·s¼W¸ê®Æ  
+	  }
+	
+	  //æ–°å¢è³‡æ–™  
 	  public void insertTable( String event_type,String Event_description,int Date_id) 
 	  { 
 	    try 
@@ -69,8 +71,9 @@ public class Event_data extends Connect_data{
 	    { 
 	      Close(); 
 	    } 
-	  } 
-	  // §R°£table¤ºªº©Ò¦³¸ê®Æ
+	  }
+	  
+	  // åˆªé™¤tableå…§çš„æ‰€æœ‰è³‡æ–™
 	  public void deleteData() 
 	  { 
 	    try 
@@ -86,8 +89,9 @@ public class Event_data extends Connect_data{
 	    { 
 	      Close(); 
 	    } 
-	  } 
-	  //§R°£Table
+	  }
+	  
+	  //åˆªé™¤Table
 	  public void dropTable() 
 	  { 
 	    try 
@@ -103,8 +107,9 @@ public class Event_data extends Connect_data{
 	    { 
 	      Close(); 
 	    } 
-	  } 
-	  // count¸ê®Æªº¸ê®Æ
+	  }
+	  
+	  // countè³‡æ–™çš„è³‡æ–™
 	  public int CountData() 
 	  { 
 		int count=0;
@@ -128,8 +133,9 @@ public class Event_data extends Connect_data{
 	      Close(); 
 	    } 
 	     return count;
-	  } 
-	  //Select ±ı¿ï¨úªº¸ê®Æ
+	  }
+	  
+	  //Select æ¬²é¸å–çš„è³‡æ–™
 	  public void SelectType(String[] get,String Select_dateBegin,String Select_dateEnd) 
 	  { 
 	    try 
@@ -158,8 +164,9 @@ public class Event_data extends Connect_data{
 	    { 
 	      Close(); 
 	    } 
-	  } 
-	  //Select ±ı¿ï¨úªº¸ê®Æ
+	  }
+	  
+	  //Select æ¬²é¸å–çš„è³‡æ–™
 	  public void SelectDescription(String[] get,String Select_dateBegin,String Select_dateEnd) 
 	  { 
 	   
@@ -225,7 +232,8 @@ public class Event_data extends Connect_data{
 		      return getCount;
            }
 	  }
-	  //¬d¸ß¸ê®Æ 
+	  
+	  //æŸ¥è©¢è³‡æ–™ 
 	  public void SelectTable() 
 	  { 
 	    try 
