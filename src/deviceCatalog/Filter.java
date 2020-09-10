@@ -5,31 +5,30 @@ import event.enviromentEvent.Stool;
 
 public class Filter extends Device {
 	
-	//«Øºc¤¸
+	//å»ºæ§‹å…ƒ
 	public Filter(String name, int price, String statement, int operateModel) 
 	{
 		super(name, price, statement,operateModel);
 	}
 	
-	//¦Û°Ê¼Ò¦¡²M°£©Ò¦³ÁT«K
+	//è‡ªå‹•æ¨¡å¼æ¸…é™¤æ‰€æœ‰ç³ä¾¿
 	public void filterAll(Enviroment environment)
 	{
-		//½T»{¬O¦Û°Ê¼Ò¦¡
+		//ç¢ºèªæ˜¯è‡ªå‹•æ¨¡å¼
 		if(getOperateModel() == AUTOMATIC)
 		{
 			if(this.getDamageRateNow() < 100) 
 			{
-				//²M²z©Ò¦³¤j«K
+				//æ¸…ç†æ‰€æœ‰å¤§ä¾¿
 				environment.getStoolXY().clear();
-				//¼W¥[¤ô½è
+				//å¢åŠ æ°´è³ª
 				environment.setWaterQuality(environment.getWaterQuality()+1);
 				environment.setStool(0);
 			}
 		}
 	}
-
 	
-	//¤â°Ê¼Ò¦¡²M°£³æ¤@ÁT«K section 1¥ªÃä 2¤¤¶¡ 3¥kÃä
+	//æ‰‹å‹•æ¨¡å¼æ¸…é™¤å–®ä¸€ç³ä¾¿ section 1å·¦é‚Š 2ä¸­é–“ 3å³é‚Š
 	public void filterOne(Enviroment environment, int section) 
 	{
 		int i;
@@ -42,38 +41,38 @@ public class Filter extends Device {
 			point2 = fishTank[0]/3 * 2;
 			switch(section) 
 			{
-				//¥ªÃä	
+				//å·¦é‚Š	
 				case 1:
 					for(int[] k:environment.getStoolXY()) 
 					{
 						if(k[0] <= point1+2) 
 						{
 							environment.getStoolXY().remove(k);
-							//¼W¥[¤ô½è
+							//å¢åŠ æ°´è³ª
 							environment.setWaterQuality(environment.getWaterQuality()+1);
 						}
 					}
 					break;
-				//¤¤¶¡
+				//ä¸­é–“
 				case 2:
 					for(int[] k:environment.getStoolXY()) 
 					{
 						if(k[0] >= point1-2 && k[0] <= point2+2) 
 						{
 							environment.getStoolXY().remove(k);
-							//¼W¥[¤ô½è
+							//å¢åŠ æ°´è³ª
 							environment.setWaterQuality(environment.getWaterQuality()+1);
 						}
 					}
 					break;
-				//¥kÃä
+				//å³é‚Š
 				case 3:
 					for(int[] k:environment.getStoolXY()) 
 					{
 						if(k[0] >= point2-2) 
 						{
 							environment.getStoolXY().remove(k);
-							//¼W¥[¤ô½è
+							//å¢åŠ æ°´è³ª
 							environment.setWaterQuality(environment.getWaterQuality()+1);
 						}
 					}
@@ -83,5 +82,4 @@ public class Filter extends Device {
 			}
 		}
 	}
-	
 }
