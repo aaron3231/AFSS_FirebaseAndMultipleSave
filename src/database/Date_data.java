@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Date_data extends Connect_data {
+	
 	  private String dropdbSQL = "DROP TABLE  Date"; 
 	  
 	  private String createdbSQL = "CREATE TABLE Date (" + 
@@ -20,11 +21,13 @@ public class Date_data extends Connect_data {
 	  private String selectSQL = "select * from Date "; 
 	  private String setPrimaryKey="ALTER TABLE Date ADD PRIMARY KEY(Date_id)";
 	  private String selectDate="";
+	
 	  public Date_data() 
 	  {  
 		  connect_data();
 	  } 
-	  //«?�¥ßtableªº¤è¦¡ 
+	
+	  //
 	  public void createTable() 
 	  { 
 	    try 
@@ -41,8 +44,9 @@ public class Date_data extends Connect_data {
 	    { 
 	      Close(); 
 	    } 
-	  } 
-	  //·s¼W¸ê®?? 
+	  }
+	
+	  //
 	  public void insertTable(String Date_time) 
 	  { 
 	    try 
@@ -96,7 +100,7 @@ public class Date_data extends Connect_data {
 	  
 	  
 	  
-	  // count¸ê®?�ªº¸ê®�?
+	  // count ?
 	  public int CountData() 
 	  { 
 		int count=0;
@@ -138,8 +142,9 @@ public class Date_data extends Connect_data {
 	    { 
 	      Close(); 
 	    } 
-	  } 
-	  // ¿ï¾?�¸ê®�?
+	  }
+	  
+	  // 
 	  public void SelectData(int[] a) 
 	  { 
 		  try 
@@ -166,7 +171,7 @@ public class Date_data extends Connect_data {
 		    } 
 		  } 
 	     
-	  //§R°£Table, 
+	  //
 	  public void dropTable() 
 	  { 
 	    try 
@@ -183,6 +188,7 @@ public class Date_data extends Connect_data {
 	      Close(); 
 	    } 
 	  } 
+	
 	  //¬d¸?�¸ê®�? 
 	  public void SelectTable() 
 	  { 
