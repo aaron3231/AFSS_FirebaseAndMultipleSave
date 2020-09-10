@@ -130,12 +130,11 @@ public class Feeder extends Device {
 		this.crazyStatus = random.nextInt(2);
 	}
 	
-	//³]©wÃa±¼ª¬ºA _2 
-		public void setmyCrazyFeed(int crazyStatus) 
-		   {
-				this.crazyStatus = crazyStatus;
-			}
-			
+	//
+	public void setmyCrazyFeed(int crazyStatus) 
+	   {
+			this.crazyStatus = crazyStatus;
+		}
 	
 	public void setAchieve(boolean input) 
 	{
@@ -161,7 +160,6 @@ public class Feeder extends Device {
 	{
 		return this.achieve;
 	}
-
 	
 	//自動餵食，餵食最大上限 200 最大顆樹10顆 ==> 要時間有到才能吃 12/24hr
 	public void feed(Enviroment environment) 
