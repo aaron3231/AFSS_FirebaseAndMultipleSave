@@ -10,14 +10,17 @@ import java.sql.Statement;
 import userName.UserName;
 
 public abstract class Connect_data {
+	
 	  protected Connection con = null; 
 	  protected Statement stat = null; 
 	  protected ResultSet rs = null; 
 	  protected PreparedStatement pst = null; 
+	
 	  public Connect_data() {
 		  connect_data(); 
 	  } 
-	  //與資料庫建立連線
+	
+	  //FIX log message
 	  public  void connect_data() 
 	  { 
 	     try { 
@@ -25,7 +28,7 @@ public abstract class Connect_data {
 	      con = DriverManager.getConnection( 
 	      "jdbc:mysql://localhost/" + UserName.userName +"?useUnicode=true&characterEncoding=Big5",
 	      "root","");    
-	      System.out.println("建立連結    "+UserName.userName ); 
+	      System.out.println("Connect to? "+UserName.userName ); 
 	    } 
 	    catch(ClassNotFoundException e) 
 	    { 
@@ -44,7 +47,8 @@ public abstract class Connect_data {
 	  con.setAutoCommit(true);
 		  
 	  }
-	//與資料庫關閉連線
+	
+	  //
 	  public void Close() { 
 	      try 
 	      { 
