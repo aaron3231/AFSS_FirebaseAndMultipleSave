@@ -7,8 +7,7 @@ public class FishNet extends Device {
 	
 	public FishNet(String statement) 
 	{
-		//ªì©l³]©w¦n °Ó«~¦WºÙ »ù®æ ¾Ş§@¼Ò¦¡
-		super("ºô¤l", 100, statement, MANUAL);
+		//åˆå§‹è¨­å®šå¥½ å•†å“åç¨± åƒ¹æ ¼ æ“ä½œæ¨¡å¼
+		super("ç¶²å­", 100, statement, MANUAL);
 	}
-
 }
