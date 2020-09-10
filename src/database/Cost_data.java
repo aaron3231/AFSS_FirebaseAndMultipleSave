@@ -28,7 +28,7 @@ public class Cost_data extends Connect_data{
 	  { 
 		  connect_data();
 	  } 
-	  //«Ø¥ßtable
+	  //å»ºç«‹table
 	  public void createTable() 
 	  { 
 	    try 
@@ -47,7 +47,7 @@ public class Cost_data extends Connect_data{
 	      Close(); 
 	    } 
 	  } 
-	  //·s¼W¸ê®Æ 
+	  //æ–°å¢žè³‡æ–™ 
 	  public void insertTable(String name,int money,int Date_id) 
 	  { 
 	    try 
@@ -95,7 +95,7 @@ public class Cost_data extends Connect_data{
 		    }
 	  }
 	  
-	  // count¸ê®Æªº¸ê®Æ
+	  // countè³‡æ–™çš„è³‡æ–™
 	  public int CountData() 
 		  { 
 			int count=0;
@@ -121,7 +121,7 @@ public class Cost_data extends Connect_data{
 		    } 
 		     return count;
 		  } 
-	  // §R°£table¤ºªº©Ò¦³¸ê®Æ
+	  // åˆªé™¤tableå…§çš„æ‰€æœ‰è³‡æ–™
 	  public void deleteData() 
 		  { 
 		    try 
@@ -138,7 +138,7 @@ public class Cost_data extends Connect_data{
 		      Close(); 
 		    } 
 		  } 
-	  //§R°£Table, 
+	  //åˆªé™¤Table, 
 	  public void dropTable() 
 	  { 
 	    try 
@@ -214,7 +214,7 @@ public class Cost_data extends Connect_data{
 	      Close(); 
 	    } 
 	  } 
-	  //¬d¸ß¸ê®Æ 
+	  //æŸ¥è©¢è³‡æ–™ 
 	  public void SelectTable() 
 	  { 
 	    try 

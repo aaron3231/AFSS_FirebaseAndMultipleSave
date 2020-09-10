@@ -2,7 +2,7 @@ package cost;
 
 public class Cost {
 	
-	//總花費
+	//
 	private int totalCost;
 	private String event;
 	public Cost() 
@@ -22,12 +22,11 @@ public class Cost {
 		return this.totalCost;
 	}
 	
-	//加入新花費
 	public void addnewCost(int newCost) 
 	{
 		this.totalCost += newCost;
 	}
-	//儲存
+	
 	public String saveCostData() 
 	{
 		String allCost;
