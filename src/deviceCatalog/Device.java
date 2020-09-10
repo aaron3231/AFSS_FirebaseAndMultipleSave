@@ -3,31 +3,32 @@ package deviceCatalog;
 import java.security.SecureRandom;
 
 public class Device {
+	
 	SecureRandom random = new SecureRandom();
-	//³]©w¥¢±Ñ®É¥Î
+	//è¨­å®šå¤±æ•—æ™‚ç”¨
 	public static final int NONE = 0;
-	//¾Þ§@¼Ò¦¡¿ï¾Ü
-	public static final int MANUAL = 1; //¤â°Ê
-	public static final int AUTOMATIC = 2; //¦Û°Ê	
-	private final double DAMAGE_RATE = 0.0005; //³]³Æ¯Ó·l²v
-	//³]³ÆÃþ§OÅÜ¼Æ => ¨C­Ó³]³Æ³£¦³
-	private String name; //³]³Æ¦WºÙ
-	private int price; //³]³Æ»ù®æ
-	private String statement; //³]³ÆÂ²¤¶
-	private boolean modelState = false; //³]³Æ¶}Ãö true = ¶} , false = Ãö
-	private double damageRateNow; //³]³Æ¥Ø«e·lÃa²v
-	private int operateModel; //¼Ò¦¡°Ñ¼Æ 1.¤â°Ê 2.¦Û°Ê
+	//æ“ä½œæ¨¡å¼é¸æ“‡
+	public static final int MANUAL = 1; //æ‰‹å‹•
+	public static final int AUTOMATIC = 2; //è‡ªå‹•	
+	private final double DAMAGE_RATE = 0.0005; //è¨­å‚™è€—æçŽ‡
+	//è¨­å‚™é¡žåˆ¥è®Šæ•¸ => æ¯å€‹è¨­å‚™éƒ½æœ‰
+	private String name; //è¨­å‚™åç¨±
+	private int price; //è¨­å‚™åƒ¹æ ¼
+	private String statement; //è¨­å‚™ç°¡ä»‹
+	private boolean modelState = false; //è¨­å‚™é–‹é—œ true = é–‹ , false = é—œ
+	private double damageRateNow; //è¨­å‚™ç›®å‰æå£žçŽ‡
+	private int operateModel; //æ¨¡å¼åƒæ•¸ 1.æ‰‹å‹• 2.è‡ªå‹•
 	private int countTime; 
 	private int haveBuy;
-	//§âdeviceÅÜ¼Æ­«·s³]©w ¶RªF¦è®É¨Ï¥Î
+	//æŠŠdeviceè®Šæ•¸é‡æ–°è¨­å®š è²·æ±è¥¿æ™‚ä½¿ç”¨
 	
-	//«Øºc¤¸
+	//å»ºæ§‹å…ƒ
 	public Device(String name, int price, String statement, int operateModel) 
 	{
 		this.setName(name);
 		this.setPrice(price);
 		this.setStatement(statement);
-		this.setModelState(false); //¤@¶}©l³]©w¦¨Ãö³¬
+		this.setModelState(false); //ä¸€é–‹å§‹è¨­å®šæˆé—œé–‰
 		this.setDamageRateNow(0);
 		this.setOperateModel(operateModel);
 		this.setCountTime(0);
@@ -52,16 +53,17 @@ public class Device {
 	}
 	public void setDamageRateNow(double input) 
 	{
-		//¯Ó·l²v 100 ¥Nªí§¹¥þ¯Ó·l ­Y¤j©ó100 «h³]¬°100
+		//è€—æçŽ‡ 100 ä»£è¡¨å®Œå…¨è€—æ è‹¥å¤§æ–¼100 å‰‡è¨­ç‚º100
 		if(this.damageRateNow >= 100)
 			this.damageRateNow = 100;
 		else if(this.damageRateNow < 0)
 			this.damageRateNow = 0;
-		//§_«h§ï¦¨¿é¤J­È
+		//å¦å‰‡æ”¹æˆè¼¸å…¥å€¼
 		else
 			this.damageRateNow = input;
 	}
-	public void setOperateModel(int model)  //³]©w¾Þ§@¼Ò¦¡
+	
+	public void setOperateModel(int model)  //è¨­å®šæ“ä½œæ¨¡å¼
 	{
 		switch(model) 
 		{
@@ -76,12 +78,13 @@ public class Device {
 				break;
 			}
 			default:{
-				System.out.printf("³]³Æ³]©w¼Ò¦¡¿ù»~!");
+				System.out.printf("è¨­å‚™è¨­å®šæ¨¡å¼éŒ¯èª¤!");
 				this.operateModel = NONE;	
 			}
 		}
 	}
-	//³]©w¸g¹L®É¶¡
+	
+	//è¨­å®šç¶“éŽæ™‚é–“
 	public void setCountTime(int countTime) 
 	{
 		this.countTime = countTime;
@@ -91,6 +94,7 @@ public class Device {
 	{
 		this.haveBuy = input;
 	}
+	
 	//get function
 	public String getName() 
 	{
@@ -127,59 +131,59 @@ public class Device {
 		else
 			return false;
 	}
-	//ÅÜ§ó¶}Ãö  true«h¬°¶}±Ò / false «h¬°Ãö³¬
+	
+	//è®Šæ›´é–‹é—œ  trueå‰‡ç‚ºé–‹å•Ÿ / false å‰‡ç‚ºé—œé–‰
 	public void changeModel(boolean input) 
 	{
-		//ÀË¬d­Y·Q¶}±Ò³]³Æ¡A¦ý¬O³]³Æ¤w¯Ó·l¡AÅã¥ÜÄµ§i°T®§¡A¨Ã¥B¤£¶}±Ò
+		//æª¢æŸ¥è‹¥æƒ³é–‹å•Ÿè¨­å‚™ï¼Œä½†æ˜¯è¨­å‚™å·²è€—æï¼Œé¡¯ç¤ºè­¦å‘Šè¨Šæ¯ï¼Œä¸¦ä¸”ä¸é–‹å•Ÿ
 		if(input == true && this.damageRateNow==100)
-			System.out.printf("³]³Æ¯Ó·l¤w¹F100%! ½Ð¥t°µ²KÁÊ!");
-		//­Y¨S°ÝÃD«h¥i¥HÀH·N°µ¶}Ãö
+			System.out.printf("è¨­å‚™è€—æå·²é”100%! è«‹å¦åšæ·»è³¼!");
+		//è‹¥æ²’å•é¡Œå‰‡å¯ä»¥éš¨æ„åšé–‹é—œ
 		else
 			this.modelState = input;
 	}
 	
-	//¼W¥[¤@¦¸³]³Æ·lÃa²v(ÀHµÛ®É¶¡±À°Ê) 
+	//å¢žåŠ ä¸€æ¬¡è¨­å‚™æå£žçŽ‡(éš¨è‘—æ™‚é–“æŽ¨å‹•) 
 	public void damageDeviceByTime() 
 	{
-		int p = random.nextInt(10000); //p = ¾÷²v
-		//¦ÛµMÃz¬µ³]³Æ·lÃa ¾÷²v 1%
-		if(p == 0) // 0¬°Ãz¬µ 1~98¨S¨Æ
+		int p = random.nextInt(10000); //p = æ©ŸçŽ‡
+		//è‡ªç„¶çˆ†ç‚¸è¨­å‚™æå£ž æ©ŸçŽ‡ 1%
+		if(p == 0) // 0ç‚ºçˆ†ç‚¸ 1~98æ²’äº‹
 		{
 			this.setDamageRateNow(100);
 		}
-		//¼W¥[·lÃa©w´Ó
+		//å¢žåŠ æå£žå®šæ¤
 		if(this.damageRateNow < 100)
 			this.damageRateNow += this.DAMAGE_RATE;
-		//­Y³]³Æ§¹¥þ¯Ó·l«hÃö³¬³]³Æ
+		//è‹¥è¨­å‚™å®Œå…¨è€—æå‰‡é—œé–‰è¨­å‚™
 		if(this.damageRateNow == 100)
 		{
-			System.out.println("³]³Æ¯Ó·l§¹²¦!");
+			System.out.println("è¨­å‚™è€—æå®Œç•¢!");
 			changeModel(false);
 		}
 	}
 	
-	//¨C¦¸©I¥s¬ö¿ý¼W¥[¤@­Ó³æ¦ì®É¶¡
+	//æ¯æ¬¡å‘¼å«ç´€éŒ„å¢žåŠ ä¸€å€‹å–®ä½æ™‚é–“
 	public void countingTime() 
 	{
 		this.countTime++;
 	}
 	
-	//ÁÊ¶R·sª««~®É­«·s³]©w
+	//è³¼è²·æ–°ç‰©å“æ™‚é‡æ–°è¨­å®š
 	public void newOne()
 	{
 		this.setDamageRateNow(0);
 		this.setModelState(false);
 		this.setOperateModel(AUTOMATIC);
 	}
-	//Àx¦s
+	
+	//å„²å­˜
 	public String saveData() 
 	{
 		String str;
 		str = String.format("modelState:%s,damageRateNow:%f,operateModel:%d,", this.modelState?"true":"false" , this.damageRateNow, this.operateModel);
 		return str;
 	}
-	
-	
 	public String savetoData() 
 	{
 		String str;
@@ -187,13 +191,11 @@ public class Device {
 		return str;
 	}
 	
-	
 	@Override
 	public String toString() 
 	{
 		String str;
-		str = String.format("¦WºÙ: %s     »ù®æ: %d     ¶}Ãö: %s     ¾Þ§@¼Ò¦¡:%s     ³]³Æ·lÃa²v:%f %n", this.name, this.price, this.modelState==true?"¶}":"Ãö", this.operateModel == AUTOMATIC?"¦Û°Ê":"¤â°Ê", this.damageRateNow);
+		str = String.format("åç¨±: %s     åƒ¹æ ¼: %d     é–‹é—œ: %s     æ“ä½œæ¨¡å¼:%s     è¨­å‚™æå£žçŽ‡:%f %n", this.name, this.price, this.modelState==true?"é–‹":"é—œ", this.operateModel == AUTOMATIC?"è‡ªå‹•":"æ‰‹å‹•", this.damageRateNow);
 		return str;
-	}
-	
+	}	
 }

@@ -11,22 +11,19 @@ public class IO {
     public IO (String []date_data) {
 
         FileReader fr;
-		try {
-			fr = new FileReader("test.txt");
-		
-        BufferedReader br = new BufferedReader(fr);
-        int i=0;
-        while (br.ready()) {
+	    
+	try {
+		fr = new FileReader("test.txt");
+		BufferedReader br = new BufferedReader(fr);
+        	int i=0;
+        	while (br.ready()) {
 
-           // System.out.println(br.readLine());
-            date_data[i]=br.readLine();
-            i++;
-            
+           		// System.out.println(br.readLine());
+            		date_data[i]=br.readLine();
+            		i++;
+		}
+        	fr.close();
         }
-        fr.close();
-        }
-		catch(IOException e)  {}		
-    
+	catch(IOException e)  {}		
     }
-
 }

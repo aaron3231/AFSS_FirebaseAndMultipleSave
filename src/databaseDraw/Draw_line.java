@@ -33,17 +33,22 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
   
-public class Draw_line {  
+public class Draw_line {
+	
 	public enum ShowChartTime {DAY,MONTH,YEAR};
+	
 	// 畫圖表的chanel
 	ChartPanel frame1;
-    // 查詢的 Fish_id 資料總類 起始日期  終止日期
-    private int fish_id;
+	
+    	// 查詢的 Fish_id 資料總類 起始日期  終止日期
+    	private int fish_id;
 	private String Select_Datatype;
 	private String Select_dateBegin;
 	private String Select_dateEnd;
+	
 	// 查詢按年或月或日
 	int Select_type;
+	
 	// 轉換的起始即終止日期
 	private Calendar Begin_Time;	
 	private Calendar End_Time;
@@ -57,8 +62,8 @@ public class Draw_line {
 	private static  Fish_data FishData=new Fish_data();
 
 
-    public Draw_line() {   	
-    }   
+    public Draw_line() {}
+	
     public Draw_line(int fish_id,String Select_Datatype,String Select_dateBegin,String Select_dateEnd){ 
         this.fish_id=fish_id;
     	this.Select_Datatype=Select_Datatype;
@@ -116,15 +121,13 @@ public class Draw_line {
        jfreechart.getLegend().setItemFont(new Font("新細明體", Font.BOLD, 15));  
        jfreechart.getTitle().setFont(new Font("新細明體",Font.BOLD,20));
   
-   	   return frame1;       
-     
+       return frame1;
     }  
    
-    
-    
     //	把得到的日期轉換至Calendar
     public void  Set_Date_Calendar() {
-    	Begin_Time=Calendar.getInstance();
+	    
+	Begin_Time=Calendar.getInstance();
     	End_Time=Calendar.getInstance();
     	
     	String[] splittedStr0 = Select_dateBegin.split("[/ ]");
@@ -141,33 +144,36 @@ public class Draw_line {
  	   End_Time.set(date2[0],date2[1]-1,date2[2],0,0,0);	
  	   
  	   
- 	  System.out.println(Begin_Time.getTime()+" Begin----\n");
- 	 System.out.println(End_Time.getTime()+ " End*****\n");
+ 	System.out.println(Begin_Time.getTime()+" Begin----\n");
+ 	System.out.println(End_Time.getTime()+ " End*****\n");
  	   
     }
+	
     //得到顯示的資料日期基準 (年或月或日)
     // show_type= ={DAY Month Year}
     public void  set_show_chart() throws ParseException {
+	    
     	Date beginDate;
-		Date endDate;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-		beginDate = sdf.parse(Select_dateBegin);
-		endDate = sdf.parse(Select_dateEnd);
-		Pass_Hours=TimeUnit.MILLISECONDS.toHours(endDate.getTime()-beginDate.getTime()-1);
-		Pass_day=TimeUnit.MILLISECONDS.toDays(endDate.getTime()-beginDate.getTime()-1);
-		Pass_Month=TimeUnit.MILLISECONDS.toDays(endDate.getTime()-beginDate.getTime()-1);
-		Pass_Month=(Pass_Month/30);
-		if(Pass_day>=150) {
-			this.Timetype=ShowChartTime.YEAR;
-		}
-		else if(Pass_day>1) {
-			this.Timetype=ShowChartTime.MONTH; 
-		}
-		else {
-			this.Timetype=ShowChartTime.DAY;
-		}
-		System.out.print("\n"+String.valueOf(Timetype)+"+++\n");	
+	Date endDate;
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+	beginDate = sdf.parse(Select_dateBegin);
+	endDate = sdf.parse(Select_dateEnd);
+	Pass_Hours=TimeUnit.MILLISECONDS.toHours(endDate.getTime()-beginDate.getTime()-1);
+	Pass_day=TimeUnit.MILLISECONDS.toDays(endDate.getTime()-beginDate.getTime()-1);
+	Pass_Month=TimeUnit.MILLISECONDS.toDays(endDate.getTime()-beginDate.getTime()-1);
+	Pass_Month=(Pass_Month/30);
+	if(Pass_day>=150) {
+		this.Timetype=ShowChartTime.YEAR;
+	}
+	else if(Pass_day>1) {
+		this.Timetype=ShowChartTime.MONTH; 
+	}
+	else {
+		this.Timetype=ShowChartTime.DAY;
+	}
+	System.out.print("\n"+String.valueOf(Timetype)+"+++\n");	
     }
+	
     //得到顯示的資料 (長度 飢餓度 生命值) 
     public void  set_show_chartData() {
     	int show_type=0;
@@ -189,8 +195,7 @@ public class Draw_line {
            }
          }
     	}
-    
-    
+       
     // 畫出資料顯示線
      private  XYDataset createDataset(int fish_id,String Select_Datatype,String Select_dateBegin,String Select_dateEnd) throws ParseException {  
     	 
@@ -245,15 +250,13 @@ public class Draw_line {
             }
             
             }
-            
           
             XYSeriesCollection dataset = new XYSeriesCollection();
             dataset.addSeries( timeseries);
          
             return dataset;  
         }
-    
-     
+       
     // 1.根據不同的選取範圍決定SQL的類型
     // 2.根據不同的範圍得到資料  (  資料陣列 , 魚的ID , 日期的範圍(幾年或幾月或幾日) ) 
     public void selectOneDay(int []a) {
@@ -261,6 +264,7 @@ public class Draw_line {
     	set_show_chartData() ;
         FishData.SelectData(a,this.fish_id,Select_dateBegin,Select_dateEnd);
     }
+	
     public void selectOneMonth(int []a) throws ParseException {
         // 設定要選取資料欄位的SQL
         set_show_chartData() ; 
@@ -293,51 +297,48 @@ public class Draw_line {
 			a[i]=FishData.SelectAVGData(temp,this.fish_id,date2,date);
 		}
     }
+	
     public void selectOneYear(int []a) {
     	// 設定要選取資料欄位的SQL
     	set_show_chartData() ; 
     	  
- 	    String date="";
- 	    String date2="";
+ 	String date="";
+ 	String date2="";
  	  
-		System.out.print(Pass_day+" 經過天數\n");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH");
-    	
-		// temp date 的切換 方便呼叫資料庫對應函式
+	System.out.print(Pass_day+" 經過天數\n");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH");
 
-		Calendar temp2;
-		temp2=Calendar.getInstance();
-		temp2.setTime(Begin_Time.getTime());
-		
-		Calendar temp1;
-		temp1=Calendar.getInstance();
-		temp1.setTime(Begin_Time.getTime());
-	    
-		date=sdf.format(Begin_Time.getTime());
-		date2=sdf.format(temp2.getTime());
-		
-		
-		//執行SQL 抽取每一個月的AVG () DATA
-		int temp=0;
-		for(int i=0;i<=Pass_Month;i++) {
-			System.out.print(temp1.getTime().getMonth()+1+"月");
+	// temp date 的切換 方便呼叫資料庫對應函式
 
-			temp2.setTime( temp1.getTime());
-			// 到中止月份時套用到中止日期 
-			// 其餘一個月往上推加 
-			if(temp1.getTime().getMonth()==End_Time.getTime().getMonth() && temp1.getTime().getYear()==End_Time.getTime().getYear() ) {
-				temp1.setTime(End_Time.getTime());
-			}
-			else {
-			temp1.add(Calendar.MONTH,1);
-			}
-			date=sdf.format( temp1.getTime());
-			date2=sdf.format(temp2.getTime());	
-			a[i]=FishData.SelectAVGData(temp,this.fish_id,date2,date);
-			
-			
-			
+	Calendar temp2;
+	temp2=Calendar.getInstance();
+	temp2.setTime(Begin_Time.getTime());
+
+	Calendar temp1;
+	temp1=Calendar.getInstance();
+	temp1.setTime(Begin_Time.getTime());
+
+	date=sdf.format(Begin_Time.getTime());
+	date2=sdf.format(temp2.getTime());
+
+
+	//執行SQL 抽取每一個月的AVG () DATA
+	int temp=0;
+	for(int i=0;i<=Pass_Month;i++) {
+		System.out.print(temp1.getTime().getMonth()+1+"月");
+
+		temp2.setTime( temp1.getTime());
+		// 到中止月份時套用到中止日期 
+		// 其餘一個月往上推加 
+		if(temp1.getTime().getMonth()==End_Time.getTime().getMonth() && temp1.getTime().getYear()==End_Time.getTime().getYear() ) {
+			temp1.setTime(End_Time.getTime());
 		}
+		else {
+			temp1.add(Calendar.MONTH,1);
+		}
+		date=sdf.format( temp1.getTime());
+		date2=sdf.format(temp2.getTime());	
+		a[i]=FishData.SelectAVGData(temp,this.fish_id,date2,date);	
+	}
     }
-
 }  

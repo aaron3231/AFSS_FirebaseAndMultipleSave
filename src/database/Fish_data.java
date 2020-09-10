@@ -36,11 +36,11 @@ public class Fish_data extends Connect_data {
 	  private String SelectingData = "";
 	  private String SelectingDataName = "";
 	
-	  // ©?�¦�? SQL ªº»yªk
+	  // ? SQL ?
 	  private String insertdbSQL = "insert into Fish(Fish_id,Fish_CName,Fish_Length,Fish_Satiation,Fish_Age,Fish_Lively,Fish_Status,Fish_Healthy,Date_ID) VALUES(?,?,?,?,?,?,?,?,?)"; 
-      private String selectCountSQL = "SELECT COUNT(*) FROM Fish";
-      private String selectCountFishSQL = "SELECT max(Fish_id) FROM Fish";
-      private String selectDiedFishNum = "";
+          private String selectCountSQL = "SELECT COUNT(*) FROM Fish";
+      	  private String selectCountFishSQL = "SELECT max(Fish_id) FROM Fish";
+          private String selectDiedFishNum = "";
 	  private String selectSQL = "select * from Fish "; 
 	  private String selectFishSQL = ""; 
 	  private String selectWantedSQL = ""; 
@@ -57,8 +57,9 @@ public class Fish_data extends Connect_data {
 	  public Fish_data()
 	  {  
 		  connect_data();
-	  } 
-	  //«?�¥ßtableªº¤è¦¡ 
+	  }
+	
+	  //
 	  public void createTable() 
 	  { 
 	    try 
@@ -78,7 +79,6 @@ public class Fish_data extends Connect_data {
 	    } 
 	  } 
 	  
-	  
 	  public void SetInsert(int lifetime,double length ,int Satiation,String myStatus,String myHealthy) {
 		  this.Fish_Age=lifetime;
 		  this.Fish_Length=length;
@@ -88,9 +88,7 @@ public class Fish_data extends Connect_data {
 		  
 	  }
 	  
-	  
-	  
-	  //·s¼W¸ê®?? 
+	  //
 	  public void insertTable(String id,String C_name,int lively,int DateID) 
 	  { 
 	    try 
@@ -122,7 +120,7 @@ public class Fish_data extends Connect_data {
 	    } 
 	  } 
   
-	  //§R°£Table
+	  //
 	  public void dropTable() 
 	  { 
 	    try 
@@ -138,8 +136,9 @@ public class Fish_data extends Connect_data {
 	    { 
 	      Close(); 
 	    } 
-	  } 
-	  // §R°£©?�¦³table¤ºªº¸ê®??
+	  }
+	
+	  //
 	  public void deleteData() 
 	  { 
 	    try 
@@ -155,64 +154,67 @@ public class Fish_data extends Connect_data {
 	    { 
 	      Close(); 
 	    } 
-	  } 
-	// count³½ªº¼?�¶q¸ê®?�ªº¸ê®Æ¶q
-		  public int CountFishNum() 
-		  { 
-			int count=0;
-		    try 
-		    { 
-		      int temp=0;
-		      stat = con.createStatement(); 
-		      rs = stat.executeQuery(selectCountFishSQL); 
-		      
-		      while(rs.next()){
-		    	    count=rs.getInt("max(Fish_id)");
+	  }
+	
+	  // count ?
+	  public int CountFishNum() 
+	  { 
+		int count=0;
+	    try 
+	    { 
+	      int temp=0;
+	      stat = con.createStatement(); 
+	      rs = stat.executeQuery(selectCountFishSQL); 
+
+	      while(rs.next()){
+		    count=rs.getInt("max(Fish_id)");
 //		    	    System.out.println("COUNT(*)="+rs.getInt("COUNT(*)"));	
-				  }
-		     
-		    } 
-		    catch(SQLException e) 
-		    { 
-		      System.out.println("DropDB fishTable  CountFishNum Exception :" + e.toString()); 
-		    } 
-		    finally 
-		    { 
-		      Close(); 
-		    } 
-		     return count;
-		  }
-		  //cpunt ¦º³½ªº¼?�¶q
-		  public int SelectDiedFishNum() { 
-			  int temp=0;
-		    try 
-		    { 
-		     
-		
-		       pst = con.prepareStatement(selectDiedFishNum);
-		    
-		      this.selectDiedFishNum = "SELECT count(DISTINCT Fish_id) as num FROM fish WHERE Fish_status='DEATH'";
-		     // pst.executeUpdate(selectWantedSQL); 
-		      pst.executeQuery(selectDiedFishNum);
-		      System.out.println(selectDiedFishNum);   
-		      rs=pst.getResultSet();
-		      //System.out.println("ID\t\tName\t\t"+SelectingDataName); 
-		      while(rs.next()) 
-		      { 
-	            temp=(rs.getInt("num"));   
-		      } 
-		    } 
-		    catch(SQLException e) 
-		    { 
-		      System.out.println("DropDB FishTable SelectDiedFishNum  Exception :" + e.toString()); 
-		    } 
-		    finally 
-		    { 
-		      Close(); 
-		      return temp;
-		    } 
-		  } 
-	  // count¸ê®?�ªº¸ê®Æ¶q
+			  }
+
+	    } 
+	    catch(SQLException e) 
+	    { 
+	      System.out.println("DropDB fishTable  CountFishNum Exception :" + e.toString()); 
+	    } 
+	    finally 
+	    { 
+	      Close(); 
+	    } 
+	     return count;
+	  }
+
+	  //cpunt ?
+	  public int SelectDiedFishNum() { 
+		  int temp=0;
+	    try 
+	    { 
+
+
+	       pst = con.prepareStatement(selectDiedFishNum);
+
+	      this.selectDiedFishNum = "SELECT count(DISTINCT Fish_id) as num FROM fish WHERE Fish_status='DEATH'";
+	     // pst.executeUpdate(selectWantedSQL); 
+	      pst.executeQuery(selectDiedFishNum);
+	      System.out.println(selectDiedFishNum);   
+	      rs=pst.getResultSet();
+	      //System.out.println("ID\t\tName\t\t"+SelectingDataName); 
+	      while(rs.next()) 
+	      { 
+	    temp=(rs.getInt("num"));   
+	      } 
+	    } 
+	    catch(SQLException e) 
+	    { 
+	      System.out.println("DropDB FishTable SelectDiedFishNum  Exception :" + e.toString()); 
+	    } 
+	    finally 
+	    { 
+	      Close(); 
+	      return temp;
+	    } 
+	  }
+	
+	  // count ?
 	  public int CountData() 
 	  { 
 		int count=0;
@@ -237,12 +239,14 @@ public class Fish_data extends Connect_data {
 	      Close(); 
 	    } 
 	     return count;
-	  } 
-	// ³]©w±N­nselect¸ê®?�ªºÄæ¦�?
+	  }
+	
+	//
 	  public void setSelectType(String SelectingData ) {
 		  this.SelectingData=SelectingData;	  
-	  }  
-	// ³]©w±N­nselect¸ê®?�ªºÄæ¦�?
+	  }
+	
+	//
 	  public void setSelectTypeName(String SelectingData ) {
 		if(SelectingData=="Length" ) {
 			this.SelectingDataName="Fish_Length";
@@ -253,8 +257,9 @@ public class Fish_data extends Connect_data {
 		else if(SelectingData=="Lively" ) {
 			this.SelectingDataName="Fish_Lively";
 		}
-	  }  
-	  //Select ±ý¿ï¨úªº¸ê®??
+	  }
+	
+	  //Select ?
 	  public void SelectData(int[] a,int fish_id,String Select_dateBegin,String Select_dateEnd) { 
 	    try 
 	    { 
@@ -284,7 +289,8 @@ public class Fish_data extends Connect_data {
 	    { 
 	      Close(); 
 	    } 
-	  } 
+	  }
+	
 	  public void SelectFIshID(String[] a) { 
 		    try 
 		    { 
@@ -311,8 +317,9 @@ public class Fish_data extends Connect_data {
 		    { 
 		      Close(); 
 		    } 
-		  } 
-	  //¿ï¨ú¥­§¡­??
+	  }
+	
+	  //?
 	  public int SelectAVGData(int a,int fish_id,String Select_dateBegin,String Select_dateEnd) { 
 	     int temp=0;
 	     try 
@@ -342,8 +349,9 @@ public class Fish_data extends Connect_data {
 	    
 	    }   
 	    return temp;
-	  } 
-	  //Select ©?�¦³¸ê®�?
+	  }
+	
+	  //Select ?
 	  public void SelectTable() 
 	  { 
 	    try 
@@ -365,6 +373,5 @@ public class Fish_data extends Connect_data {
 	    { 
 	     Close(); 
 	    } 
-	  }
-	
+	  }	
 }
