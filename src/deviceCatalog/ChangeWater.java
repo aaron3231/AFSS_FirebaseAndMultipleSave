@@ -4,15 +4,15 @@ import enviroment.Enviroment;
 
 public class ChangeWater extends Device {
 	
-	//¤ôºØÃş 1.²H¤ô  2.®ü¤ô
+	//æ°´ç¨®é¡ 1.æ·¡æ°´  2.æµ·æ°´
 	private static final int FRESHWATER = 1;
 	private static final int SEAWATER = 2;
 	
-	private int waterCategory; //¤ô½è
+	private int waterCategory; //æ°´è³ª
 	
 	public ChangeWater(String statement) 
 	{
-		super("´«¤ô", 0, statement, AUTOMATIC);
+		super("æ›æ°´", 0, statement, AUTOMATIC);
 	}
 	
 	//set function
@@ -36,7 +36,7 @@ public class ChangeWater extends Device {
 				break;
 			}
 			default:
-				System.out.printf("¤ôºØÃş¿é¤J¿ù»~!");
+				System.out.printf("æ°´ç¨®é¡è¼¸å…¥éŒ¯èª¤!");
 		}
 	}
 	
@@ -46,10 +46,10 @@ public class ChangeWater extends Device {
 		return this.waterCategory;
 	}
 	
-	//´«¤ô => ¶È¼vÅT¤ô½è quantity ¨Ï¥ÎªÌ¥[¤J¤ô¶q
+	//æ›æ°´ => åƒ…å½±éŸ¿æ°´è³ª quantity ä½¿ç”¨è€…åŠ å…¥æ°´é‡
 	public void change(Enviroment environment, int waterCategory, double quantity) 
 	{
-		//´«¤ô¶q¤p©ó 1/4
+		//æ›æ°´é‡å°æ–¼ 1/4
 		if(quantity <= 1/4) 
 		{
 			double temp = 0;
@@ -58,7 +58,7 @@ public class ChangeWater extends Device {
 			{
 				temp = 100;
 			}
-			//³]©w·sªº¤ô½è
+			//è¨­å®šæ–°çš„æ°´è³ª
 			environment.setWaterQuality(temp);
 		}
 	}
@@ -68,7 +68,7 @@ public class ChangeWater extends Device {
 	{
 		super.toString();
 		String str;
-		str =  String.format("¤ôºØ¡G%s %n", this.waterCategory == SEAWATER?"®ü¤ô":"²H¤ô");
+		str =  String.format("æ°´ç¨®ï¼š%s %n", this.waterCategory == SEAWATER?"æµ·æ°´":"æ·¡æ°´");
 		return str;
 	}
 }	
