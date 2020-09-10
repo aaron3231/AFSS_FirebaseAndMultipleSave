@@ -146,49 +146,48 @@ public class DeviceCatalog {
 		}
 		feeder[level].setHaveBuy(1);
 	}
-	//loadÁý­¹¾¹
-			public void loadFeeder(String all) 
-			{
-			 			
-				String[] value=all.split(",");
-				
-				int level =Integer.parseInt(value[0]);
-				Boolean bool_state;
-				Boolean bool_achieve;
-				if(value[2].equals("true")) {
-					bool_state=true;
-					}
-				else 
-					bool_state =false;
-				if(value[9].equals("true")) {
-					bool_achieve=true;
-					}
-				else 
-					bool_achieve =false;
-				
-				//ÂÂªºdevice¤ºªº­«³]ÅÜ¼Æ
-				this.feeder[getFeederSelector()].newOne();
-			
-				//·s¶Rªºdevice¤º­«³]ÅÜ¼Æ
-				this.feeder[level].newOne();
-				//feeder¯S§OÅÜ¼Æ­«³]©w
-				this.feeder[level].setCountTime(Integer.parseInt(value[1]));
-				this.feeder[level].setModelState(bool_state);
-				this.feeder[level].setDamageRateNow(Double.parseDouble(value[3]) );
-				this.feeder[level].setOperateModel(Integer.parseInt(value[4]));
-				this.feeder[level].setmyCrazyFeed(Integer.parseInt(value[5])); //¨gÁýª¬ºA ¤º³¡·|¦A¤@¦¸ÀH¾÷µ¹	
-				this.feeder[level].setFavorite(Integer.parseInt(value[6]));
-				this.feeder[level].setGrain(Integer.parseInt(value[7]));	 
-				this.feeder[level].setRegularTime(Integer.parseInt(value[8]));	
-	            this.feeder[level].setAchieve(bool_achieve);
-		
-				for(k=0;k<4;k++) 
-				{
-					if(level != k) 
-						feeder[k].setHaveBuy(0);
-				}
-				feeder[level].setHaveBuy(1);
+	
+	//load ?
+	public void loadFeeder(String all) 
+	{
+
+		String[] value=all.split(",");
+
+		int level =Integer.parseInt(value[0]);
+		Boolean bool_state;
+		Boolean bool_achieve;
+		if(value[2].equals("true")) {
+			bool_state=true;
 			}
+		else 
+			bool_state =false;
+		if(value[9].equals("true")) {
+			bool_achieve=true;
+			}
+		else 
+			bool_achieve =false;
+
+		//
+		this.feeder[getFeederSelector()].newOne();
+
+		//
+		this.feeder[level].newOne();
+		//
+		this.feeder[level].setCountTime(Integer.parseInt(value[1]));
+		this.feeder[level].setModelState(bool_state);
+		this.feeder[level].setDamageRateNow(Double.parseDouble(value[3]) );
+		this.feeder[level].setOperateModel(Integer.parseInt(value[4]));
+		this.feeder[level].setmyCrazyFeed(Integer.parseInt(value[5])); //¨gÁýª¬ºA ¤º³¡·|¦A¤@¦¸ÀH¾÷µ¹	
+		this.feeder[level].setFavorite(Integer.parseInt(value[6]));
+		this.feeder[level].setGrain(Integer.parseInt(value[7]));	 
+		this.feeder[level].setRegularTime(Integer.parseInt(value[8]));	
+    		this.feeder[level].setAchieve(bool_achieve);
+
+		for(k=0;k<4;k++) 
+			if(level != k) 
+				feeder[k].setHaveBuy(0);
+		feeder[level].setHaveBuy(1);
+	}
 	
 	//買過濾器
 	public void buyFilter(int level, Cost cost, Timerr timer) 
@@ -209,7 +208,8 @@ public class DeviceCatalog {
 		}
 		filter[level].setHaveBuy(1);
 	}
-	 //loadfilter
+	
+
 	public void loadFilter(String all) 
 	{
 	 			
@@ -222,28 +222,23 @@ public class DeviceCatalog {
 			}
 		else 
 			bool_state =false;
-
-		
-		//ÂÂªºdevice¤ºªº­«³]ÅÜ¼Æ
+	
+		//
 		this.filter[getFeederSelector()].newOne();
 	
-		//·s¶Rªºdevice¤º­«³]ÅÜ¼Æ
+		//
 		this.filter[level].newOne();
-		//feeder¯S§OÅÜ¼Æ­«³]©w
+		//
 		this.filter[level].setCountTime(Integer.parseInt(value[1]));
 		this.filter[level].setModelState(bool_state);
 		this.filter[level].setDamageRateNow(Double.parseDouble(value[3]) );
 		this.filter[level].setOperateModel(Integer.parseInt(value[4]));
 
-
-		for(k=0;k<4;k++) 
-		{
+		for(k=0;k<4;k++)
 			if(level != k) 
 				filter[k].setHaveBuy(0);
-		}
 		filter[level].setHaveBuy(1);
 	}	
-	
 	
 	//買打氣汞
 	public void buyInflator(int level, Cost cost, Timerr timer) 
@@ -266,7 +261,7 @@ public class DeviceCatalog {
 		}
 		inflator[level].setHaveBuy(1);
 	}
-	 //loadfilter
+	
 	public void loadInflator(String all) 
 	{
 	 			
@@ -281,27 +276,22 @@ public class DeviceCatalog {
 			bool_state =false;
 
 		
-		//ÂÂªºdevice¤ºªº­«³]ÅÜ¼Æ
+		//
 		this.inflator[getFeederSelector()].newOne();
 	
-		//·s¶Rªºdevice¤º­«³]ÅÜ¼Æ
+		//
 		this.inflator[level].newOne();
-		//feeder¯S§OÅÜ¼Æ­«³]©w
+		//
 		this.inflator[level].setCountTime(Integer.parseInt(value[1]));
 		this.inflator[level].setModelState(bool_state);
 		this.inflator[level].setDamageRateNow(Double.parseDouble(value[3]) );
 		this.inflator[level].setOperateModel(Integer.parseInt(value[4]));
 
-
-		for(k=0;k<4;k++) 
-		{
+		for(k=0;k<4;k++)
 			if(level != k) 
 				inflator[k].setHaveBuy(0);
-		}
 		inflator[level].setHaveBuy(1);
 	}
-	
-	
 	
 	//買加溫器
 	public void buyheater(int level, Cost cost, Timerr timer) 
@@ -325,44 +315,37 @@ public class DeviceCatalog {
 		heater[level].setHaveBuy(1);
 	}
 	
-	
-	//loadheater
-		public void loadheater(String all) 
-		{
-		 			
-			String[] value=all.split(",");
-			
-			int level =Integer.parseInt(value[0]);
-			Boolean bool_state;
-			if(value[2].equals("true")) {
-				bool_state=true;
-				}
-			else 
-				bool_state =false;
+	public void loadheater(String all) 
+	{
 
-			
-			//ÂÂªºdevice¤ºªº­«³]ÅÜ¼Æ
-			this.heater[getFeederSelector()].newOne();
-		
-			//·s¶Rªºdevice¤º­«³]ÅÜ¼Æ
-			this.heater[level].newOne();
-			//feeder¯S§OÅÜ¼Æ­«³]©w
-			this.heater[level].setCountTime(Integer.parseInt(value[1]));
-			this.heater[level].setModelState(bool_state);
-			this.heater[level].setDamageRateNow(Double.parseDouble(value[3]) );
-			this.heater[level].setOperateModel(Integer.parseInt(value[4]));
-			this.heater[level].setMaxTemperature(Double.parseDouble(value[5]) );
+		String[] value=all.split(",");
 
-			for(k=0;k<4;k++) 
-			{
-				if(level != k) 
-					heater[k].setHaveBuy(0);
+		int level =Integer.parseInt(value[0]);
+		Boolean bool_state;
+		if(value[2].equals("true")) {
+			bool_state=true;
 			}
-			heater[level].setHaveBuy(1);
-		}
+		else 
+			bool_state =false;
+
+		//
+		this.heater[getFeederSelector()].newOne();
+
+		//
+		this.heater[level].newOne();
+		//
+		this.heater[level].setCountTime(Integer.parseInt(value[1]));
+		this.heater[level].setModelState(bool_state);
+		this.heater[level].setDamageRateNow(Double.parseDouble(value[3]) );
+		this.heater[level].setOperateModel(Integer.parseInt(value[4]));
+		this.heater[level].setMaxTemperature(Double.parseDouble(value[5]) );
+
+		for(k=0;k<4;k++)
+			if(level != k) 
+				heater[k].setHaveBuy(0);
+		heater[level].setHaveBuy(1);
+	}
 	
-	
-	//買照明器
 	public void buyflashLight(int level, Cost cost, Timerr timer) 
 	{
 		//將購買資料送到資料庫
@@ -384,10 +367,8 @@ public class DeviceCatalog {
 		flashLight[level].setHaveBuy(1);
 	}
 	
-	 //loadflashlight
 	public void loadflashLight(String all) 
-	{
-	 			
+	{	
 		String[] value=all.split(",");
 		
 		int level =Integer.parseInt(value[0]);
@@ -398,29 +379,23 @@ public class DeviceCatalog {
 		else 
 			bool_state =false;
 
-		
-		//ÂÂªºdevice¤ºªº­«³]ÅÜ¼Æ
+		//
 		this.flashLight[getFeederSelector()].newOne();
 	
-		//·s¶Rªºdevice¤º­«³]ÅÜ¼Æ
+		//
 		this.flashLight[level].newOne();
-		//feeder¯S§OÅÜ¼Æ­«³]©w
+		//
 		this.flashLight[level].setCountTime(Integer.parseInt(value[1]));
 		this.flashLight[level].setModelState(bool_state);
 		this.flashLight[level].setDamageRateNow(Double.parseDouble(value[3]) );
 		this.flashLight[level].setOperateModel(Integer.parseInt(value[4]));
 		this.flashLight[level].setLightHour(Integer.parseInt(value[5]));
 
-		for(k=0;k<4;k++) 
-		{
+		for(k=0;k<4;k++)
 			if(level != k) 
 				flashLight[k].setHaveBuy(0);
-		}
 		flashLight[level].setHaveBuy(1);
 	}
-	
-
-
 
 	//回傳購買狀態
 	public int getFeederbuyer() 
@@ -468,6 +443,7 @@ public class DeviceCatalog {
 				level = i;
 		return level;
 	}
+	
 	//確認餵食器開啟狀態
 	public int getFeederSelector() 
 	{
@@ -570,7 +546,6 @@ public class DeviceCatalog {
 		return level;
 	}
 
-	
 	//每單位時間呼叫檢測發生事件
 	public void aTime(Enviroment environment, LandScape landScape) 
 	{
@@ -635,107 +610,106 @@ public class DeviceCatalog {
 		}
 	}
 	
-	//Àx¦sÁý­¹¾¹
-		public String saveFeederData() 
-		{
-			String feederStr;
-			feederStr = String.format("feederbuyer:%d,%s", this.getFeederbuyer(), this.feeder[this.getFeederbuyer()].savetoData());
-			return feederStr;
-		}
-		public String uploadFeederData()
-		{
-			String feederStr;
-			feederStr = String.format("%d,%s", this.getFeederbuyer(), this.feeder[this.getFeederbuyer()].savetoData());
-			return feederStr;
-		}
-	//Àx¦s¹LÂo¾¹
-		public String saveFilterData() 
-		{
-			String filterStr;
-			filterStr = String.format("filterbuyer:%d,%s",  this.getFilterbuyer(), this.filter[this.getFilterbuyer()].savetoData());
-			return filterStr;
-		}
-		public String uploadFilterData() 
-		{
-			String filterStr;
-			filterStr = String.format("%d,%s",  this.getFilterbuyer(), this.filter[this.getFilterbuyer()].savetoData());
-			return filterStr;
-		}
-		//Àx¦s¥´®ð¨E
-		public String saveInflatorData() 
-		{
-			String inflatorStr;
-			inflatorStr = String.format("inflatorbuyer:%d,%s",  this.getInflatorbuyer(), this.inflator[this.getInflatorbuyer()].savetoData());
-			return inflatorStr;
-		}
-		public String uploadInflatorData() 
-		{
-			String inflatorStr;
-			inflatorStr = String.format("%d,%s",  this.getInflatorbuyer(), this.inflator[this.getInflatorbuyer()].savetoData());
-			return inflatorStr;
-		}
-		//Àx¦s·Ó©ú¾¹
-		public String saveFlashLightData() 
-		{
-			String flashLightStr;
-			flashLightStr = String.format("flashLightbuyer:%d,%s",   this.getFlashLightbuyer(), this.flashLight[this.getFlashLightbuyer()].savetoData());
-			return flashLightStr;
-		}
-		public String uploadFlashLightData() 
-		{
-			String flashLightStr;
-			flashLightStr = String.format("%d,%s",   this.getFlashLightbuyer(), this.flashLight[this.getFlashLightbuyer()].savetoData());
-			return flashLightStr;
-		}
-		//Àx¦s¥[¼ö¾¹
-		public String saveHeaterData() 
-		{
-			String heaterStr;
-			heaterStr = String.format("heaterbuyer:%d,%s",    this.getHeaterbuyer(), this.heater[this.getHeaterbuyer()].savetoData());
-			return heaterStr;
-		}
-		public String uploadHeaterData() 
-		{
-			String heaterStr;
-			heaterStr = String.format("%d,%s",    this.getHeaterbuyer(), this.heater[this.getHeaterbuyer()].savetoData());
-			return heaterStr;
-		}
-		//Àx¦s¿ï¾Üª¬ºA
-		public String saveSelectorData() 
-		{
-			String selectStr;
-			selectStr = String.format("feed:%d,filter:%d,inflator:%d,flashlight:%d,heater:%d", this.getFeederSelector(), this.getFilterSelector(), this.getInflatorSelector(), this.getFlashLightSelector(), this.getHeaterSelector());
-			return selectStr;
-		}
-		public String uploadSelectorData() 
-		{
-			String selectStr;
-			selectStr = String.format("%d,filter:%d,inflator:%d,flashlight:%d,heater:%d", this.getFeederSelector(), this.getFilterSelector(), this.getInflatorSelector(), this.getFlashLightSelector(), this.getHeaterSelector());
-			return selectStr;
-		}
-		//Â²³æª©Àx¦s¿ï¾Üª¬ºA
-		public String savetoSelectorData() 
-		{
-			String selectStr;
-			selectStr = String.format("feed:%d,%d,%d,%d,%d", this.getFeederSelector(), this.getFilterSelector(), this.getInflatorSelector(), this.getFlashLightSelector(), this.getHeaterSelector());
-			return selectStr;
-		}
-		public String uploadtoSelectorData() 
-		{
-			String selectStr;
-			selectStr = String.format("%d,%d,%d,%d,%d", this.getFeederSelector(), this.getFilterSelector(), this.getInflatorSelector(), this.getFlashLightSelector(), this.getHeaterSelector());
-			return selectStr;
-		}
-		//Â²³æª©Àx¦s¿ï¾Üª¬ºA
-			public void loadtoSelectorData(int feed_buy,int filter_buy,int inflator_buy,int flashlight_buy,int heater_buy) 
-			{
-				feeder[feed_buy].setHaveBuy(1);
-				filter[filter_buy].setHaveBuy(1);
-				inflator[inflator_buy].setHaveBuy(1);
-				flashLight[flashlight_buy].setHaveBuy(1);
-				heater[heater_buy].setHaveBuy(1);
-		
-			}
+	public String saveFeederData() 
+	{
+		String feederStr;
+		feederStr = String.format("feederbuyer:%d,%s", this.getFeederbuyer(), this.feeder[this.getFeederbuyer()].savetoData());
+		return feederStr;
+	}
+	public String uploadFeederData()
+	{
+		String feederStr;
+		feederStr = String.format("%d,%s", this.getFeederbuyer(), this.feeder[this.getFeederbuyer()].savetoData());
+		return feederStr;
+	}
+
+	public String saveFilterData() 
+	{
+		String filterStr;
+		filterStr = String.format("filterbuyer:%d,%s",  this.getFilterbuyer(), this.filter[this.getFilterbuyer()].savetoData());
+		return filterStr;
+	}
+	public String uploadFilterData() 
+	{
+		String filterStr;
+		filterStr = String.format("%d,%s",  this.getFilterbuyer(), this.filter[this.getFilterbuyer()].savetoData());
+		return filterStr;
+	}
+
+	public String saveInflatorData() 
+	{
+		String inflatorStr;
+		inflatorStr = String.format("inflatorbuyer:%d,%s",  this.getInflatorbuyer(), this.inflator[this.getInflatorbuyer()].savetoData());
+		return inflatorStr;
+	}
+	public String uploadInflatorData() 
+	{
+		String inflatorStr;
+		inflatorStr = String.format("%d,%s",  this.getInflatorbuyer(), this.inflator[this.getInflatorbuyer()].savetoData());
+		return inflatorStr;
+	}
+
+	public String saveFlashLightData() 
+	{
+		String flashLightStr;
+		flashLightStr = String.format("flashLightbuyer:%d,%s",   this.getFlashLightbuyer(), this.flashLight[this.getFlashLightbuyer()].savetoData());
+		return flashLightStr;
+	}
+	public String uploadFlashLightData() 
+	{
+		String flashLightStr;
+		flashLightStr = String.format("%d,%s",   this.getFlashLightbuyer(), this.flashLight[this.getFlashLightbuyer()].savetoData());
+		return flashLightStr;
+	}
+
+	public String saveHeaterData() 
+	{
+		String heaterStr;
+		heaterStr = String.format("heaterbuyer:%d,%s",    this.getHeaterbuyer(), this.heater[this.getHeaterbuyer()].savetoData());
+		return heaterStr;
+	}
+	public String uploadHeaterData() 
+	{
+		String heaterStr;
+		heaterStr = String.format("%d,%s",    this.getHeaterbuyer(), this.heater[this.getHeaterbuyer()].savetoData());
+		return heaterStr;
+	}
+
+	public String saveSelectorData() 
+	{
+		String selectStr;
+		selectStr = String.format("feed:%d,filter:%d,inflator:%d,flashlight:%d,heater:%d", this.getFeederSelector(), this.getFilterSelector(), this.getInflatorSelector(), this.getFlashLightSelector(), this.getHeaterSelector());
+		return selectStr;
+	}
+	public String uploadSelectorData() 
+	{
+		String selectStr;
+		selectStr = String.format("%d,filter:%d,inflator:%d,flashlight:%d,heater:%d", this.getFeederSelector(), this.getFilterSelector(), this.getInflatorSelector(), this.getFlashLightSelector(), this.getHeaterSelector());
+		return selectStr;
+	}
+
+	public String savetoSelectorData() 
+	{
+		String selectStr;
+		selectStr = String.format("feed:%d,%d,%d,%d,%d", this.getFeederSelector(), this.getFilterSelector(), this.getInflatorSelector(), this.getFlashLightSelector(), this.getHeaterSelector());
+		return selectStr;
+	}
+	public String uploadtoSelectorData() 
+	{
+		String selectStr;
+		selectStr = String.format("%d,%d,%d,%d,%d", this.getFeederSelector(), this.getFilterSelector(), this.getInflatorSelector(), this.getFlashLightSelector(), this.getHeaterSelector());
+		return selectStr;
+	}
+	//
+	public void loadtoSelectorData(int feed_buy,int filter_buy,int inflator_buy,int flashlight_buy,int heater_buy) 
+	{
+		feeder[feed_buy].setHaveBuy(1);
+		filter[filter_buy].setHaveBuy(1);
+		inflator[inflator_buy].setHaveBuy(1);
+		flashLight[flashlight_buy].setHaveBuy(1);
+		heater[heater_buy].setHaveBuy(1);
+
+	}
 	
 	//印出所有東西的狀態 for test -----這邊不用重構-----
 	public void printAll() 
@@ -765,9 +739,7 @@ public class DeviceCatalog {
 			System.out.printf("%s",filter[i].toString());
 		}
 		System.out.println("");
-	} 
-	
-	
+	}	
 	
 	//器材種類 器材編號[0-4] for test -----這邊不用重構-----
 	public void set(int tool, int number) 
@@ -1036,5 +1008,4 @@ public class DeviceCatalog {
 			}
 		}
 	}
-
 }
