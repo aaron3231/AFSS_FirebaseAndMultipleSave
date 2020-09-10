@@ -126,7 +126,8 @@ public class Date_data extends Connect_data {
 	    } 
 	     return count;
 	  } 
-	  // §R°£table¤ºªº©?�¦³¸ê®�?
+	  
+	  //
 	  public void deleteData() 
 	  { 
 	    try 
@@ -189,7 +190,7 @@ public class Date_data extends Connect_data {
 	    } 
 	  } 
 	
-	  //¬d¸?�¸ê®�? 
+	  //
 	  public void SelectTable() 
 	  { 
 	    try 
