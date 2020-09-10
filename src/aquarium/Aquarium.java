@@ -37,21 +37,21 @@ public class Aquarium {
 	static final public int maxFishsCount=20;
 	static final private FishCataLog fishCataLog=new FishCataLog();
 
-	//¦s¤J¸ê®Æ®w®É¥Îªº°Ñ¼Æ
+	//å­˜å…¥è³‡æ–™åº«æ™‚ç”¨çš„åƒæ•¸
 	private Fish_data  dbFish=new Fish_data();
 	private Date_data  dbDate=new Date_data();
 	
-	//»İget.set===========================================
-	private int nFishs=0;	//³½¬û¤¤ªº³½¼Æ¶q
+	//éœ€get.set===========================================
+	private int nFishs=0;	//é­šç¼¸ä¸­çš„é­šæ•¸é‡
 	private Timerr timer;
 
 
 	private Fish[] fishs;
-	private Enviroment enviroment;	//°Ñ¼Æ¥ş³¡¥ı¹w³]¬°50
+	private Enviroment enviroment;	//åƒæ•¸å…¨éƒ¨å…ˆé è¨­ç‚º50
 
 
-	//³]³Æª«¥ó
-		//³]³Æ¡BÂ\³]¡Bcost
+	//è¨­å‚™ç‰©ä»¶
+		//è¨­å‚™ã€æ“ºè¨­ã€cost
 	private DeviceCatalog device;
 	private LandScape landSpace;
 	private Cost cost;
@@ -59,42 +59,42 @@ public class Aquarium {
 	private AllEvent allEvent;
 	private Move moveEvent;
 	private Feed feedEvent;
-	//********¶i¶¥¥\¯à ¦¨´N¨t²Î
+	//********é€²éšåŠŸèƒ½ æˆå°±ç³»çµ±
 	
-	//¨Æ¥ó´£¥Ü¥\¯à
-	private int[] eventArray =new int[800];		//°O¿ı¦¹¦¸¼ÒÀÀµo¥Í¤F­ş¨Ç¨Æ¥ó
-	private String[] eventArrayDescription=new String[800];	//µo¥Í¨Æ¥óªº´y­z
+	//äº‹ä»¶æç¤ºåŠŸèƒ½
+	private int[] eventArray =new int[800];		//è¨˜éŒ„æ­¤æ¬¡æ¨¡æ“¬ç™¼ç”Ÿäº†å“ªäº›äº‹ä»¶
+	private String[] eventArrayDescription=new String[800];	//ç™¼ç”Ÿäº‹ä»¶çš„æè¿°
 	private int nEvent=0;
-	private String[] eventString = {"³½¥´¬[", "¦ÛµM¦º¤`", "«D¦ÛµM¦º¤`", "³½¥Í¯f", "³½¥Íªø¦Ü³Ì¤j", "Áı­¹¾¹Ãa±¼", "¹LÂo¾¹Ãa±¼", "®ñ®ğ¬¦Ãa±¼", "·Ó©ú¾¹Ãa±¼", "¥[·Å¾¹Ãa±¼",
-			 "¤ô½è¤£¨}", "¤ô½èÁV¿|", "·Å«×°¾°ª", "·Å«×¹L°ª", "·Å«×°¾§C", "·Å«×¹L§C", "§t®ñ¶q°¾§C", "§t®ñ¶q¹L§C", "§t®ñ¶q·¥§C",};
+	private String[] eventString = {"é­šæ‰“æ¶", "è‡ªç„¶æ­»äº¡", "éè‡ªç„¶æ­»äº¡", "é­šç”Ÿç—…", "é­šç”Ÿé•·è‡³æœ€å¤§", "é¤µé£Ÿå™¨å£æ‰", "éæ¿¾å™¨å£æ‰", "æ°§æ°£æ³µå£æ‰", "ç…§æ˜å™¨å£æ‰", "åŠ æº«å™¨å£æ‰",
+			 "æ°´è³ªä¸è‰¯", "æ°´è³ªç³Ÿç³•", "æº«åº¦åé«˜", "æº«åº¦éé«˜", "æº«åº¦åä½", "æº«åº¦éä½", "å«æ°§é‡åä½", "å«æ°§é‡éä½", "å«æ°§é‡æ¥µä½",};
 	/*
-	 ¨Æ¥óºØÃş
-	1. ³½¥´¬[   
-	2. ¦ÛµM¦º¤`
-	3. «D¦ÛµM¦º¤` 
-	4. ³½¥Í¯f   
-	5. ³½¥Íªø¦Ü³Ì¤j
-	6. Áı­¹¾¹Ãa±¼  
-	7. ¹LÂo¾¹Ãa±¼ 
-	8. ®ñ®ğ¬¦Ãa±¼ 
-	9. ·Ó©ú¾¹Ãa±¼  
-	10. ¥[·Å¾¹Ãa±¼ 
-	11.¤ô½è¤£¨}  
-	12.¤ô½èÁV¿| 
-	13.·Å«×°¾°ª  
-	14.·Å«×¹L°ª  
-	15.·Å«×°¾§C 
-	16.·Å«×¹L§C  
-	17.§t®ñ¶q°¾§C 
-	18.§t®ñ¶q¹L§C
-	19.§t®ñ¶q·¥§C
+	 äº‹ä»¶ç¨®é¡
+	1. é­šæ‰“æ¶   
+	2. è‡ªç„¶æ­»äº¡
+	3. éè‡ªç„¶æ­»äº¡ 
+	4. é­šç”Ÿç—…   
+	5. é­šç”Ÿé•·è‡³æœ€å¤§
+	6. é¤µé£Ÿå™¨å£æ‰  
+	7. éæ¿¾å™¨å£æ‰ 
+	8. æ°§æ°£æ³µå£æ‰ 
+	9. ç…§æ˜å™¨å£æ‰  
+	10. åŠ æº«å™¨å£æ‰ 
+	11.æ°´è³ªä¸è‰¯  
+	12.æ°´è³ªç³Ÿç³• 
+	13.æº«åº¦åé«˜  
+	14.æº«åº¦éé«˜  
+	15.æº«åº¦åä½ 
+	16.æº«åº¦éä½  
+	17.å«æ°§é‡åä½ 
+	18.å«æ°§é‡éä½
+	19.å«æ°§é‡æ¥µä½
 	 
 	 */
 	
 	
 	/*
 	
-	«eºİ©Ò¦³ªº©I¥s³£·|¦b³o­±¼g¥X¹ïÀ³ªºmethod
+	å‰ç«¯æ‰€æœ‰çš„å‘¼å«éƒ½æœƒåœ¨é€™é¢å¯«å‡ºå°æ‡‰çš„method
 	
 	*/
 	public Aquarium()
@@ -118,7 +118,7 @@ public class Aquarium {
 		Event.event = new Event_data();
 		Event.setTime(timer);
 
-		//±N²Ä1/1/1 00:00ªº®É¶¡©ñ¤J¸ê®Æ®w¤¤
+		//å°‡ç¬¬1/1/1 00:00çš„æ™‚é–“æ”¾å…¥è³‡æ–™åº«ä¸­
 		dbDate.insertTable(timer.toStringToDB());
 	}
 	
@@ -144,7 +144,7 @@ public class Aquarium {
 		device.printAll();
 		Event.setTime(timer);
 		
-		//±N²Ä1/1/1 00:00ªº®É¶¡©ñ¤J¸ê®Æ®w¤¤
+		//å°‡ç¬¬1/1/1 00:00çš„æ™‚é–“æ”¾å…¥è³‡æ–™åº«ä¸­
 		dbDate.insertTable(timer.toStringToDB());
 	}
 	
@@ -191,7 +191,7 @@ public class Aquarium {
 		device.printAll();
 		Event.setTime(timer);
 		
-		//±N²Ä1/1/1 00:00ªº®É¶¡©ñ¤J¸ê®Æ®w¤¤
+		//å°‡ç¬¬1/1/1 00:00çš„æ™‚é–“æ”¾å…¥è³‡æ–™åº«ä¸­
 		dbDate.insertTable(timer.toStringToDB());
 	}
 	public int getnFishs() {
@@ -250,7 +250,7 @@ public class Aquarium {
 		this.enviroment = enviroment;
 	}
 
-	public void fishParameter()			//¨C¬íÄÁ°Ñ¼Æªº½Õ¾ã¡A»İ¦A¸É¥R		²¾°Ê¡B¶i­¹µ¥µ¥
+	public void fishParameter()			//æ¯ç§’é˜åƒæ•¸çš„èª¿æ•´ï¼Œéœ€å†è£œå……		ç§»å‹•ã€é€²é£Ÿç­‰ç­‰
 	{
 		int[] nEventTemp=new int[1];
 		nEventTemp[0]=nEvent;
@@ -279,7 +279,7 @@ public class Aquarium {
 		System.out.println(fishs[nFishs-1].toString());
 	}
 	
-	//===================================§ï¦¨¥ş³¡²M±¼
+	//===================================æ”¹æˆå…¨éƒ¨æ¸…æ‰
 	public ArrayList<Fish> removeAFish()
 	{
 		int i;
@@ -317,11 +317,11 @@ public class Aquarium {
 	public void speedUP(int[] speedInformation)
 	{
 		/*
-		 speedInformation²Ä¤@®æ¬°­n¥[³t¤@Â§«ô¡B¤@¤ÑÁÙ¬O¤@¤p®É
-		 ¤§«á·|¶·¸õ¹Lªº¨Æ¥ó(1¬°­n¸õ¹L)
+		 speedInformationç¬¬ä¸€æ ¼ç‚ºè¦åŠ é€Ÿä¸€ç¦®æ‹œã€ä¸€å¤©é‚„æ˜¯ä¸€å°æ™‚
+		 ä¹‹å¾Œæœƒé ˆè·³éçš„äº‹ä»¶(1ç‚ºè¦è·³é)
 		 */
 		
-		//Âk¹s¨Æ¥ó¬ö¿ı
+		//æ­¸é›¶äº‹ä»¶ç´€éŒ„
 		int stopEvent = -1;
 		for(int i=0;i<nEvent;i++)
 		{
@@ -333,7 +333,7 @@ public class Aquarium {
 		
 		
 		int n=0;
-		//¿ï¾Ü¦~¤ë¤é¨Ó¶i¦æ
+		//é¸æ“‡å¹´æœˆæ—¥ä¾†é€²è¡Œ
 		if(speedInformation[0]==1)
 		{
 			try {
@@ -362,7 +362,7 @@ public class Aquarium {
 	
 		dbFish=new Fish_data();
 		dbDate=new Date_data();
-		//Ãö³¬¸ê®Æ®w¦P¨B§ó·s(¥ı±N¸ê°T©ñ¤Jbuffer¦b¨ê·sºô­¶¡A¥i¥[§Ö³t«×)
+		//é—œé–‰è³‡æ–™åº«åŒæ­¥æ›´æ–°(å…ˆå°‡è³‡è¨Šæ”¾å…¥bufferåœ¨åˆ·æ–°ç¶²é ï¼Œå¯åŠ å¿«é€Ÿåº¦)
 		try {
 			dbFish.setClose();
 		} catch (SQLException e) {
@@ -388,11 +388,11 @@ public class Aquarium {
 					allGoalPosIsNull=true;		
 				fishParameter();
 			}
-			//±N¤é´Á®É¶¡©ñ¤J¸ê®Æ®w
+			//å°‡æ—¥æœŸæ™‚é–“æ”¾å…¥è³‡æ–™åº«
 			dbDate.insertTable(timer.toStringToDB());
 			
 			ArrayList<int[]> temp=enviroment.getFeedXY();
-			//¥ı²MªÅ¤§«eªº¹}®Æ(ÅÜ¦¨¤j«K)
+			//å…ˆæ¸…ç©ºä¹‹å‰çš„é£¼æ–™(è®Šæˆå¤§ä¾¿)
 			ArrayList<int[]> stools=enviroment.getStoolXY();
 			for(int[] feed:temp) {
 				stools.add(feed);
@@ -401,35 +401,35 @@ public class Aquarium {
 			temp.clear();
 			
 			device.aTime(enviroment, landSpace);
-			//½T»{³]³Æ¬O§_¦³Ãa±¼
+			//ç¢ºèªè¨­å‚™æ˜¯å¦æœ‰å£æ‰
 			if(device.getHaveDamagedFeeder()!=0)
 			{
 				eventArray[nEvent]=6;
-				eventArrayDescription[nEvent]="Áı­¹¾¹Ãa±¼¡I¡I";
+				eventArrayDescription[nEvent]="é¤µé£Ÿå™¨å£æ‰ï¼ï¼";
 				nEvent++;
 			}
 			if(device.getHaveDamagedFilter()!=0)
 			{
 				eventArray[nEvent]=7;
-				eventArrayDescription[nEvent]="¹LÂo¾¹Ãa±¼¡I¡I";
+				eventArrayDescription[nEvent]="éæ¿¾å™¨å£æ‰ï¼ï¼";
 				nEvent++;
 			}
 			if(device.getHaveDamagedInflator()!=0)
 			{
 				eventArray[nEvent]=8;
-				eventArrayDescription[nEvent]="®ñ®ğ¬¦Ãa±¼¡I¡I";
+				eventArrayDescription[nEvent]="æ°§æ°£æ³µå£æ‰ï¼ï¼";
 				nEvent++;
 			}
 			if(device.getHaveDamagedFlashLight()!=0)
 			{
 				eventArray[nEvent]=9;
-				eventArrayDescription[nEvent]="·Ó©ú¾¹Ãa±¼¡I¡I";
+				eventArrayDescription[nEvent]="ç…§æ˜å™¨å£æ‰ï¼ï¼";
 				nEvent++;
 			}
 			if(device.getHaveDamagedHeater()!=0)
 			{
 				eventArray[nEvent]=10;
-				eventArrayDescription[nEvent]="¥[·Å¾¹Ãa±¼¡I¡I";
+				eventArrayDescription[nEvent]="åŠ æº«å™¨å£æ‰ï¼ï¼";
 				nEvent++;
 			}
 			int[] nEventTemp=new int[1];
@@ -445,7 +445,7 @@ public class Aquarium {
 				 System.out.printf(" %d", eventArray[i]);*/
 			 
 			 
-			 //§PÂ_¬O§_¦³»İ¸õ¹Lªº¨Æ¥óµo¥Í
+			 //åˆ¤æ–·æ˜¯å¦æœ‰éœ€è·³éçš„äº‹ä»¶ç™¼ç”Ÿ
 			 for(int eventSkip=1;eventSkip<20;eventSkip++)
 			 {
 				 if(speedInformation[eventSkip]==1) {
@@ -454,19 +454,19 @@ public class Aquarium {
 						 if(eventArray[i]==eventSkip) {
 							 a=n;
 							 stopEvent=i;
-							 //¦^¶Ç¸õ¹Lªº¨Æ¥óÄµ»y
+							 //å›å‚³è·³éçš„äº‹ä»¶è­¦èª
 						 }
 					 }
 				 }
 			 }
 		///////******************************************
-			//¿é¥X¸ê®Æ¨ì¸ê®Æ®w
+			//è¼¸å‡ºè³‡æ–™åˆ°è³‡æ–™åº«
 			
 			for(int i=0;i<nFishs;i++)
 			{
 				fishDataToDB(fishs[i]);
 			}
-			//¤§«á§ï¦¨¦^°é¿é¤J©Ò¦³³½
+			//ä¹‹å¾Œæ”¹æˆå›åœˆè¼¸å…¥æ‰€æœ‰é­š
 			//fishDataToDB(fishs[0]);
 			
 			//
@@ -495,18 +495,18 @@ public class Aquarium {
 	}
 	
 	
-	public void run() {			//©Ò¦³ÅŞ¿è¨Æ¥óªº§PÂ_»P½Õ¾ã
+	public void run() {			//æ‰€æœ‰é‚è¼¯äº‹ä»¶çš„åˆ¤æ–·èˆ‡èª¿æ•´
 		
 		fishParameter();
 		if(timer.afterASecond())
 		{
-			//±N¤é´Á®É¶¡©ñ¤J¸ê®Æ®w
+			//å°‡æ—¥æœŸæ™‚é–“æ”¾å…¥è³‡æ–™åº«
 			dbDate.insertTable(timer.toStringToDB());
 			
-			//³]³Æ¹B§@
-			//¨C¤@¤p®É­n°µªº¨Æ
+			//è¨­å‚™é‹ä½œ
+			//æ¯ä¸€å°æ™‚è¦åšçš„äº‹
 			ArrayList<int[]> temp=enviroment.getFeedXY();
-			//¥ı²MªÅ¤§«eªº¹}®Æ(ÅÜ¦¨¤j«K)
+			//å…ˆæ¸…ç©ºä¹‹å‰çš„é£¼æ–™(è®Šæˆå¤§ä¾¿)
 			ArrayList<int[]> stools=enviroment.getStoolXY();
 			for(int[] feed:temp) {
 				stools.add(feed);
@@ -527,7 +527,7 @@ public class Aquarium {
 			
 			
 			
-			//¿é¥X¸ê®Æ¨ì¸ê®Æ®w
+			//è¼¸å‡ºè³‡æ–™åˆ°è³‡æ–™åº«
 			System.out.println("//////////////////////////////////");
 			fishDataToDB(fishs[0]);
 		}
