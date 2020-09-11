@@ -2,27 +2,25 @@ package enviroment;
 
 import java.util.ArrayList;
 
-
 public class Enviroment {
-	//¦¹Ãş§O·|¨Ì·Ó¾ğ¤Jªº°Ñ¼Æ­×§ïÀô¹Ò°Ñ¼Æ¡A¨Ã¨Ì»İ¨D¦^¶Ç»İ­nªº°Ñ¼Æ­È
+	//æ­¤é¡åˆ¥æœƒä¾ç…§æ¨¹å…¥çš„åƒæ•¸ä¿®æ”¹ç’°å¢ƒåƒæ•¸ï¼Œä¸¦ä¾éœ€æ±‚å›å‚³éœ€è¦çš„åƒæ•¸å€¼
 	public static final int LARGE=3;
 	public static final int MEDIUM=2;
 	public static final int SMALL=1;
 	
 	public enum Water{OCEAN,FRESHWATER};
 	
-	private int fishTankSize;	//³½¬û¤j¤p
-	private int[] fishTankXYZSize=new int[3];	//³½¬ûªºªø¼e°ª
-	
+	private int fishTankSize;	//é­šç¼¸å¤§å°
+	private int[] fishTankXYZSize=new int[3];	//é­šç¼¸çš„é•·å¯¬é«˜
 
-	private double waterQuality;	//¤ô½è
-	private double waterTemperature;	//¤ô·Å
-	private int stool;	//ÁT«K¶q
+	private double waterQuality;	//æ°´è³ª
+	private double waterTemperature;	//æ°´æº«
+	private int stool;	//ç³ä¾¿é‡
 	private ArrayList<int[]> stoolXY=new ArrayList<int[]>();
 	private ArrayList<int[]> feedXY=new ArrayList<int[]>();
-	private Water water;	//®ü¤ôÁÙ¬O²H¤ô
-	//private int light;	//©ú«G«×
-	private double oxygen;	//§t®ñ¶q
+	private Water water;	//æµ·æ°´é‚„æ˜¯æ·¡æ°´
+	//private int light;	//æ˜äº®åº¦
+	private double oxygen;	//å«æ°§é‡
 	
 	public Enviroment(int fishTankSize,double waterQuality,double waterTemperature,int stool,int light,double oxygen,Water water)
 	{
@@ -83,7 +81,6 @@ public class Enviroment {
 		this.feedXY=feedXY;
 	}
 	
-	
 	public void setOxygen(double oxygen)
 	{
 		this.oxygen=oxygen;
@@ -110,7 +107,6 @@ public class Enviroment {
 			fishTankXYZSize[2]=30;	//Z
 		}
 	}
-	
 	
 	public int getFishTankSize()
 	{
