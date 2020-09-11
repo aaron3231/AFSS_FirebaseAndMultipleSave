@@ -24,8 +24,8 @@ public class Feed extends EnviromentEvent {
 
 		int nFeeds=temp.size();
 		/*
-		//§ì¨úÁı­¹¾¹¥á¥Xªº¹}®Æ¶q
-		int nFeeds=1;	//¼È®É³]©w¡A¤§«á·|§ìÁı­¹¾¹ªº­È
+		//æŠ“å–é¤µé£Ÿå™¨ä¸Ÿå‡ºçš„é£¼æ–™é‡
+		int nFeeds=1;	//æš«æ™‚è¨­å®šï¼Œä¹‹å¾ŒæœƒæŠ“é¤µé£Ÿå™¨çš„å€¼
 		for(int i=0;i<nFeeds;i++)
 		{
 			int [] feed=new int[3];
@@ -36,8 +36,8 @@ public class Feed extends EnviromentEvent {
 			temp.add(feed);
 		}
 		*/
-		ArrayList<Fish> aliveFish=new ArrayList<Fish>();		//¦s¬¡¥B¹¡­¹«×¨Sº¡100%ªº³½
-		ArrayList<Fish> satietyFish=new ArrayList<Fish>();		//¦s¬¡¥B¹¡­¹«×¶W¹L100%ªº³½
+		ArrayList<Fish> aliveFish=new ArrayList<Fish>();		//å­˜æ´»ä¸”é£½é£Ÿåº¦æ²’æ»¿100%çš„é­š
+		ArrayList<Fish> satietyFish=new ArrayList<Fish>();		//å­˜æ´»ä¸”é£½é£Ÿåº¦è¶…é100%çš„é­š
 		for(int i=0;i<nFishs;i++)
 		{
 			if(fishs[i].getFishStatus()!=FishStatus.DEATH)
@@ -54,11 +54,11 @@ public class Feed extends EnviromentEvent {
 			feed=temp.get(i);
 			if(aliveFish.size()!=0)
 			{
-				//¿ï¥X³Ì°ªÅv­«ªº³½¡A±N¹}®Æ¤À°tµ¹¥L
-				//Åv­«¤½¦¡¡G(100-¹¡­¹«×(%)+·m­¹«×/2) / (¶ZÂ÷/10) = Åv­«
-				//Åv­«¤jªº·|Àu¥ı¤À°tµ¹¥L
+				//é¸å‡ºæœ€é«˜æ¬Šé‡çš„é­šï¼Œå°‡é£¼æ–™åˆ†é…çµ¦ä»–
+				//æ¬Šé‡å…¬å¼ï¼š(100-é£½é£Ÿåº¦(%)+æ¶é£Ÿåº¦/2) / (è·é›¢/10) = æ¬Šé‡
+				//æ¬Šé‡å¤§çš„æœƒå„ªå…ˆåˆ†é…çµ¦ä»–
 				Fish chooseFish=aliveFish.get(0);
-				double maxWeights;	//¬ö¿ı³Ì°ªÅv­«ªº³½ªºÅv­«
+				double maxWeights;	//ç´€éŒ„æœ€é«˜æ¬Šé‡çš„é­šçš„æ¬Šé‡
 				maxWeights=(100-chooseFish.getSatiationRate()+chooseFish.getSnatch()/2) / 
 						(Math.sqrt(
 								((chooseFish.getNowPosition()[0]-feed[0])*(chooseFish.getNowPosition()[0]-feed[0]))
@@ -81,14 +81,14 @@ public class Feed extends EnviromentEvent {
 					}
 				}
 				
-				//±N¹}®Æ°tµ¹¿ï­«ªº³½
+				//å°‡é£¼æ–™é…çµ¦é¸é‡çš„é­š
 				chooseFish.setMyMove(FishMove.EATING);
 				chooseFish.setGoalPosition(null);
 				chooseFish.setFightTarget(null);
 				ArrayList<int[]> fishFeedArray=chooseFish.getFeedArray();
 				fishFeedArray.add(feed);
 				chooseFish.setFeedArray(fishFeedArray);
-				chooseFish.setSatiation(chooseFish.getSatiation()+device.feeder[device.getFeederSelector()].getGrain());	//¤§«á¬O§ì¹}®Æªº­È
+				chooseFish.setSatiation(chooseFish.getSatiation()+device.feeder[device.getFeederSelector()].getGrain());	//ä¹‹å¾Œæ˜¯æŠ“é£¼æ–™çš„å€¼
 				alreadyFeed.add(feed);
 				if(chooseFish.getSatiationRate()>=100)
 				{
@@ -96,13 +96,12 @@ public class Feed extends EnviromentEvent {
 					satietyFish.add(chooseFish);
 				}
 			}
-			
 			else if(satietyFish.size()!=0)
 			{
-				//¿ï¥X¶ZÂ÷³Ìªñªº³½¡A±N¹}®Æ¤À°tµ¹¥L
-				//·í³½¶ZÂ÷¶W¹L5¤½¤À®É¡A¤£·|¦Y¹}®Æ
+				//é¸å‡ºè·é›¢æœ€è¿‘çš„é­šï¼Œå°‡é£¼æ–™åˆ†é…çµ¦ä»–
+				//ç•¶é­šè·é›¢è¶…é5å…¬åˆ†æ™‚ï¼Œä¸æœƒåƒé£¼æ–™
 				Fish chooseFish=satietyFish.get(0);
-				double maxWeights;	//¶ZÂ÷³Ìªñªº³½ªº¶ZÂ÷
+				double maxWeights;	//è·é›¢æœ€è¿‘çš„é­šçš„è·é›¢
 				maxWeights=Math.sqrt(
 								((chooseFish.getNowPosition()[0]-feed[0])*(chooseFish.getNowPosition()[0]-feed[0]))
 								+((chooseFish.getNowPosition()[1]-feed[1])*(chooseFish.getNowPosition()[1]-feed[1]))
@@ -121,14 +120,14 @@ public class Feed extends EnviromentEvent {
 					}
 				}
 				if(maxWeights<=5) {
-					//±N¹}®Æ°tµ¹¿ï­«ªº³½
+					//å°‡é£¼æ–™é…çµ¦é¸é‡çš„é­š
 					chooseFish.setMyMove(FishMove.EATING);
 					chooseFish.setGoalPosition(null);
 					chooseFish.setFightTarget(null);
 					ArrayList<int[]> fishFeedArray=chooseFish.getFeedArray();
 					fishFeedArray.add(feed);
 					chooseFish.setFeedArray(fishFeedArray);
-					chooseFish.setSatiation(chooseFish.getSatiation()+5);	//¤§«á¬O§ì¹}®Æªº­È
+					chooseFish.setSatiation(chooseFish.getSatiation()+5);	//ä¹‹å¾Œæ˜¯æŠ“é£¼æ–™çš„å€¼
 					alreadyFeed.add(feed);
 					if(chooseFish.getSatiationRate()>=200)
 						satietyFish.remove(chooseFish);
@@ -139,7 +138,6 @@ public class Feed extends EnviromentEvent {
 			temp.remove(a);
 		
 		enviroment.setFeedXY(temp);
-		
 	}
 
 	@Override
