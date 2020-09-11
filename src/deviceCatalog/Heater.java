@@ -2,15 +2,15 @@ package deviceCatalog;
 
 import enviroment.Enviroment;
 
-//¥[¼ö¾¹
+//åŠ ç†±å™¨
 public class Heater extends Device
 {
-	private static final double HEATERRATE = 0.5; //¥[¼ö®Ä²v(C)
-	private static final double ENVIRONMENT_MAX_TEMPERATURE = 38; //Àô¹Ò¤º³Ì¤j·Å«×
-	//heaterÅÜ¼Æ
-	private double maxTemperature; //¥[¼ö·Å«×³Ì¤j¤W­­
+	private static final double HEATERRATE = 0.5; //åŠ ç†±æ•ˆç‡(C)
+	private static final double ENVIRONMENT_MAX_TEMPERATURE = 38; //ç’°å¢ƒå…§æœ€å¤§æº«åº¦
+	//heaterè®Šæ•¸
+	private double maxTemperature; //åŠ ç†±æº«åº¦æœ€å¤§ä¸Šé™
 	
-	//«Øºc¤¸
+	//å»ºæ§‹å…ƒ
 	public Heater(String name, int price, String statement, int operateModel, double maxTemperature) 
 	{
 		super(name,price,statement, operateModel);
@@ -22,7 +22,7 @@ public class Heater extends Device
 	{
 		if(maxTemperature < ENVIRONMENT_MAX_TEMPERATURE)
 		{
-			System.out.printf("¥[·Å¾¹³Ì¤j¤W­­¬° %f «× ¦Û°ÊÀ°±z³]©w¦¨%f«× %n",ENVIRONMENT_MAX_TEMPERATURE,ENVIRONMENT_MAX_TEMPERATURE);
+			System.out.printf("åŠ æº«å™¨æœ€å¤§ä¸Šé™ç‚º %f åº¦ è‡ªå‹•å¹«æ‚¨è¨­å®šæˆ%fåº¦ %n",ENVIRONMENT_MAX_TEMPERATURE,ENVIRONMENT_MAX_TEMPERATURE);
 			this.maxTemperature = maxTemperature;
 		}
 		else
@@ -35,16 +35,16 @@ public class Heater extends Device
 		return this.maxTemperature;
 	}
 	
-	//¹ïÀô¹Ò¶i¦æ¥[¼ö
+	//å°ç’°å¢ƒé€²è¡ŒåŠ ç†±
 	public void heat(Enviroment environment) 
 	{
-		//­Y¥[¼ö«á¤p©ó³Ì¤j¤W­­¡A«h°µ¥[¼ö
+		//è‹¥åŠ ç†±å¾Œå°æ–¼æœ€å¤§ä¸Šé™ï¼Œå‰‡åšåŠ ç†±
 		if( (environment.getWaterTemperature() + HEATERRATE) < this.maxTemperature ) 
 		{
 			environment.setWaterTemperature(environment.getWaterTemperature()+HEATERRATE);
 		}
 	}
-	//Àx¦s
+	//å„²å­˜
 	@Override
 	public String saveData() 
 	{
@@ -69,7 +69,7 @@ public class Heater extends Device
 		String forward;
 		forward = super.toString();
 		String str;
-		str =  String.format("¥[¼ö³Ì¤j¤W­­¡G%.2f    ¥[¼ö³t²v¡G%.2f %n", this.maxTemperature, HEATERRATE);
+		str =  String.format("åŠ ç†±æœ€å¤§ä¸Šé™ï¼š%.2f    åŠ ç†±é€Ÿç‡ï¼š%.2f %n", this.maxTemperature, HEATERRATE);
 		return forward + str;
 	}
 }
