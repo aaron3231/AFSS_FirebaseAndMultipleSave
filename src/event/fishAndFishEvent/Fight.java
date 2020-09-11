@@ -14,20 +14,19 @@ import event.Event;
 import event.FishAndFishEvent;
 import java.util.concurrent.TimeUnit;
 public class Fight extends FishAndFishEvent{
-	public static ArrayList<String> fightingFishs=new ArrayList<String>();	//¬ö¿ı¥Ø«e¦³­ş¨Ç³½¥¿¦b¥´¬[¡A¦³¦A¥´ªº¸Ü´N¤£·|¦C¤J§PÂ_
+	public static ArrayList<String> fightingFishs=new ArrayList<String>();	//ç´€éŒ„ç›®å‰æœ‰å“ªäº›é­šæ­£åœ¨æ‰“æ¶ï¼Œæœ‰å†æ‰“çš„è©±å°±ä¸æœƒåˆ—å…¥åˆ¤æ–·
 	private static final SecureRandom randomNumbers = new SecureRandom();
 	
-	public static void clearFightFish(Fish[] fishs,int nFishs)	//²MªÅ¥´¬[¤¤ªº³½
+	public static void clearFightFish(Fish[] fishs,int nFishs)	//æ¸…ç©ºæ‰“æ¶ä¸­çš„é­š
 	{
 		fightingFishs.clear();
-		//±N¥¿¦b¥´¬[¥B¨S¦ºªº³½ÅÜ¦^¥¿±`²¾°Ê
+		//å°‡æ­£åœ¨æ‰“æ¶ä¸”æ²’æ­»çš„é­šè®Šå›æ­£å¸¸ç§»å‹•
 		for(int i=0;i<nFishs;i++)
 		{
 			if(fishs[i].getMyMove()==Fish.FishMove.FIGHTING)
 				fishs[i].setMyMove(Fish.FishMove.NATURAL);
 		}
 	}
-	
 	
 	@Override
 	public void check(Fish a,Fish b,int[] eventArray,String[] eventArrayDescription,int nEvent[])
@@ -46,9 +45,9 @@ public class Fight extends FishAndFishEvent{
 					((a.getNowPosition()[0]-b.getNowPosition()[0])*(a.getNowPosition()[0]-b.getNowPosition()[0]))
 					+((a.getNowPosition()[1]-b.getNowPosition()[1])*(a.getNowPosition()[1]-b.getNowPosition()[1]))
 					+((a.getNowPosition()[2]-b.getNowPosition()[2])*(a.getNowPosition()[2]-b.getNowPosition()[2])));
-			if(leanght<=5)		//¤§«á­n¼gmeet(¨â°¦³½¬O§_¦bªşªñªº§PÂ_)
+			if(leanght<=5)		//ä¹‹å¾Œè¦å¯«meet(å…©éš»é­šæ˜¯å¦åœ¨é™„è¿‘çš„åˆ¤æ–·)
 			{
-				int N =randomNumbers.nextInt(100); //¬°´ú¸Õ¤è«K³]©wµ{5¡A¤§«á­È¬°100
+				int N =randomNumbers.nextInt(100); //ç‚ºæ¸¬è©¦æ–¹ä¾¿è¨­å®šç¨‹5ï¼Œä¹‹å¾Œå€¼ç‚º100
 				if(N < a.getFight() && N < b.getFight()) {
 					fightingFishs.add(a.getFishNO());
 					fightingFishs.add(b.getFishNO());
@@ -80,7 +79,7 @@ public class Fight extends FishAndFishEvent{
 	@Override
 	protected void description(Fish a,Fish b,int[] eventArray,String[] eventArrayDescription,int nEvent[])
 	{
-		int ahurt,bhurt;	//¨â°¦³½ªº¨ü¶Ë­È
+		int ahurt,bhurt;	//å…©éš»é­šçš„å—å‚·å€¼
 		ahurt=a.getHurt();
 		bhurt=b.getHurt();
 		int fightDamage;
@@ -91,7 +90,7 @@ public class Fight extends FishAndFishEvent{
 		{
 			fightDamage=b.getFight()-a.getFight();
 		}
-		String str;	//¨Æ¥ó´y­z
+		String str;	//äº‹ä»¶æè¿°
 		if(a.getWeight()>b.getWeight())
 		{
 			bhurt +=fightDamage;
@@ -107,16 +106,13 @@ public class Fight extends FishAndFishEvent{
 			bhurt +=fightDamage;
 			ahurt +=fightDamage;
 		}
-		//str=String.format("%s ©M %s ¥´¬[¡G%n%d    %d%n", a.getFishNO(), b.getFishNO(), a.getHurt(), b.getHurt());
+		//str=String.format("%s å’Œ %s æ‰“æ¶ï¼š%n%d    %d%n", a.getFishNO(), b.getFishNO(), a.getHurt(), b.getHurt());
 		//System.out.println(str);
-		
-	
 		
 		a.setHurt(ahurt);
 		b.setHurt(bhurt);
 		str=String.format("%d    %d", a.getHurt(), b.getHurt());
 		//System.out.println(str);
-		
 		
 		a.setMyMove(FishMove.FIGHTING);
 		b.setMyMove(FishMove.FIGHTING);
@@ -127,14 +123,13 @@ public class Fight extends FishAndFishEvent{
 		a.setNoFight(0);
 		b.setNoFight(0);
 		
-		
-		//±N¨Æ¥ó¤W¶Ç¦Ü¸ê®Æ®w
+		//å°‡äº‹ä»¶ä¸Šå‚³è‡³è³‡æ–™åº«
 		String des;
-		des=FishCataLog.getFishChineseName(a)+"("+a.getFishNO()+")"+"©M"+
+		des=FishCataLog.getFishChineseName(a)+"("+a.getFishNO()+")"+"å’Œ"+
 				FishCataLog.getFishChineseName(b)+"("+b.getFishNO()+")" +
-				"¥´°_¨Ó¤F!!!";
+				"æ‰“èµ·ä¾†äº†!!!";
 		
-		//¬ö¿ıµo¥Íªº¨Æ¥ó
+		//ç´€éŒ„ç™¼ç”Ÿçš„äº‹ä»¶
 		eventArray[nEvent[0]]=1;
 		eventArrayDescription[nEvent[0]]=des;
 		nEvent[0]++;
@@ -146,7 +141,6 @@ public class Fight extends FishAndFishEvent{
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		Event.event.insertTable("¥´¬[",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
+		Event.event.insertTable("æ‰“æ¶",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
 	}
-
 }
