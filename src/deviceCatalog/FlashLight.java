@@ -6,9 +6,9 @@ import landScape.WaterPlant;
 
 public class FlashLight extends Device {
 
-	private int lightHour = 0; //³Ñ¾l·Ó©ú®É¶¡
+	private int lightHour = 0; //å‰©é¤˜ç…§æ˜Žæ™‚é–“
 	
-	//«Øºc¤¸
+	//å»ºæ§‹å…ƒ
 	public FlashLight(String name, int price, String statement, int operateModel) 
 	{
 		super(name, price, statement, operateModel);
@@ -17,13 +17,12 @@ public class FlashLight extends Device {
 	//set function
 	public void setLightHour(int lighthour) 
 	{
-		//¦Û°Ê¼Ò¦¡¤~¯àSet
+		//è‡ªå‹•æ¨¡å¼æ‰èƒ½Set
 		if(this.getOperateModel() == AUTOMATIC) 
 		{
 			this.lightHour = lighthour;
 		}
 	}
-	
 	
 	//get function
 	public int getLightHour() 
@@ -31,15 +30,15 @@ public class FlashLight extends Device {
 		return this.lightHour;
 	}
 	
-	//ÀH®É¶¡¦©°£ª«¥ó¤º ³Ñ¾l·Ó©ú®É¶¡
+	//éš¨æ™‚é–“æ‰£é™¤ç‰©ä»¶å…§ å‰©é¤˜ç…§æ˜Žæ™‚é–“
 	public void lighthourDecrease() 
 	{
-		//call¤@¦¸function¦©¬ö¿ý®É¶¡¤@¤p®É(³æ¦ì®É¶¡)
+		//callä¸€æ¬¡functionæ‰£ç´€éŒ„æ™‚é–“ä¸€å°æ™‚(å–®ä½æ™‚é–“)
 		if(lightHour > 0) 
 		{
 			this.lightHour -= 1;
 		}
-		//­Y®É¶¡¨ì«hÃö³¬³]³Æ°õ¦æ
+		//è‹¥æ™‚é–“åˆ°å‰‡é—œé–‰è¨­å‚™åŸ·è¡Œ
 		if(lightHour <= 0) 
 		{
 			this.lightHour = 0;
@@ -47,24 +46,23 @@ public class FlashLight extends Device {
 		}
 	}
 	
-	//·Ó©ú¾¹¼vÅT¤ô¯ó¥Í©R
+	//ç…§æ˜Žå™¨å½±éŸ¿æ°´è‰ç”Ÿå‘½
 	public void affectWaterPlant(LandScape landScape) 
 	{
 		int i,j;
-		//´M§ä¨C¤@®æ¦pªG¬O¤ô¯ó«h°µ°Ê§@
+		//å°‹æ‰¾æ¯ä¸€æ ¼å¦‚æžœæ˜¯æ°´è‰å‰‡åšå‹•ä½œ
 		for(i=0;i<landScape.getTable().length;i++) 
 		{
 			for(j=0;j<landScape.getTable()[0].length;j++) 
 			{
-				//check¦pªGtable¤W¬O¤ô¯ó
+				//checkå¦‚æžœtableä¸Šæ˜¯æ°´è‰
 				if(landScape.getTable()[i][j].getPrice()==20) 
 				{
-					//¦^´_¤@¦¸¤ô¯ó ·lÃa­È
+					//å›žå¾©ä¸€æ¬¡æ°´è‰ æå£žå€¼
 					landScape.getTable()[i][j].setDamageRateNow(landScape.getTable()[i][j].getDamageRateNow()-landScape.getTable()[i][j].DAMAGE_RATE);
 				}
 			}
 		}
-		
 	}
 	
 	//override newOne function
@@ -77,7 +75,7 @@ public class FlashLight extends Device {
 		this.setLightHour(0);
 	}
 	
-	//Àx¦s
+	//å„²å­˜
 	@Override
 	public String saveData() 
 	{
@@ -101,7 +99,7 @@ public class FlashLight extends Device {
 		String forward;
 		forward = super.toString();
 		String str;
-		str =  String.format("³Ñ¾l·Ó©ú®É¶¡¡G%d %n", this.lightHour);
+		str =  String.format("å‰©é¤˜ç…§æ˜Žæ™‚é–“ï¼š%d %n", this.lightHour);
 		return forward + str;
 	}
 }
