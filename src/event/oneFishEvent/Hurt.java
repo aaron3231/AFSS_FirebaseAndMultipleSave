@@ -6,22 +6,15 @@ import fish.Fish.FishHealthly;
 
 public class Hurt extends OneFishEvent {
 	
-	
 	@Override
 	public void check(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
-		if(a.getNoFight()>0 && a.getHurt()>=1)	//¨S¦³¥´¬[
-		{
+		
+		if(a.getNoFight()>0 && a.getHurt()>=1)	//
 			a.setHurt(a.getHurt()-1);
-		}
-			
 		if (a.getHurt()/a.getWeight() >= 60)
-		{
 			a.setDeath(a.getDeath()+1);
-		}
 		if (a.getHurt()/a.getWeight() >= 50)
-		{
 			a.setSick(a.getSick()+1);
-		}
 		
 		if(a.getHurt()/a.getWeight()>=50)
 		{
@@ -37,13 +30,9 @@ public class Hurt extends OneFishEvent {
 		else
 		{
 			if(a.getFishHealthly()==FishHealthly.HURT)
-			{
 				a.setFishHealthly(FishHealthly.HEALTH);
-			}
 			else if(a.getFishHealthly()==FishHealthly.BOTH)
-			{
 				a.setFishHealthly(FishHealthly.SICKNESS);
-			}
 		}
 	}
 
@@ -51,5 +40,4 @@ public class Hurt extends OneFishEvent {
 	protected void description(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
 
 	}
-
 }
