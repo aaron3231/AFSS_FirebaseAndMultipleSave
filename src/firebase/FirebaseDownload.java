@@ -51,14 +51,13 @@ public class FirebaseDownload {
 	private String landscape_pos;
 	private ArrayList<FirebaseData> fishs = new ArrayList<FirebaseData>();
 
-	
 	public FirebaseDownload() throws IOException
 	{
 		FileInputStream serviceAccount = null;
 		try {
 			serviceAccount = new FileInputStream("src//afss-17907-firebase-adminsdk-s3ka8-90b8963c16.json");
 		} catch (FileNotFoundException e1) {
-			// TODO ¦Û°Ê²£¥Íªº catch °Ï¶ô
+			// TODO è‡ªå‹•ç”¢ç”Ÿçš„ catch å€å¡Š
 			System.out.println("Firebase download fail!");
 		}
 
@@ -69,11 +68,10 @@ public class FirebaseDownload {
 			  .setDatabaseUrl("https://afss-17907.firebaseio.com")
 			  .build();
 		} catch (IOException e) {
-			// TODO ¦Û°Ê²£¥Íªº catch °Ï¶ô
+			// TODO è‡ªå‹•ç”¢ç”Ÿçš„ catch å€å¡Š
 			e.printStackTrace();
 		}
 
-		
 		if(FirebaseApp.getApps().isEmpty())
 			FirebaseApp.initializeApp(options);
 		
@@ -87,8 +85,8 @@ public class FirebaseDownload {
 		    public void onDataChange(DataSnapshot dataSnapshot) {
 		        for (DataSnapshot d : dataSnapshot.getChildren()) {
 			        	
-		        	String[] enviro_value = null;
-			        if(d.getKey().equals("time"))
+		            String[] enviro_value = null;
+			    if(d.getKey().equals("time"))
 		        		time = d.child("dateAndTime").getValue().toString();
 		            else if(d.getKey().equals("cost"))
 		            	cost = d.child("cost").getValue().toString();
@@ -184,10 +182,8 @@ public class FirebaseDownload {
 		 
 		ArrayList<int[]> stoolx=new ArrayList<int[]>();
 		if(stoolXY.length()!=0) {
-			for(int i=0;i<Integer.parseInt(enviro_value[4])*3;i++) {
+			for(int i=0;i<Integer.parseInt(enviro_value[4])*3;i++)
 				 stoolxy_value[i]=Integer.parseInt( getstoolXY_value[i]);
-				
-			}
 		}
 		stoolx.add(stoolxy_value);
 		aquarium.getEnviroment().setStoolXY(stoolx);
@@ -205,7 +201,6 @@ public class FirebaseDownload {
 		String []value_heat=heaterbuyer.split(",");
 		aquarium.getDevice().loadtoSelectorData(Integer.parseInt(value_feed[0]),Integer.parseInt(value_filter[0]), Integer.parseInt(value_inflat[0]), Integer.parseInt(value_flash[0]), Integer.parseInt(value_heat[0]));
 		 
-		
 		int count = 0;
 		
 		for(FirebaseData a: fishs) {
@@ -246,8 +241,6 @@ public class FirebaseDownload {
 			 aquarium.getFishs()[count].setFightTarget(aquarium.getFishs()[temp_val]);	 
 		    }
 			 ////////////////////////////////////////////////////////////
-			 ///////////////////////////////////////////////////////////
-			 ///////////////////////////////////////////////////////////
 			 Boolean max = false;
 			 if(value.length >16) {
 				 if(value[16].equals("true"))
@@ -301,21 +294,17 @@ public class FirebaseDownload {
 			  if(feedXY.length()!=0) {
 				 for(int q=0;q<value_feedArray.length;q++) {
 					 //feedxy_val[count]=Integer.parseInt(value_feedArray[count]);
-					
 				 }
 				 //feedArray.add(feedxy_val);
 			 //aquarium.getFishs()[count].setFeedArray(feedArray);
-
 			 count++;
-			 
 		 }
 		}
-		
 		String[] temp=enviroment.split(",");
-        aquarium.getLandSpace().loadtoTableData(landscape_pos, Integer.parseInt(temp[1])+1);;
-        aquarium.getLandSpace().loadtoQuantityData(landscape_nums);
-        System.out.println("landscape_pos:\n"+aquarium.getLandSpace().savetoTableData());
-        System.out.println("landscape_nums:\n"+aquarium.getLandSpace().savetoQuantityData());
+		aquarium.getLandSpace().loadtoTableData(landscape_pos, Integer.parseInt(temp[1])+1);;
+		aquarium.getLandSpace().loadtoQuantityData(landscape_nums);
+		System.out.println("landscape_pos:\n"+aquarium.getLandSpace().savetoTableData());
+		System.out.println("landscape_nums:\n"+aquarium.getLandSpace().savetoQuantityData());
 		
 		return aquarium;
 	}
