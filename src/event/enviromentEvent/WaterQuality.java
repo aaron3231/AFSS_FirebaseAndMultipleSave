@@ -21,7 +21,7 @@ public class WaterQuality extends EnviromentEvent {
 	@Override
 	public void check(Fish[] fishs, Enviroment enviroment, Timerr timer,int nFishs,LandScape landSpace,DeviceCatalog device
 			,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
-		//­pºâ¦º³½¼Æ¶q
+		//è¨ˆç®—æ­»é­šæ•¸é‡
 		int nDeadFish=0;
 		for(int i=0;i<nFishs;i++)
 		{
@@ -52,7 +52,7 @@ public class WaterQuality extends EnviromentEvent {
 		}
 		
 		enviroment.setWaterQuality(enviroment.getWaterQuality()-nDeadFish*0.1);
-		//¤ô½è¤Ó§C³½¦º¤`­È¼W¥[
+		//æ°´è³ªå¤ªä½é­šæ­»äº¡å€¼å¢åŠ 
 		if(enviroment.getWaterQuality()<=15)
 		{
 			for(int i=0;i<nFishs;i++) {
@@ -71,7 +71,7 @@ public class WaterQuality extends EnviromentEvent {
 			
 			description(fishs, enviroment, timer, nFishs, landSpace, device,  eventArray, eventArrayDescription, nEvent);
 
-			//¤ô½èÁV¿|
+			//æ°´è³ªç³Ÿç³•
 		}
 		else if(enviroment.getWaterQuality()<=50)
 		{
@@ -82,21 +82,21 @@ public class WaterQuality extends EnviromentEvent {
 			
 			description(fishs, enviroment, timer, nFishs, landSpace, device, eventArray, eventArrayDescription, nEvent);
 
-			//¤ô½è¤£¨}
+			//æ°´è³ªä¸è‰¯
 		}
 		/*
-		//¤ô½è¤£¨}¤ô¯ó¦º¤`­È¼W¥[
+		//æ°´è³ªä¸è‰¯æ°´è‰æ­»äº¡å€¼å¢åŠ 
 		if(enviroment.getWaterQuality()<=30)
 		{
-			//¦º¤`­È+3
+			//æ­»äº¡å€¼+3
 		}
 		else if(enviroment.getWaterQuality()<=50)
 		{
-			//¦º¤`­È+2
+			//æ­»äº¡å€¼+2
 		}
 		else if(enviroment.getWaterQuality()<=70)
 		{
-			//¦º¤`­È+1
+			//æ­»äº¡å€¼+1
 		}
 		*/
 		if(enviroment.getWaterQuality()<0)
@@ -108,12 +108,12 @@ public class WaterQuality extends EnviromentEvent {
 	@Override
 	protected void description(Fish[] fishs, Enviroment enviroment, Timerr timer,int nFishs,LandScape landSpace,DeviceCatalog device
 			,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
-		//±N¨Æ¥ó¤W¶Ç¦Ü¸ê®Æ®w
+		//å°‡äº‹ä»¶ä¸Šå‚³è‡³è³‡æ–™åº«
 		String des="";
 		if(enviroment.getWaterQuality()<=25)
 		{
-			des="³½¬ûÄÆ¥X¤FÃa¨ı¹Dêy";
-			//¤ô½èÁV¿|
+			des="é­šç¼¸é£„å‡ºäº†å£å‘³é“çœ";
+			//æ°´è³ªç³Ÿç³•
 			
 			eventArray[nEvent[0]]=12;
 			eventArrayDescription[nEvent[0]]=des;
@@ -121,14 +121,13 @@ public class WaterQuality extends EnviromentEvent {
 		}
 		else if(enviroment.getWaterQuality()<=50)
 		{
-			des="³½¬û¸Ìªº¤ô½è¦³ÂIÅ¼³á¡ã";
-			//¤ô½è¤£¨}
+			des="é­šç¼¸è£¡çš„æ°´è³ªæœ‰é»é«’å–”ï½";
+			//æ°´è³ªä¸è‰¯
 			
 			eventArray[nEvent[0]]=11;
 			eventArrayDescription[nEvent[0]]=des;
 			nEvent[0]++;
 		}
-		
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		Date beginDate=new Date();
@@ -137,8 +136,6 @@ public class WaterQuality extends EnviromentEvent {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		Event.event.insertTable("¤ô½è",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
-		
+		Event.event.insertTable("æ°´è³ª",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
 	}
-
 }
