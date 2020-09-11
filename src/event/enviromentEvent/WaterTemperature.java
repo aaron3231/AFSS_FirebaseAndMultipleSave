@@ -24,14 +24,14 @@ public class WaterTemperature extends EnviromentEvent {
 		{
 			enviroment.setWaterTemperature(enviroment.getWaterTemperature()-1);
 		}
-		else if(timer.getTimer().get(Calendar.HOUR_OF_DAY) %24 ==0 && enviroment.getWaterTemperature()>18)	//18<·Å«×<19
+		else if(timer.getTimer().get(Calendar.HOUR_OF_DAY) %24 ==0 && enviroment.getWaterTemperature()>18)	//18<æº«åº¦<19
 		{
 			enviroment.setWaterTemperature(18);
 		}
 		
 		if(enviroment.getWater()==Water.FRESHWATER)
 		{
-			//¤ô·Å¤Ó§C³½¦º¤`­È¼W¥[
+			//æ°´æº«å¤ªä½é­šæ­»äº¡å€¼å¢åŠ 
 			if((enviroment.getWaterTemperature()>28 && enviroment.getWaterTemperature()<=33) ||
 					(enviroment.getWaterTemperature()>=18 && enviroment.getWaterTemperature()<=22))
 			{
@@ -46,7 +46,7 @@ public class WaterTemperature extends EnviromentEvent {
 		}
 		else if(enviroment.getWater()==Water.OCEAN)
 		{
-			//¤ô·Å¤Ó§C³½¦º¤`­È¼W¥[
+			//æ°´æº«å¤ªä½é­šæ­»äº¡å€¼å¢åŠ 
 			if((enviroment.getWaterTemperature()>28 && enviroment.getWaterTemperature()<=32) ||
 					(enviroment.getWaterTemperature()>=21 && enviroment.getWaterTemperature()<=24))
 			{
@@ -59,101 +59,95 @@ public class WaterTemperature extends EnviromentEvent {
 					fishs[i].setDeath(fishs[i].getDeath()+2);
 			}
 		}
-		
 		description(fishs, enviroment, timer, nFishs, landSpace, device, eventArray, eventArrayDescription, nEvent);
-		
 	}
 
 	@Override
 	protected void description(Fish[] fishs, Enviroment enviroment, Timerr timer, int nFishs,LandScape landSpace,DeviceCatalog device
 			,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
 		
-		//±N¨Æ¥ó¤W¶Ç¦Ü¸ê®Æ®w
-				String des="";
-				if(enviroment.getWater()==Water.FRESHWATER)
+		//å°‡äº‹ä»¶ä¸Šå‚³è‡³è³‡æ–™åº«
+			String des="";
+			if(enviroment.getWater()==Water.FRESHWATER)
+			{
+				if((enviroment.getWaterTemperature()>28 && enviroment.getWaterTemperature()<=33))
 				{
-					if((enviroment.getWaterTemperature()>28 && enviroment.getWaterTemperature()<=33))
-					{
-						//¤ô·Å°¾°ª
-						des="³½¨à­ÌÄ±±o¦³ÂI¼ö³á";
-						
-						eventArray[nEvent[0]]=13;
-						eventArrayDescription[nEvent[0]]=des;
-						nEvent[0]++;
-					}
-					else if((enviroment.getWaterTemperature()>=18 && enviroment.getWaterTemperature()<=22))
-					{
-						//¤ô·Å°¾§C
-						des="§Aªº³½¤£¤Ó·Q°Ê³á";
-						
-						eventArray[nEvent[0]]=15;
-						eventArrayDescription[nEvent[0]]=des;
-						nEvent[0]++;
-					}
-					else if(enviroment.getWaterTemperature()>33)
-					{
-						//¤ô·Å¹L°ª
-						des="§Aªº³½§ÖµN¼ôêy";
-						
-						eventArray[nEvent[0]]=14;
-						eventArrayDescription[nEvent[0]]=des;
-						nEvent[0]++;
-					}
-				}
-				else if(enviroment.getWater()==Water.OCEAN)
-				{
-					if((enviroment.getWaterTemperature()>28 && enviroment.getWaterTemperature()<=32)) 
-					{
-						//¤ô·Å°¾°ª
-						des="³½¨à­ÌÄ±±o¦³ÂI¼ö³á";
-						
-						eventArray[nEvent[0]]=13;
-						eventArrayDescription[nEvent[0]]=des;
-						nEvent[0]++;
-					}		
-					else if(enviroment.getWaterTemperature()>=21 && enviroment.getWaterTemperature()<=24)
-					{
-						//¤ô·Å°¾§C
-						des="§Aªº³½¤£¤Ó·Q°Ê³á";
-						
-						eventArray[nEvent[0]]=15;
-						eventArrayDescription[nEvent[0]]=des;
-						nEvent[0]++;
-					}
-					else if(enviroment.getWaterTemperature()>32)
-					{
-						//¤ô·Å¹L°ª
-						des="§Aªº³½§ÖµN¼ôêy";
-						
-						eventArray[nEvent[0]]=14;
-						eventArrayDescription[nEvent[0]]=des;
-						nEvent[0]++;
-					}	
-					else if(enviroment.getWaterTemperature()<=21)
-					{
-						//¤ô·Å¹L°ª
-						des="³½³£·Q¬ï¥~®MÅo";
-						
-						eventArray[nEvent[0]]=16;
-						eventArrayDescription[nEvent[0]]=des;
-						nEvent[0]++;
-					}
-				}
-				
-				
-				if(des!="")
-				{
-					SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-					Date beginDate=new Date();
-					try {
-						beginDate = sdf.parse("1/1/1");
-					} catch (ParseException e) {
-						e.printStackTrace();
-					}
-					Event.event.insertTable("¤ô·Å",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
+					//æ°´æº«åé«˜
+					des="é­šå…’å€‘è¦ºå¾—æœ‰é»ç†±å–”";
 
+					eventArray[nEvent[0]]=13;
+					eventArrayDescription[nEvent[0]]=des;
+					nEvent[0]++;
 				}
-				
+				else if((enviroment.getWaterTemperature()>=18 && enviroment.getWaterTemperature()<=22))
+				{
+					//æ°´æº«åä½
+					des="ä½ çš„é­šä¸å¤ªæƒ³å‹•å–”";
+
+					eventArray[nEvent[0]]=15;
+					eventArrayDescription[nEvent[0]]=des;
+					nEvent[0]++;
+				}
+				else if(enviroment.getWaterTemperature()>33)
+				{
+					//æ°´æº«éé«˜
+					des="ä½ çš„é­šå¿«ç…®ç†Ÿçœ";
+
+					eventArray[nEvent[0]]=14;
+					eventArrayDescription[nEvent[0]]=des;
+					nEvent[0]++;
+				}
+			}
+			else if(enviroment.getWater()==Water.OCEAN)
+			{
+				if((enviroment.getWaterTemperature()>28 && enviroment.getWaterTemperature()<=32)) 
+				{
+					//æ°´æº«åé«˜
+					des="é­šå…’å€‘è¦ºå¾—æœ‰é»ç†±å–”";
+
+					eventArray[nEvent[0]]=13;
+					eventArrayDescription[nEvent[0]]=des;
+					nEvent[0]++;
+				}		
+				else if(enviroment.getWaterTemperature()>=21 && enviroment.getWaterTemperature()<=24)
+				{
+					//æ°´æº«åä½
+					des="ä½ çš„é­šä¸å¤ªæƒ³å‹•å–”";
+
+					eventArray[nEvent[0]]=15;
+					eventArrayDescription[nEvent[0]]=des;
+					nEvent[0]++;
+				}
+				else if(enviroment.getWaterTemperature()>32)
+				{
+					//æ°´æº«éé«˜
+					des="ä½ çš„é­šå¿«ç…®ç†Ÿçœ";
+
+					eventArray[nEvent[0]]=14;
+					eventArrayDescription[nEvent[0]]=des;
+					nEvent[0]++;
+				}	
+				else if(enviroment.getWaterTemperature()<=21)
+				{
+					//æ°´æº«éé«˜
+					des="é­šéƒ½æƒ³ç©¿å¤–å¥—å›‰";
+
+					eventArray[nEvent[0]]=16;
+					eventArrayDescription[nEvent[0]]=des;
+					nEvent[0]++;
+				}
+			}
+
+			if(des!="")
+			{
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+				Date beginDate=new Date();
+				try {
+					beginDate = sdf.parse("1/1/1");
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				Event.event.insertTable("æ°´æº«",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
+				}
 	}
-
 }
