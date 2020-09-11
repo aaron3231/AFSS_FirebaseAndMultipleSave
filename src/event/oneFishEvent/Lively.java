@@ -4,19 +4,16 @@ import event.OneFishEvent;
 import fish.Fish;
 
 public class Lively extends OneFishEvent {
-	public static int livelyEditN=0;	//³o¤@½ü§PÂ_¤¤lively¤W¤É¦h¤Ö
+	public static int livelyEditN=0;	//é€™ä¸€è¼ªåˆ¤æ–·ä¸­livelyä¸Šå‡å¤šå°‘
 	@Override
 	public void check(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
-		a.setFight(a.getFight()+Lively.livelyEditN);	//·ílively¤W¤É®É¡A¦¹­È¤]·|¸òµÛ¤W¤É
-		a.setSnatch(a.getSnatch()+Lively.livelyEditN);//·ílively¤W¤É®É¡A¦¹­È¤]·|¸òµÛ¤W¤É
 		
-		
+		a.setFight(a.getFight()+Lively.livelyEditN);	//ç•¶livelyä¸Šå‡æ™‚ï¼Œæ­¤å€¼ä¹Ÿæœƒè·Ÿè‘—ä¸Šå‡
+		a.setSnatch(a.getSnatch()+Lively.livelyEditN);//ç•¶livelyä¸Šå‡æ™‚ï¼Œæ­¤å€¼ä¹Ÿæœƒè·Ÿè‘—ä¸Šå‡
 	}
 
 	@Override
 	protected void description(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
 		
-
 	}
-
 }
