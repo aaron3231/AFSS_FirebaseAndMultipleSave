@@ -22,18 +22,12 @@ public class Sick extends OneFishEvent {
 		}
 		
 		if(a.getSick()>=30)
-		{
 			a.setMaxSatiation(a.getMaxSatiation()-1);
-		}
-		else if(a.getSick()<30 && a.getWeight()>a.getMaxSatiation())	//¥Í¯f­È¤£ÄY­«®ÉºCºC¦^´_¹¡­¹«×
-		{
+		else if(a.getSick()<30 && a.getWeight()>a.getMaxSatiation())	//ç”Ÿç—…å€¼ä¸åš´é‡æ™‚æ…¢æ…¢å›žå¾©é£½é£Ÿåº¦
 			a.setMaxSatiation(a.getMaxSatiation()+1);
-		}
 		
 		if(a.getSick()>=45)
-		{
 			a.setFight(a.getFight()-1);
-		}
 		
 		if(a.getSick()>=60)
 		{
@@ -64,16 +58,15 @@ public class Sick extends OneFishEvent {
 
 	@Override
 	protected void description(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
-		//±N¨Æ¥ó¤W¶Ç¦Ü¸ê®Æ®w
+		//å°‡äº‹ä»¶ä¸Šå‚³è‡³è³‡æ–™åº«
 		String des;
 		des=FishCataLog.getFishChineseName(a)+"("+a.getFishNO()+")"+
-				"¥Í¯f·S%n½Ð¹}¥D¦h¥ÎÂI¤ß·ÓÅU³½<3";
+				"ç”Ÿç—…æƒ¹%nè«‹é£¼ä¸»å¤šç”¨é»žå¿ƒç…§é¡§é­š<3";
 		
-		//¬ö¿ý¨Æ¥óµo¥Í
+		//ç´€éŒ„äº‹ä»¶ç™¼ç”Ÿ
 		eventArray[nEvent[0]]=4;
 		eventArrayDescription[nEvent[0]]=des;
 		nEvent[0]++;	
-		
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		Date beginDate=new Date();
@@ -82,8 +75,6 @@ public class Sick extends OneFishEvent {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		Event.event.insertTable("¥Í¯f",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
-
+		Event.event.insertTable("ç”Ÿç—…",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
 	}
-
 }
