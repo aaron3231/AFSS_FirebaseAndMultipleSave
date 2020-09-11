@@ -12,8 +12,6 @@ class FishTestCase {
 
 	@Test
 	void testFishName() {
-		int a;
-		
 		
 		Fish fish=new ParacanthurusHepatus(5,5,5,5,5);
 		Fish fish1=new ParacanthurusHepatus(5,5,5,5,5);
@@ -28,8 +26,6 @@ class FishTestCase {
 		System.out.println(aliveFish.get(0).toString());
 		System.out.println(fish.toString());
 		
-		
 		System.out.println(fish.getClass().getName());
 	}
-
 }
