@@ -4,33 +4,23 @@ import event.OneFishEvent;
 import fish.Fish;
 
 public class Satiation extends OneFishEvent {
-	public static int satiationAddN=0;	//³o¤@½ü§PÂ_¤¤satiation¤W¤É¦h¤Ö
+	public static int satiationAddN=0;	//é€™ä¸€è¼ªåˆ¤æ–·ä¸­satiationä¸Šå‡å¤šå°‘
 	@Override
 	public void check(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
 		a.setSatiation(a.getSatiation()-1);
-		if(a.getSatiationRate()==100)
-		{
-			//¦Y¹¡¤F¡A¦³­nÅã¥Üª¬ºA¦A»¡
+		if(a.getSatiationRate()==100){//åƒé£½äº†ï¼Œæœ‰è¦é¡¯ç¤ºç‹€æ…‹å†èªª
 		}
 		
 		if(a.getSatiationRate()>100)
-		{
 			a.setDeath(a.getDeath()+1);
-		}
 		else if(a.getSatiationRate()>=200)
-		{
 			a.setDeath(100);
-		}
 		
 		if(a.getSatiationRate()<=100 && a.getFeedArray().size()!=0)
-		{
 			if(a.getLively()<100)
 				a.setLively(a.getLively()+Satiation.satiationAddN);
-		}
 		else if(a.getSatiationRate()>100)
-		{
 			a.setLively(a.getLively()-1);
-		}
 		
 		if(a.getSatiationRate()>=94 && a.getWeight()<a.getMaxWeight())
 		{
@@ -48,8 +38,6 @@ public class Satiation extends OneFishEvent {
 
 	@Override
 	protected void description(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
-		
 
 	}
-
 }
