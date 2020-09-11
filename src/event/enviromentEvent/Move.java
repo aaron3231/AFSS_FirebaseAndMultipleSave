@@ -13,12 +13,12 @@ import java.security.SecureRandom;
 public class Move extends EnviromentEvent {
 	private static final SecureRandom randomNumbers = new SecureRandom();
 	
-	//²¾°Ê¤@°¦³½
+	//ç§»å‹•ä¸€éš»é­š
 	public void moveAFish(Fish fish, Enviroment enviroment,LandScape landSpace)
 	{
-		//¥ı§PÂ_¦pªG²{¦b¦ì¸m¦bÂ\³]¤¤ªº¸Ü
-		//¨ú®ø¥´¬[
-		//Â\³]ªº¨C¤@®æ*15µ¥©ó¹ê»Ú®y¼Ğ
+		//å…ˆåˆ¤æ–·å¦‚æœç¾åœ¨ä½ç½®åœ¨æ“ºè¨­ä¸­çš„è©±
+		//å–æ¶ˆæ‰“æ¶
+		//æ“ºè¨­çš„æ¯ä¸€æ ¼*15ç­‰æ–¼å¯¦éš›åº§æ¨™
 		
 		if(fish.getFishStatus()!=FishStatus.DEATH)
 		{
@@ -26,7 +26,7 @@ public class Move extends EnviromentEvent {
 			longerXY[0]=fish.getGoalPosition()[0]-fish.getNowPosition()[0];
 			longerXY[1]=fish.getGoalPosition()[1]-fish.getNowPosition()[1];
 			longerXY[2]=fish.getGoalPosition()[2]-fish.getNowPosition()[2];
-			double longer;	//»P¥Øªº¦aªº¶ZÂ÷
+			double longer;	//èˆ‡ç›®çš„åœ°çš„è·é›¢
 			longer=Math.sqrt((longerXY[0]*longerXY[0])
 							+(longerXY[1]*longerXY[1])
 							+(longerXY[2]*longerXY[2]));
@@ -37,18 +37,10 @@ public class Move extends EnviromentEvent {
 				nowXY[1]+=(int) ((longerXY[1]/longer)*10);
 				nowXY[2]+=(int) ((longerXY[2]/longer)*10);
 			}
-			else if(fish.getGoalPosition()[0]==fish.getNowPosition()[0]
-					&&fish.getGoalPosition()[1]==fish.getNowPosition()[1]
-							&&fish.getGoalPosition()[2]==fish.getNowPosition()[2])
-			{
+			else if(fish.getGoalPosition()[0]==fish.getNowPosition()[0] &&fish.getGoalPosition()[1]==fish.getNowPosition()[1] &&fish.getGoalPosition()[2]==fish.getNowPosition()[2])
 				fish.setGoalPosition(null);
-			}
 			else
-			{
 				nowXY=fish.getGoalPosition();
-				
-				
-			}
 			fish.setNowPosition(nowXY);
 		}
 		else
@@ -60,11 +52,9 @@ public class Move extends EnviromentEvent {
 				nowXY[1]=enviroment.getFishTankXYZSize()[1]+10;
 			fish.setNowPosition(nowXY);
 		}
-		
 	}
 	
-	
-	//³]©w©Ò¦³³½ªº¥Øªº¦a¨Ã²¾°Ê¨e
+	//è¨­å®šæ‰€æœ‰é­šçš„ç›®çš„åœ°ä¸¦ç§»å‹•ç‰ 
 	@Override
 	public void check(Fish[] fishs, Enviroment enviroment, Timerr timer, int nFishs,LandScape landSpace,DeviceCatalog device
 			,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
@@ -76,7 +66,7 @@ public class Move extends EnviromentEvent {
 		}
 		for(Fish fish:aliveFish)
 		{
-			//±N«e¤@¦¸ªº¹}®Æ²M±¼
+			//å°‡å‰ä¸€æ¬¡çš„é£¼æ–™æ¸…æ‰
 			if(fish.getMyMove()==Fish.FishMove.EATING && fish.getGoalPosition()==null) {
 				/*if(fish.getMyMove()==Fish.FishMove.EATING)
 				{*/
@@ -87,9 +77,8 @@ public class Move extends EnviromentEvent {
 			}
 			if(fish.getMyMove()==Fish.FishMove.EATING)
 			{
-				if(fish.getFeedArray().size()!=0) {
+				if(fish.getFeedArray().size()!=0)
 					fish.setGoalPosition(fish.getFeedArray().get(0));
-				}
 				else {
 					fish.setMyMove(Fish.FishMove.NATURAL);
 					fish.naturalMove(enviroment.getFishTankXYZSize());
@@ -127,14 +116,13 @@ public class Move extends EnviromentEvent {
 							goalXY1[1]=goalXY[1];
 							goalXY1[2]=goalXY[2];
 							
-							
 							bounce[0]=randomNumbers.nextInt(13)-6;
 							bounce[1]=randomNumbers.nextInt(13)-6;
 							bounce[2]=randomNumbers.nextInt(13)-6;
 							goalXY[0]+=(bounce[0]+randomNumbers.nextInt(3)-1);
 							goalXY[1]+=(bounce[1]+randomNumbers.nextInt(3)-1);
 							goalXY[2]+=(bounce[2]+randomNumbers.nextInt(3)-1);
-							//Ãä¬É§PÂ_
+							//é‚Šç•Œåˆ¤æ–·
 							if(bound[0]<goalXY[0])	goalXY[0]=bound[0];
 							if(0>goalXY[0])	goalXY[0]=0;
 							if(bound[1]<goalXY[1])	goalXY[1]=bound[1];
@@ -143,13 +131,11 @@ public class Move extends EnviromentEvent {
 							if(0>goalXY[2])	goalXY[2]=0;
 							
 							fish.setGoalPosition(goalXY);
-							
-							
 						
 							goalXY1[0]-=(bounce[0]+randomNumbers.nextInt(3)-1);
 							goalXY1[1]-=(bounce[1]+randomNumbers.nextInt(3)-1);
 							goalXY1[2]-=(bounce[2]+randomNumbers.nextInt(3)-1);
-							//Ãä¬É§PÂ_
+							//é‚Šç•Œåˆ¤æ–·
 							if(bound[0]<goalXY1[0])	goalXY1[0]=bound[0];
 							if(0>goalXY1[0])	goalXY1[0]=0;
 							if(bound[1]<goalXY1[1])	goalXY1[1]=bound[1];
@@ -164,11 +150,11 @@ public class Move extends EnviromentEvent {
 			}
 			else if(fish.getGoalPosition()==null)
 			{
-				//©I¥s¥¿±`²¾°Ê­q¥X¥Ø¼ĞÂI
+				//å‘¼å«æ­£å¸¸ç§»å‹•è¨‚å‡ºç›®æ¨™é»
 				fish.naturalMove(enviroment.getFishTankXYZSize());
 			}
 		}
-		//²¾°Ê³½
+		//ç§»å‹•é­š
 		for(int i=0;i<nFishs;i++)
 			this.moveAFish(fishs[i], enviroment,landSpace);
 	}
