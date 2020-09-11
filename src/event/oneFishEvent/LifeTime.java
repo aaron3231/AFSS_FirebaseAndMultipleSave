@@ -15,9 +15,8 @@ public class LifeTime extends OneFishEvent {
 	@Override
 	public void check(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[])
 	{
-		if(a.getLifetime()<a.getLifeEnd()) {
+		if(a.getLifetime()<a.getLifeEnd())
 			a.setLifeTime(a.getLifetime()+1);
-		}
 		else if(a.getLifetime()==a.getLifeEnd())
 		{
 			a.setFishStatus(FishStatus.DEATH);
@@ -29,13 +28,12 @@ public class LifeTime extends OneFishEvent {
 	@Override
 	protected void description(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[])
 	{
-		//±N¨Æ¥ó¤W¶Ç¦Ü¸ê®Æ®w
+		//å°‡äº‹ä»¶ä¸Šå‚³è‡³è³‡æ–™åº«
 		String des;
 		des=FishCataLog.getFishChineseName(a)+"("+a.getFishNO()+")"+
-				"¹Ø²×¥¿½Ð¤FQQ";
-		
+				"å£½çµ‚æ­£è«‹äº†QQ";
 
-		//¬ö¿ý¨Æ¥óµo¥Í
+		//ç´€éŒ„äº‹ä»¶ç™¼ç”Ÿ
 		eventArray[nEvent[0]]=2;
 		eventArrayDescription[nEvent[0]]=des;
 		nEvent[0]++;
@@ -47,9 +45,6 @@ public class LifeTime extends OneFishEvent {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		Event.event.insertTable("¦ÛµM¦º¤`",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
-
+		Event.event.insertTable("è‡ªç„¶æ­»äº¡",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
 	}
-
-
 }
