@@ -4,28 +4,28 @@ import enviroment.Enviroment;
 
 public class Inflator extends Device {
 	
-	private static double EVERYTIME_PUMP = 5; //¨C¦¸¥´®ğ®ñ®ğ³Ì¨Î¤ñ¨Ò +5
+	private static double EVERYTIME_PUMP = 5; //æ¯æ¬¡æ‰“æ°£æ°§æ°£æœ€ä½³æ¯”ä¾‹ +5
 	
-	private double bestProportion; //³Ì¨Î¤ñ¨Ò
+	private double bestProportion; //æœ€ä½³æ¯”ä¾‹
 	
-	//«Øºc¤¸
+	//å»ºæ§‹å…ƒ
 	public Inflator(String name, int price, String statement) 
 	{
-		//¨t²Î¦Û°Ê³]©w¬°¦Û°Ê
+		//ç³»çµ±è‡ªå‹•è¨­å®šç‚ºè‡ªå‹•
 		super(name, price, statement, AUTOMATIC);
 	}
 	
 	//set function
 	public void setBestProportion(int input) 
 	{
-		//³]©w­È¦A½d³ò¤º
+		//è¨­å®šå€¼å†ç¯„åœå…§
 		if(input >= 0 && input <= 100) 
 		{
 			this.bestProportion = input;
 		}
 		else 
 		{
-			System.out.printf("®ñ®ğ³Ì¨Î¤ñ¨Ò³]©w¿ù»~!");
+			System.out.printf("æ°§æ°£æœ€ä½³æ¯”ä¾‹è¨­å®šéŒ¯èª¤!");
 		}
 	}
 	
@@ -35,13 +35,13 @@ public class Inflator extends Device {
 		return this.bestProportion;
 	}
 	
-	//¥´®ğ
+	//æ‰“æ°£
 	public void pump(Enviroment environment) 
 	{
-		//½T»{¨SÃa
+		//ç¢ºèªæ²’å£
 		if(this.getDamageRateNow() < 100)
 		{
-			//±N©w¶q®ñ®ğ¶q³]¤J
+			//å°‡å®šé‡æ°§æ°£é‡è¨­å…¥
 			environment.setOxygen(environment.getOxygen()+EVERYTIME_PUMP);
 		}
 	}
@@ -61,7 +61,7 @@ public class Inflator extends Device {
 		String forward;
 		forward = super.toString();
 		String str;
-		str =  String.format("¥Ø«e³Ì¨Î¤ñ¨Ò¡G%.2f ¨C¦¸¥´®ğ¶q:%.2f %n", this.bestProportion, this.EVERYTIME_PUMP);
+		str =  String.format("ç›®å‰æœ€ä½³æ¯”ä¾‹ï¼š%.2f æ¯æ¬¡æ‰“æ°£é‡:%.2f %n", this.bestProportion, this.EVERYTIME_PUMP);
 		return forward + str;
 	}
 }
