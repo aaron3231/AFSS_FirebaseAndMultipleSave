@@ -30,13 +30,12 @@ public class Death extends OneFishEvent {
 	@Override
 	protected void description(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
 
-		//±N¨Æ¥ó¤W¶Ç¦Ü¸ê®Æ®w
+		//å°‡äº‹ä»¶ä¸Šå‚³è‡³è³‡æ–™åº«
 		String des;
 		des=FishCataLog.getFishChineseName(a)+"("+a.getFishNO()+")"+
-				"¨º°¦³½¦º·S\n"
-				+"¥i¯à­ì¦]¡G(®ñ®ğ¶q¤£¨¬¡B¹}¥D¨SÁı­¹¡B¤ô½è¹L®t...)";
-		
-		//¬ö¿ı¨Æ¥óµo¥Í
+				"é‚£éš»é­šæ­»æƒ¹\n"
+				+"å¯èƒ½åŸå› ï¼š(æ°§æ°£é‡ä¸è¶³ã€é£¼ä¸»æ²’é¤µé£Ÿã€æ°´è³ªéå·®...)";
+		//ç´€éŒ„äº‹ä»¶ç™¼ç”Ÿ
 		eventArray[nEvent[0]]=3;
 		eventArrayDescription[nEvent[0]]=des;
 		nEvent[0]++;
@@ -48,7 +47,6 @@ public class Death extends OneFishEvent {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		Event.event.insertTable("«D¦ÛµM¦º¤`",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
+		Event.event.insertTable("éè‡ªç„¶æ­»äº¡",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
 	}
-
 }
