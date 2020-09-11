@@ -21,7 +21,7 @@ import landScape.LandScape;
 import timer.Timerr;
 
 public class AllEvent {
-		//¦UÃş¨Æ¥óªº¨Æ¥ó¼Æ(­n·s¼W¨Æ¥ó®É°O±o­×§ï³oÃä)
+		//å„é¡äº‹ä»¶çš„äº‹ä»¶æ•¸(è¦æ–°å¢äº‹ä»¶æ™‚è¨˜å¾—ä¿®æ”¹é€™é‚Š)
 		static final private int oneFishEventCount=8;
 		static final private int fishAndFishEventCount=1;
 		static final private int environmentEventCount=4;
@@ -31,30 +31,30 @@ public class AllEvent {
 		private EnviromentEvent[] environmentEvent;
 		
 		
-		private int[] eventArray;		//°O¿ı¦¹¦¸¼ÒÀÀµo¥Í¤F­ş¨Ç¨Æ¥ó
-		private String[] eventArrayDescription;	//µo¥Í¨Æ¥óªº´y­z
+		private int[] eventArray;		//è¨˜éŒ„æ­¤æ¬¡æ¨¡æ“¬ç™¼ç”Ÿäº†å“ªäº›äº‹ä»¶
+		private String[] eventArrayDescription;	//ç™¼ç”Ÿäº‹ä»¶çš„æè¿°
 		private int[] nEvent=new int[1];
 		/*
-		 ¨Æ¥óºØÃş
-		1. ³½¥´¬[   
-		2. ¦ÛµM¦º¤`
-		3. «D¦ÛµM¦º¤` 
-		4. ³½¥Í¯f   
-		5. ³½¥Íªø¦Ü³Ì¤j
-		6. Áı­¹¾¹Ãa±¼  
-		7. ¹LÂo¾¹Ãa±¼ 
-		8. ®ñ®ğ¬¦Ãa±¼ 
-		9. ·Ó©ú¾¹Ãa±¼  
-		10. ¥[·Å¾¹Ãa±¼ 
-		11.¤ô½è¤£¨}  
-		12.¤ô½èÁV¿| 
-		13.·Å«×°¾°ª  
-		14.·Å«×¹L°ª  
-		15.·Å«×°¾§C 
-		16.·Å«×¹L§C  
-		17.§t®ñ¶q°¾§C 
-		18.§t®ñ¶q¹L§C
-		19.§t®ñ¶q·¥§C
+		 äº‹ä»¶ç¨®é¡
+		1. é­šæ‰“æ¶   
+		2. è‡ªç„¶æ­»äº¡
+		3. éè‡ªç„¶æ­»äº¡ 
+		4. é­šç”Ÿç—…   
+		5. é­šç”Ÿé•·è‡³æœ€å¤§
+		6. é¤µé£Ÿå™¨å£æ‰  
+		7. éæ¿¾å™¨å£æ‰ 
+		8. æ°§æ°£æ³µå£æ‰ 
+		9. ç…§æ˜å™¨å£æ‰  
+		10. åŠ æº«å™¨å£æ‰ 
+		11.æ°´è³ªä¸è‰¯  
+		12.æ°´è³ªç³Ÿç³• 
+		13.æº«åº¦åé«˜  
+		14.æº«åº¦éé«˜  
+		15.æº«åº¦åä½ 
+		16.æº«åº¦éä½  
+		17.å«æ°§é‡åä½ 
+		18.å«æ°§é‡éä½
+		19.å«æ°§é‡æ¥µä½
 		 
 		 */
 		public AllEvent()
@@ -87,7 +87,7 @@ public class AllEvent {
 			this.nEvent=nEvent;
 			
 			System.out.println("gogo");	
-			Fight.clearFightFish(fishs, nFishs);//²MªÅ«e¤@®É¬q¦b¥´¬[ªº³½
+			Fight.clearFightFish(fishs, nFishs);//æ¸…ç©ºå‰ä¸€æ™‚æ®µåœ¨æ‰“æ¶çš„é­š
 			oneFishEventDealwith(fishs,nFishs);
 			fishAndFishEventDealwith(fishs,nFishs);
 			environmentEventDealwith(fishs, enviroment, timer, nFishs,landSpace,device);
