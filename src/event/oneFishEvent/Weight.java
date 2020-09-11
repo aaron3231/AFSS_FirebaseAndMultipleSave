@@ -11,7 +11,7 @@ import fish.Fish;
 import fish.FishCataLog;
 
 public class Weight extends OneFishEvent {
-	public static Boolean tokenAdd=false;	//¦pªG³o­Ó®É¬q¤w¸g¦³­×§ï¹L¦¹ÅÜ¼Æ¡A«h§ï¬°True¡A°O¿ı¦¹ÅÜ¼Æªºtoken¤£·|¦A++
+	public static Boolean tokenAdd=false;	//å¦‚æœé€™å€‹æ™‚æ®µå·²ç¶“æœ‰ä¿®æ”¹éæ­¤è®Šæ•¸ï¼Œå‰‡æ”¹ç‚ºTrueï¼Œè¨˜éŒ„æ­¤è®Šæ•¸çš„tokenä¸æœƒå†++
 	
 	@Override
 	public void check(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[]) 
@@ -40,16 +40,15 @@ public class Weight extends OneFishEvent {
 	@Override
 	protected void description(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[])
 	{
-		//±N¨Æ¥ó¤W¶Ç¦Ü¸ê®Æ®w
+		//å°‡äº‹ä»¶ä¸Šå‚³è‡³è³‡æ–™åº«
 		String des;
-		des="®¥³ß§Aªº¡G"+FishCataLog.getFishChineseName(a)+"("+a.getFishNO()+")"+
-				"ªø¨ì³Ì¤j¤F!!";
+		des="æ­å–œä½ çš„ï¼š"+FishCataLog.getFishChineseName(a)+"("+a.getFishNO()+")"+
+				"é•·åˆ°æœ€å¤§äº†!!";
 		
-		//¬ö¿ı¨Æ¥óµo¥Í
+		//ç´€éŒ„äº‹ä»¶ç™¼ç”Ÿ
 		eventArray[nEvent[0]]=5;
 		eventArrayDescription[nEvent[0]]=des;
 		nEvent[0]++;
-		
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		Date beginDate=new Date();
@@ -58,9 +57,6 @@ public class Weight extends OneFishEvent {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		Event.event.insertTable("³½ªø¦Ü³Ì¤j",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
-
+		Event.event.insertTable("é­šé•·è‡³æœ€å¤§",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
 	}
-
-
 }
