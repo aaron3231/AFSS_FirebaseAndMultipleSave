@@ -21,7 +21,7 @@ public class Oxygen extends EnviromentEvent {
 		if(enviroment.getOxygen()>100)
 			enviroment.setOxygen(100);
 		enviroment.setOxygen(enviroment.getOxygen()-0.1);
-		enviroment.setOxygen(enviroment.getOxygen()-nFishs*0.1);	//¥u­n¦s¦b©ó³½¬û¤¤ªº³½´N·|®ø¯Ó0.1ªº§t®ñ¶q
+		enviroment.setOxygen(enviroment.getOxygen()-nFishs*0.1);	//åªè¦å­˜åœ¨æ–¼é­šç¼¸ä¸­çš„é­šå°±æœƒæ¶ˆè€—0.1çš„å«æ°§é‡
 		
 		if(enviroment.getOxygen()<=10)
 		{
@@ -49,19 +49,18 @@ public class Oxygen extends EnviromentEvent {
 			enviroment.setOxygen(0);
 		if(enviroment.getOxygen()>100)
 			enviroment.setOxygen(100);
-		
 		description(fishs, enviroment, timer, nFishs, landSpace, device,  eventArray, eventArrayDescription, nEvent);
 	}
 
 	@Override
 	protected void description(Fish[] fishs, Enviroment enviroment, Timerr timer, int nFishs,LandScape landSpace,DeviceCatalog device
 			,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
-		//±N¨Æ¥ó¤W¶Ç¦Ü¸ê®Æ®w
+		//å°‡äº‹ä»¶ä¸Šå‚³è‡³è³‡æ–™åº«
 		String des="";
 		if(enviroment.getOxygen()<=10)
 		{
-			//§t®ñ¶q·¥§C
-			des="³½§Ö¯Ê®ñ¦Ó¦º¤F";
+			//å«æ°§é‡æ¥µä½
+			des="é­šå¿«ç¼ºæ°§è€Œæ­»äº†";
 			
 			eventArray[nEvent[0]]=19;
 			eventArrayDescription[nEvent[0]]=des;
@@ -69,8 +68,8 @@ public class Oxygen extends EnviromentEvent {
 		}
 		else if(enviroment.getOxygen()<=25)
 		{
-			//§t®ñ¶q¹L§C
-			des="³½¦³¨Ç©I§l§xÃø³á";
+			//å«æ°§é‡éä½
+			des="é­šæœ‰äº›å‘¼å¸å›°é›£å–”";
 			
 			eventArray[nEvent[0]]=18;
 			eventArrayDescription[nEvent[0]]=des;
@@ -78,14 +77,13 @@ public class Oxygen extends EnviromentEvent {
 		}
 		else if(enviroment.getOxygen()<=50)
 		{
-			//§t®ñ¶q°¾§C
-			des="¸Óµ¹³½¬û¥´®ğ¤F§a";
+			//å«æ°§é‡åä½
+			des="è©²çµ¦é­šç¼¸æ‰“æ°£äº†å§";
 			
 			eventArray[nEvent[0]]=17;
 			eventArrayDescription[nEvent[0]]=des;
 			nEvent[0]++;
 		}
-		
 		
 		if(des!="")
 		{
@@ -96,8 +94,7 @@ public class Oxygen extends EnviromentEvent {
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
-			Event.event.insertTable("§t®ñ¶q",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
+			Event.event.insertTable("å«æ°§é‡",des,(int) (TimeUnit.MILLISECONDS.toHours(Event.timer.getTimer().getTime().getTime()-beginDate.getTime()))+1);
 		}
 	}
-
 }
