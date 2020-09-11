@@ -1,7 +1,7 @@
 package firebase;
 
 public class FirebaseDataTest {
-	private String dateOfBirth;
+    private String dateOfBirth;
     private String fullName;
     private String nickName;
     
