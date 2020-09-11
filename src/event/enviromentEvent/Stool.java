@@ -11,7 +11,8 @@ import landScape.LandScape;
 import timer.Timerr;
 
 public class Stool extends EnviromentEvent {
-	//大便下沉
+	
+	//
 	public void stoolDown(Enviroment enviroment)
 	{
 		ArrayList<int[]> temp=enviroment.getStoolXY();
@@ -25,7 +26,8 @@ public class Stool extends EnviromentEvent {
 			}
 		}
 	}
-	//執行大便動作
+	
+	//
 	@Override
 	public void check(Fish[] fishs, Enviroment enviroment, Timerr timer, int nFishs,LandScape landSpace,DeviceCatalog device
 			,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
@@ -52,8 +54,6 @@ public class Stool extends EnviromentEvent {
 	@Override
 	protected void description(Fish[] fishs, Enviroment enviroment, Timerr timer, int nFishs,LandScape landSpace,DeviceCatalog device
 			,int[] eventArray,String[] eventArrayDescription,int nEvent[]) {
-		
-
+		//????
 	}
-
 }
