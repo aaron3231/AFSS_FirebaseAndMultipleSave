@@ -4,7 +4,7 @@ import event.OneFishEvent;
 import fish.Fish;
 
 public class Familiarity extends OneFishEvent {
-	public static Boolean tokenAdd=false;	//¦pªG³o­Ó®É¬q¤w¸g¦³­×§ï¹L¦¹ÅÜ¼Æ¡A«h§ï¬°True¡A°O¿ı¦¹ÅÜ¼Æªºtoken¤£·|¦A++
+	public static Boolean tokenAdd=false;	//å¦‚æœé€™å€‹æ™‚æ®µå·²ç¶“æœ‰ä¿®æ”¹éæ­¤è®Šæ•¸ï¼Œå‰‡æ”¹ç‚ºTrueï¼Œè¨˜éŒ„æ­¤è®Šæ•¸çš„tokenä¸æœƒå†++
 	@Override
 	public void check(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[])
 	{
@@ -36,5 +36,4 @@ public class Familiarity extends OneFishEvent {
 	protected void description(Fish a,int[] eventArray,String[] eventArrayDescription,int nEvent[])
 	{
 	}
-
 }
