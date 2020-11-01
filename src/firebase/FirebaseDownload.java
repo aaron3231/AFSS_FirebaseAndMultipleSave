@@ -56,9 +56,9 @@ public class FirebaseDownload {
 	{
 		FileInputStream serviceAccount = null;
 		try {
-			serviceAccount = new FileInputStream("src//afss-17907-firebase-adminsdk-s3ka8-90b8963c16.json");
+			serviceAccount = new FileInputStream("src//--file.json--");
 		} catch (FileNotFoundException e1) {
-			// TODO ¦Û°Ê²£¥Íªº catch °Ï¶ô
+			// TODO è‡ªå‹•ç”¢ç”Ÿçš„ catch å€å¡Š
 			System.out.println("Firebase download fail!");
 		}
 
@@ -69,7 +69,7 @@ public class FirebaseDownload {
 			  .setDatabaseUrl("https://afss-17907.firebaseio.com")
 			  .build();
 		} catch (IOException e) {
-			// TODO ¦Û°Ê²£¥Íªº catch °Ï¶ô
+			// TODO è‡ªå‹•ç”¢ç”Ÿçš„ catch å€å¡Š
 			e.printStackTrace();
 		}
 
