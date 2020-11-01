@@ -32,9 +32,9 @@ public class FirebaseUpload {
 			userName = inputName;
 		FileInputStream serviceAccount = null;
 		try {
-			serviceAccount = new FileInputStream("src//afss-17907-firebase-adminsdk-s3ka8-90b8963c16.json");
+			serviceAccount = new FileInputStream("src//-file.json-");
 		} catch (FileNotFoundException e1) {
-			// TODO ¦Û°Ê²£¥Íªº catch °Ï¶ô
+			// TODO è‡ªå‹•ç”¢ç”Ÿçš„ catch å€å¡Š
 			e1.printStackTrace();
 		}
 
@@ -45,7 +45,7 @@ public class FirebaseUpload {
 					  .setDatabaseUrl("https://afss-17907.firebaseio.com")
 					  .build();
 				} catch (IOException e) {
-					// TODO ¦Û°Ê²£¥Íªº catch °Ï¶ô
+					// TODO è‡ªå‹•ç”¢ç”Ÿçš„ catch å€å¡Š
 					e.printStackTrace();
 				}
 
@@ -107,7 +107,7 @@ public class FirebaseUpload {
 			if(i!=null)
 				temp_fish_nums++;
 		
-		// ¦s©Ò¦³³½ªº¼Æ¶q¤Î¸ê®Æ
+		// å­˜æ‰€æœ‰é­šçš„æ•¸é‡åŠè³‡æ–™
 		int[] temp_move=new int [100];
 		int[] goal_move=new int [100];
 		ArrayList<int[]> feed;
